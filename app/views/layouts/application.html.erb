@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CatsApp</title>
+    <title><%= title_name(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,13 +9,24 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-fixed-top bg-dark" style="background-color:#000;">
       <div class="container">
-        <%= link_to "Cat App", '#', id: "logo" %>
+        
         <nav>
           <ul class="nav navbar-nav navbar-left">
-            <li><%= link_to "Top",   '#' %></li>
-            <li><%= link_to "日記", '#' %></li>
+            <li><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
+            <li style="margin-top:10px;"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
+            <li><%= link_to "Top",   '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+            <li style="margin-left:10px;"><%= link_to "日記", '#',style:"font-size:18px;color:#c0c0c0;" %></li>
+            <li style="margin-left:10px;"><%= link_to "健康チェック", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+            <li style="margin-left:10px;"><%= link_to "質問/回答", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+            <li style="margin-left:10px;"><%= link_to "検索", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+          </ul>
+           <ul class="nav navbar-nav navbar-right">
+           
+            <li style="margin-left:10px;"><%= link_to "ログイン", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+            <li><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %></li>
+            <li><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %></li>
           </ul>
         </nav>
       </div>
