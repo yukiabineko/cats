@@ -1,4 +1,9 @@
-
-<%= provide(:title,"TOP") %>
-<h1>Tops#show</h1>
-<p>Find me in app/views/tops/show.html.erb</p>
+<%= provide(:title,"トップページ") %>
+<div class="slideshow">
+    <div><%= image_tag('/a.jpg') %></div>
+    <div><%= image_tag('/b.jpg') %></div>
+    <div><%= image_tag('/c.jpg') %></div>
+</div>
+<% 60.times do |i| %>
+ <p><%= i %></p>
+<% end %>
