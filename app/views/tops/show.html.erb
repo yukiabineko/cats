@@ -1,9 +1,29 @@
 <%= provide(:title,"トップページ") %>
 <div class="slideshow">
-    <div><%= image_tag('/a.jpg') %></div>
-    <div><%= image_tag('/b.jpg') %></div>
-    <div><%= image_tag('/c.jpg') %></div>
+    <!--スライドショ-->
+    <div class="img_text">
+     <%= image_tag('/a.jpg') %>
+     <p>猫ちゃんオーナーのためのアプリ</p>
+    </div>
+    <div class="img_text">
+     <%= image_tag('/b.jpg') %>
+     <p>猫ちゃんオーナーのためのアプリ</p>
+    </div>
+     <div class="img_text">
+     <%= image_tag('/c.jpg') %>
+     <p>猫ちゃんオーナーのためのアプリ</p>
+    </div>
 </div>
-<% 60.times do |i| %>
- <p><%= i %></p>
-<% end %>
+  <!--/スライドショ-->
+<div id="top_maininfo">
+ <h1>本サービスの目的</h1>
+ <p>
+  　本サービスは猫ちゃんたちのオーナーさんたちの日記を通した交流を主軸とし、<br>
+  　そのほか疑問点や、こうしたサービスがあったらおもしろいな<br>
+  　という意見をできるだけフィードバックして猫ちゃんのオーナーさんたちが、<br>
+  　より良いキャットライフを送れることを目的とします。 
+ </p>
+</div>
+<div id="top_info">
+ <h1>お知らせ</h1>
+</div>
