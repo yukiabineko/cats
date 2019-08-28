@@ -85,6 +85,7 @@ header{
   text-decoration: none;
 }
 /*-----------topペー��------------*/
+#tops{display:none;}
 .slideshow{     /*スライドショー関連*/
   width:100%;
   margin:auto;
@@ -142,16 +143,18 @@ header{
 /* ******************************************:スマートフォン処理********************************* */
 @media screen and (max-width: 767px){
   body {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
   /* header */
   header{
-   height:320px;
+   
   }
   #logo{
     float:none;
-    font-size:26px;
+    font-size:28px;
+    font-style: italic; 
+    color:yellow;
     letter-spacing:10px;
   }
   .nav{
@@ -167,7 +170,8 @@ header{
   }
 /* /header */
 /*-----top--------------------------------------------*/
-.slideshow{display: none;}
-.slideshow img{display:none;}
+#tops{display:block};
+.sldeshow{margin-top:200px;}
+.img_text{display: none;}
  /*-----------topページ------------*/
 }
