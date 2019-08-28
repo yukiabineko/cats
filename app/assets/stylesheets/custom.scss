@@ -84,7 +84,7 @@ header{
   color: #fff;
   text-decoration: none;
 }
-/*-----------topページ------------*/
+/*-----------topペー��------------*/
 .slideshow{     /*スライドショー関連*/
   width:100%;
   margin:auto;
@@ -146,20 +146,24 @@ header{
 }
 
   /* header */
+  header{
+  
+  }
   #logo{
     float:none;
+    font-size:26px;
+    letter-spacing:10px;
   }
   .nav{
     text-align:center;
     font-size:24px;
-    li{font-weight:bold;letter-spacing:10px;}
+    li{font-weight:bold;letter-spacing:10px;display:inline-block;}
+    img{width:40px; height:30px;}
   }
   #header-right{
     text-align:left;
-    #google{background-color:red;color:#fff;font-size:16px;}
-    #google span{margin-left:120px;display:block;}
-    #facebook{background-color:blue;color:#fff;;font-size:16px;}
-    #facebook span{margin-left:120px;display:block;}
+   
+   
   }
 /* /header */
 /*-----top--------------------------------------------*/
