@@ -142,12 +142,12 @@ header{
 /* ******************************************:スマートフォン処理********************************* */
 @media screen and (max-width: 767px){
   body {
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
   /* header */
   header{
-  
+   height:320px;
   }
   #logo{
     float:none;
@@ -168,5 +168,6 @@ header{
 /* /header */
 /*-----top--------------------------------------------*/
 .slideshow{display: none;}
+.slideshow img{display:none;}
  /*-----------topページ------------*/
 }
