@@ -26,11 +26,11 @@
             <li style="margin-left:10px;"><%= link_to "質問/回答", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
             <li style="margin-left:10px;"><%= link_to "検索", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
           </ul>
-           <ul class="nav navbar-nav navbar-right">
+           <ul class="nav navbar-nav navbar-right" id="header-right">
            
-            <li style="margin-left:10px;"><%= link_to "ログイン", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
-            <li><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %></li>
-            <li><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %></li>
+            <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+            <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
+            <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
           </ul>
         </nav>
       </div>
