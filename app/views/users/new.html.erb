@@ -1,2 +1,32 @@
 <%= provide(:title,"新規会員登録") %>
-<h1>新規登録</h1>
+ <h1 id="user_new_h1">オーナーさん登録</h1>
+
+<!--ユーザー新規登録メインエリア-->
+<div id="new_user_area">
+　
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+   
+    
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.label :名前 %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.text_field :name, placeholder:"オーナーさん名",class:"form-control" %><br>
+
+      <%= f.label :メールアドレス %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.email_field :email,placeholder:"ご利用なさっているメールアドレス",class:"form-control" %><br>
+
+      <%= f.label :パスワード %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.password_field :password,placeholder:"6文字以上でお願いします。",class:"form-control" %><br>
+
+      <%= f.label :パスワード確認 %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.password_field :password_confirmation,placeholder:"確認のためもう一度",class:"form-control" %><br>
+
+      <%= f.submit "新規作成", class: "btn btn-primary btn-block btn-signup" %>
+    <% end %>
+  </div>
+</div>    
+</div>
+
+<style>
+    body{background-image:url("../back.png");background-color:pink;}
+</style>

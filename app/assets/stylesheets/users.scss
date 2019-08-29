@@ -1,3 +1,32 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ユーザー情報テーブル */
+
+
+
+.user-table {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.label-signup {
+  margin-top: 5px;
+}
+/* 新規登録画面 */
+#user_new_h1{
+    color:#f0f0f0;
+    font-weight:bold;
+    font-family:'Impact';
+}
+#new_user_area{
+    width:60%;
+    height:400px;
+    background-color:#fff;
+    margin-left:20%;
+    border-radius:9px;
+}
+.btn-signup {
+  margin-top: 20px;
+}
