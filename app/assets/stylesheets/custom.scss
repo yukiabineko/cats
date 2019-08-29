@@ -152,15 +152,16 @@ header{
   }
   #logo{
     float:none;
-    font-size:26px;
+    font-size:20px;
     font-style: italic; 
     color:yellow;
     letter-spacing:10px;
+    margin-top:10px;
   }
   .nav{
     text-align:center;
-    font-size:24px;
-    li{font-weight:bold;letter-spacing:10px;display:inline-block;}
+    font-size:18px;
+    li{letter-spacing:10px;display:inline-block;}
     img{width:40px; height:30px;}
   }
   #header-right{
