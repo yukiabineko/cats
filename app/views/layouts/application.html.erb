@@ -26,12 +26,17 @@
             <li style="margin-left:10px;"><%= link_to "健康チェック", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
             <li style="margin-left:10px;"><%= link_to "質問/回答", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
             <li style="margin-left:10px;"><%= link_to "検索", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+          
+          <ul class="nav navbar-nav navbar-right" id="header-right">
+            <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規",signup_path,style:"font-size:20px;color:#c0c0c0;" %></li>
+            <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
+            <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
           </ul>
-          <ul class="nav navbar-nav navbar-left" id="header_nav2">
+        </ul>
+            <!--スマホ版はドロップダウン式メニュー --!>
+             <ul class="nav navbar-nav navbar-left" id="header_nav2">
             <li style="display:inline-block"><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
             <li style="margin-top:10px;display:inline-block"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
-            <!--スマホ版はドロップダウン式メニュー --!>
-           
             
            <ul class="nav navbar-nav navbar-right" id="header-right">
             <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規",signup_path,style:"font-size:20px;color:#c0c0c0;" %></li>
