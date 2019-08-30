@@ -11,6 +11,10 @@
    
     
     <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages' %>
+      <% if @user.errors.any? %>
+        <style>#new_user_area{height:700px;}</style>
+      <% end %>
       <div class="input-group">
         <label class="input-group-btn">
           <span class="btn btn-primary">
