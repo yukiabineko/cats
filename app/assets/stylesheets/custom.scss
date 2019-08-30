@@ -86,6 +86,8 @@ header{
 }
 #header_nav{display:block;}
 #header_nav2{display:none;}
+#header_right{display:block;}
+#header-right2{display:none;}
 /* header */
 /*-----------topペー��------------*/
 #tops{display:none;}
@@ -143,7 +145,7 @@ header{
     }
      /*トッページお知らせここまで*/
 /*-----------topページ------------*/
-/* ******************************************:スマートフォン処理********************************* */
+/* ******************************************:スマートフォン処理********************************* *                                                     **********************/
 @media screen and (max-width: 767px){
   body {
     padding-top: 10px;
@@ -177,8 +179,11 @@ header{
    
   }
   #header_nav{display:none;}
-  #header_nav{display:none;}
+  #header-right{display:none;}
   #header_nav2{display:block;}
+  #header-right2{display:block;}
+  #google{margin-right:30px;color:#fff;}
+  #facebook{color:#fff;}
 /* /header */
 /*-----top--------------------------------------------*/
 #tops{display:block};
