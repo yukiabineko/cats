@@ -1,6 +1,8 @@
 <%= provide(:title,"新規会員登録") %>
- <h1 id="user_new_h1">オーナーさん登録</h1>
-
+<div id="new_user_head">
+  <h1 id="user_new_h1">オーナーさん登録</h1>
+</div>
+ 
 <!--ユーザー新規登録メインエリア-->
 <div id="new_user_area">
 　
@@ -9,6 +11,15 @@
    
     
     <%= form_with(model: @user, local: true) do |f| %>
+      <div class="input-group">
+        <label class="input-group-btn">
+          <span class="btn btn-primary">
+            プロフィール画像<%=f.file_field :image,style:"display:none" %>
+          </span>
+        </label>
+        <input type="text" class="form-control" placeholder="画像を選択してください" readOnly="true">
+      </div><br>
+    
       <%= f.label :名前 %><span style="color:red"><strong>*必須です</strong></span>
       <%= f.text_field :name, placeholder:"オーナーさん名",class:"form-control" %><br>
 
@@ -25,6 +36,9 @@
     <% end %>
   </div>
 </div>    
+</div>
+<div id="new_user_back">
+  <%= link_to "TOPへ戻る",root_path,class:"btn btn-default" %>
 </div>
 
 <style>

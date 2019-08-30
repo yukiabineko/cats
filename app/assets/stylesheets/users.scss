@@ -22,11 +22,29 @@
 }
 #new_user_area{
     width:60%;
-    height:400px;
+    height:480px;
     background-color:#fff;
     margin-left:20%;
     border-radius:9px;
+    padding-top:8px;
 }
+#new_user_back{
+  margin-top:5px;
+  text-align:center;
+}
+/* /新規登録画面 */
 .btn-signup {
   margin-top: 20px;
+}
+/* *****************************************:スマートフォン処理********************************* */
+@media screen and (max-width: 767px){
+  /* /新規登録画面 */
+  #new_user_head{
+    margin-top:250px;
+  }
+  #new_user_area{
+    width:100%;
+    margin:0;
+  }
+  /* /新規登録画面 */
 }
