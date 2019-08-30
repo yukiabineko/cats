@@ -18,6 +18,7 @@
         
         <nav>
           <ul class="nav navbar-nav navbar-left" id="header_nav">
+            
             <li><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
             <li style="margin-top:10px;"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
             <li><%= link_to "Top",   root_path,style:"font-size:20px;color:#c0c0c0;" %></li>
@@ -30,9 +31,13 @@
             <li style="display:inline-block"><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
             <li style="margin-top:10px;display:inline-block"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
             <!--スマホ版はドロップダウン式メニュー --!>
+           
+            
+           <ul class="nav navbar-nav navbar-right" id="header-right">
+            <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規登録",signup_path,style:"font-size:20px;color:#c0c0c0;" %></li>
             <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:#fff";>
-              メニュー <b class="caret"></b>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               &emsp;<%=image_tag('/menu.png',style:"margin-top:10px") %><br>Menu
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "TOP", "#",style:"color:#fff;" %></li>
@@ -40,11 +45,8 @@
               <li><%= link_to "健康チェック", "#",style:"color:#fff;" %></li>
               <li><%= link_to "質問/回答", "#",style:"color:#fff;" %></li>
               <li><%= link_to "検索", "#",style:"color:#fff;" %></li>
-              
-          </ul>
-           <ul class="nav navbar-nav navbar-right" id="header-right">
-           
-            &emsp;&emsp;<li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規登録",signup_path,style:"font-size:20px;color:#c0c0c0;" %></li>&emsp;&emsp;
+            </ul>
+            </li> 
             <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
             <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
           </ul>
