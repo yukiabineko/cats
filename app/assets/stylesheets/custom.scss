@@ -84,6 +84,9 @@ header{
   color: #fff;
   text-decoration: none;
 }
+#header_nav{display:block;}
+#header_nav2{display:none;}
+/* header */
 /*-----------topペー��------------*/
 #tops{display:none;}
 .slideshow{     /*スライドショー関連*/
@@ -152,7 +155,7 @@ header{
   }
   #logo{
     float:none;
-    font-size:20px;
+    font-size:30px;
     font-style: italic; 
     color:yellow;
     letter-spacing:10px;
@@ -169,6 +172,9 @@ header{
    
    
   }
+  #header_nav{display:none;}
+  #header_nav{display:none;}
+  #header_nav2{display:block;}
 /* /header */
 /*-----top--------------------------------------------*/
 #tops{display:block};
