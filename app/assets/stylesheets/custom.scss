@@ -155,12 +155,15 @@ header{
   }
   #logo{
     float:none;
-    font-size:30px;
+    font-size:24px;
     font-style: italic; 
     color:yellow;
     letter-spacing:10px;
     margin-top:10px;
   }
+  #logo:hover {
+  text-decoration: none;
+}
   .nav{
     text-align:center;
     font-size:18px;
