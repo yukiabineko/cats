@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   def create                #新規登録
     @user = User.new(user_parameter)
     if @user.save
-      
+      flash[:success] = '登録しました。'
+       redirect_to @user
     else
       render :new
     end  
