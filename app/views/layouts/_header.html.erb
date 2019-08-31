@@ -15,13 +15,14 @@
           <ul class="nav navbar-nav navbar-right" id="header-right">
             <!--ログインしてるか分岐-->
             <% if logged_in? %>
-              <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規登録",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
+              <li style="margin-left:10px;text-align:center;"><%= link_to "ログアウト",logout_path, method: :delete ,style:"font-size:20px;color:#c0c0c0;" %></li>
             <% else %>
-              <li style="margin-left:10px;text-align:center;"><%= link_to "ログアウト","#",style:"font-size:20px;color:#c0c0c0;" %></li>
+              <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規登録",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
+              <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
+              <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
             <% end %>
             <!--/-->
-            <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
-            <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
+            
           </ul>
     
       
