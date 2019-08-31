@@ -28,11 +28,21 @@
     border-radius:9px;
     padding-top:8px;
 }
+#new_user_head{
+  margin-top:5px;
+}
 #new_user_back{
   margin-top:5px;
   text-align:center;
 }
 /* /新規登録画面 */
+
+/*  ログインページ */
+#new_session_head{
+  h1{color: #fff;letter-spacing: 16px;font-weight: bold;}
+}
+/*  /ログインページ */
+
 .btn-signup {
   margin-top: 20px;
 }

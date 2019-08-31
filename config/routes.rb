@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'sessions/new'
+
   root "tops#show"                                                   #root
   get '/signup',to: 'users#new'                                      #会員登録
   
