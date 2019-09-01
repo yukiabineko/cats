@@ -15,6 +15,10 @@
           <ul class="nav navbar-nav navbar-right" id="header-right">
             <!--ログインしてるか分岐-->
             <% if logged_in? %>
+               <li style="color:#fff;margin-top:10px;font-weight:bold;">
+                  <%= image_tag(current_user.image.url.present? ?current_user.image.url : "/user.png",size:"30x30",id:"header_img") %>
+                  <%= "こんにちは#{current_user.name}さん" %>
+                </li>
               <li style="margin-left:10px;text-align:center;"><%= link_to "ログアウト",logout_path, method: :delete ,style:"font-size:20px;color:#c0c0c0;" %></li>
             <% else %>
               <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規登録",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
@@ -25,14 +29,23 @@
             
           </ul>
     
-      
-            <!--スマホ版はドロップダウン式メニュー --!>
+      <!--スマホレイアウト -->
             
            <ul class="nav navbar-nav navbar-left" id="header_nav2">
                 
              <li style="display:inline-block"><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
              <li style="margin-top:10px;display:inline-block"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
-             <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
+             <% if logged_in? %>
+                <li style="color:#fff;">
+                  <%= image_tag(current_user.image.url.present? ?current_user.image.url : "/user.png",size:"30x30", id:"header_img") %>
+                  <%= "こんにちは#{current_user.name}さん" %>
+                </li>
+                <li style="margin-left:10px;text-align:center;"><%= link_to "ログアウト",logout_path, method: :delete ,style:"font-size:20px;color:#c0c0c0;" %></li>
+                <style>#google{display:none;}#facebook{display:none;}</style>
+             <% else %>
+               <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
+               <style>#google{display:block;}#facebook{display:block;}</style>
+             <% end %>
              <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                      &emsp;<%=image_tag('/menu.png',style:"margin-top:10px") %><br>Menu
@@ -45,9 +58,9 @@
                     <li><%= link_to "検索", "#",style:"color:#fff;" %></li>
                   </ul>
                </li> 
-              <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
-              <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
-           
+              
+                <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
+                <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
            </ul>
            
            <ul class="nav navbar-nav navbar-right" id="header-right2">
