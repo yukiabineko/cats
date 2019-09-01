@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-    has_secure_password                                                                               #パスワード
-    mount_uploader :image,ImageUploader                                                               #画像処理用
+    has_secure_password                                                                               #パスワード                                                             #画像処理用
     before_save { self.email = email.downcase }                                                       #大文字小文字処理
 
     validates :name,  presence: true, length: { maximum: 50 }                                         #名前バリデーション

@@ -2,4 +2,8 @@
 
 <div id="show_user_head">
     <h1><%= @user.name %></h1>
+    <p>
+  <strong>Photo:</strong>
+  <%= image_tag(show_image_path(@user), :width => 300) %>
+</p>
 </div>

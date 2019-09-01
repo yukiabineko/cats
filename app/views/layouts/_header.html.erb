@@ -16,7 +16,7 @@
             <!--ログインしてるか分岐-->
             <% if logged_in? %>
                <li style="color:#fff;margin-top:10px;font-weight:bold;">
-                  <%= image_tag(current_user.image.url.present? ?current_user.image.url : "/user.png",size:"30x30",id:"header_img") %>
+                  <%= image_tag(show_image_path(current_user.id),size:"30x30",id:"header_img") %>
                   <%= "こんにちは#{current_user.name}さん" %>
                 </li>
               <li style="margin-left:10px;text-align:center;"><%= link_to "ログアウト",logout_path, method: :delete ,style:"font-size:20px;color:#c0c0c0;" %></li>
@@ -37,7 +37,7 @@
              <li style="margin-top:10px;display:inline-block"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
              <% if logged_in? %>
                 <li style="color:#fff;">
-                  <%= image_tag(current_user.image.url.present? ?current_user.image.url : "/user.png",size:"30x30", id:"header_img") %>
+                  <%= image_tag(show_image_path(current_user),size:"30x30",id:"header_img") %>
                   <%= "こんにちは#{current_user.name}さん" %>
                 </li>
                 <li style="margin-left:10px;text-align:center;"><%= link_to "ログアウト",logout_path, method: :delete ,style:"font-size:20px;color:#c0c0c0;" %></li>
