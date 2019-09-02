@@ -45,7 +45,8 @@ private
         rmagick_image.strip!
         rmagick_image.write('public/make.jpg')
         params[:user][:image] = File.open('public/make.jpg').read
-       
+     elsif params[:user][:image].nil?
+         params[:user][:image] = File.open('public/user.png').read 
      end
     params.require(:user).permit(:image, :name, :email, :password, :password_confirmation)
   end
