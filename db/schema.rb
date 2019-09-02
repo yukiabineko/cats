@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190828214524) do
+ActiveRecord::Schema.define(version: 20190901232258) do
 
   create_table "users", force: :cascade do |t|
     t.binary "image"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20190828214524) do
     t.boolean "admin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
   end
 
 end

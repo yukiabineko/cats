@@ -16,6 +16,13 @@
     margin-top:10px;
     
 }
+.checkbox-login {
+  width: auto;
+  margin-left: 25px;
+  span {
+    font-weight: normal;
+  }
+}
 /* *****************************************:スマートフォン処理********************************* */
 @media screen and (max-width: 767px){
   /* ログイン画面 */
