@@ -1,2 +1,56 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% provide(:title, "#{@user.name}さん編集") %>
+<% provide(:class_text, 'user--edit') %>
+<% provide(:button_text, '更新') %>
+
+<div id="new_user_head">
+ <h1 style="color:#a0a0a0;font-weight:bold;">ユーザー情報の更新</h1>
+</div>
+
+<!--フォームと左右エリア-->
+
+<%= form_with(model: @user, local: true,multipart: true) do |f| %>
+<div id="edit_user_left">
+    <div id="edit_picture">
+        <%=image_tag(show_image_url(@user),id:"user_img") %>
+    </div>
+    <div class="input-group">
+     <label class="input-group-btn">
+          <span class="btn btn-primary">
+            プロフィール画像<%=f.file_field :image,style:"display:none" %>
+          </span>
+        </label>
+        <input type="text" class="form-control" placeholder="画像を選択してください" readOnly="true">
+    </div><br>
+    
+</div>
+<div id="edit_user_right">
+  
+      <%= render 'shared/error_messages' %>
+      <% if @user.errors.any? %>
+        <style>#new_user_area{height:700px;}</style>
+      <% end %>
+       
+      <%= f.label :名前 %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.text_field :name, placeholder:"オーナーさん名",class:"form-control" %><br>
+
+      <%= f.label :メールアドレス %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.email_field :email,placeholder:"ご利用なさっているメールアドレス",class:"form-control" %><br>
+
+      <%= f.label :パスワード %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.password_field :password,placeholder:"6文字以上でお願いします。",class:"form-control" %><br>
+
+      <%= f.label :パスワード確認 %><span style="color:red"><strong>*必須です</strong></span>
+      <%= f.password_field :password_confirmation,placeholder:"確認のためもう一度",class:"form-control" %><br>
+</div>
+<div id="empty"></div>
+<div style="text-align;center;">
+   
+     <%= f.submit "更新する", class: "btn btn-primary btn-block btn-lg" %>
+      <%= link_to "TOPへ戻る",root_path,data: {"turbolinks" => false},class:"btn btn-default btn-lg" %>
+</div>
+ 
+  <% end %>
+
+<style>
+    body{background-color:pink;}
+</style>

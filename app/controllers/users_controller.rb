@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user,only:[:show,:show_image]
+  before_action :set_user,only:[:show,:edit,:show_image]
   
   def index
   end

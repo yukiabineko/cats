@@ -4,7 +4,9 @@
 
 /* ユーザー情報テーブル */
 
-
+body{
+  background-image:url("../back.png");
+}
 
 .user-table {
   vertical-align: middle;
@@ -36,6 +38,42 @@
   text-align:center;
 }
 /* /新規登録画面 */
+/* オーナー編集画面 */
+
+#edit_user_left{    /*左*/
+  float:left;
+  width:30%;
+  margin-left:8%;
+ 
+  
+  #edit_picture{
+    height:320px;
+    background-color:#fff;
+    border-radius:8px;
+    #user_img{
+      width:50%;
+      height:auto;
+      top:20%;
+      left:20%;
+      position:relative;
+    }
+  }
+}
+#edit_user_right{     /*右*/
+  float:right;
+  width:55%;
+  padding:12px;
+  margin-right:5%;
+  background-color:#fff;
+  border-radius:8px;
+}
+#empty{
+  clear:both;
+  overflow:none;
+}
+
+/* /オーナー編集画面 */
+
 
 /*  ログインページ */
 #new_session_head{
