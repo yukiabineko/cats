@@ -36,9 +36,16 @@ private
     @user = User.find(params[:id] )
   end
   
-  def user_parameter     #ユーザーのpost patchパラメーター
+  def user_parameter     #ユーザーのpost patchパラメーター    rmasicで処理
      if params[:user][:image]
         params[:user][:image] = params[:user][:image].read
+        image = params[:user][:image]
+        rmagick_image = Magick::Image.from_blob(image).first
+        rmagick_image.auto_orient!
+        rmagick_image.strip!
+        rmasic.write('public/make.jpg')
+        params[:user][:image] = File.open('public/make.jpg').read
+       
      end
     params.require(:user).permit(:image, :name, :email, :password, :password_confirmation)
   end
