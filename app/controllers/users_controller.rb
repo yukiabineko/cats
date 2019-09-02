@@ -43,7 +43,7 @@ private
         rmagick_image = Magick::Image.from_blob(image).first
         rmagick_image.auto_orient!
         rmagick_image.strip!
-        rmasic.write('public/make.jpg')
+        rmagick_image.write('public/make.jpg')
         params[:user][:image] = File.open('public/make.jpg').read
        
      end
