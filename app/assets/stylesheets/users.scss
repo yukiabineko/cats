@@ -119,9 +119,9 @@ body{
   /* オーナー編集画面 */
   
 #edit_main{
-  max-width:100%;
+  max-width:80%;
   height:500px;
-  margin-right:200px;
+  margin:0 auto;
   
   
   #edit_user_left{    /*左*/
@@ -151,6 +151,7 @@ body{
   padding:12px;
   background-color:#fff;
   border-radius:8px;
+  
 }
 #empty{
   
