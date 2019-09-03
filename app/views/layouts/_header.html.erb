@@ -6,7 +6,7 @@
             <li><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
             <li style="margin-top:10px;"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
             <li><%= link_to "Top", root_path,data: {"turbolinks" => false},style:"font-size:20px;color:#c0c0c0;" %></li>
-            <li style="margin-left:10px;"><%= link_to "投稿コーナー", '#',style:"font-size:18px;color:#c0c0c0;" %></li>
+            <li style="margin-left:10px;"><%= link_to "投稿コーナー",posts_path,style:"font-size:18px;color:#c0c0c0;" %></li>
             <li style="margin-left:10px;"><%= link_to "健康チェック", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
             <li style="margin-left:10px;"><%= link_to "検索", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
           </ul>  
@@ -79,7 +79,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to "TOP",root_path,data: {"turbolinks" => false},style:"color:#fff;" %></li>
-                    <li><%= link_to "投稿コーナー", "#",style:"color:#fff;" %></li>
+                    <li><%= link_to "投稿コーナー",posts_path,style:"color:#fff;" %></li>
                     <li><%= link_to "健康チェック", "#",style:"color:#fff;" %></li>
                     <li><%= link_to "検索", "#",style:"color:#fff;" %></li>
                   </ul>

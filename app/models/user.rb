@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :posts,dependent: :destroy                                                               #postへのアソシエーション
+    
      # 「remember_token」という仮想の属性を作成します。
     attr_accessor :remember_token
     has_secure_password                                                                               #パスワード                                                             #画像処理用

@@ -1,0 +1,67 @@
+body{background-color:pink;}
+/*-----  覧 -------------- */
+#post_index_main{
+    margin:60px 0;
+    width:100%;
+    text-align:center;
+}
+#post_index_main{
+    h1{
+        color:#fff;
+        font-weight:bold;
+        letter-spacing :10px;
+        margin-bottom:40px;
+    }
+    p{
+        font-size:22px;
+        letter-spacing :8px;
+        font-weight:bold;
+    }
+}
+#post_index_menu{
+    margin-bottom:20px;
+    span{
+        font-size:16px;
+        font-weight:bold;
+    }
+}
+#post_index_left{
+    background-color:yellow;
+    border-radius:9px;
+    height:400px;
+    padding-right:50px;
+}
+#post_index_center{
+    display:none;
+    height:400px;
+}
+#post_index_right{
+    background-color:red;
+    border-radius:9px;
+    height:400px;
+}
+/*---------/一覧 -------------*/
+/*----------新規-------------- */
+#new_post_head{
+    margin-top: 30px;
+    h1{
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 9px;
+    }
+}
+#new_posts_area{
+    background-color:#fff;
+    border-radius: 9px;
+    height: 450px;
+    margin-bottom: 10px;
+    padding: 30px 30px 60px 30px;
+    text-align: center;
+    
+}
+#new_post_back{
+    text-align: center;
+    margin-right:600px;
+}
+
+/*----------/新規-------------- */

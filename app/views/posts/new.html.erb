@@ -1,0 +1,44 @@
+<%= provide(:title,"新規投稿") %>
+
+
+<div id="new_post_head">
+  <h1>新規登録</h1>
+</div>
+ 
+<!--ユーザー新規登録メインエリア-->
+
+　
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+   <div id="new_posts_area">
+     <%= form_with(model: @post, local: true) do |f| %>
+       <%= render 'shared/post_error' %>
+       <% if @post.errors.any? %>
+         <style>#new_user_area{height:700px;}</style>
+    　 <% end %>    
+    　
+       <%= f.label :投稿タイトル %><span style="color:red"><strong>*必須です</strong></span>
+       <%= f.text_field :post_title, placeholder:"タイトル名",class:"form-control" %><br>
+
+       <%= f.label :投稿内容 %><span style="color:red"><strong>*必須です</strong></span>
+       <%= f.text_area :post_content,class:"form-control" %><br>
+
+       <%= f.label :カテゴリー %>
+       <%= f.select :category,@array,{},class:"form-control" %><br><br>
+
+       <%= f.label :一般公開 %>
+       <%= f.check_box :public %><br>
+       <span style="color:blue"><strong>*チェックしなかった場合登録オーナーさん間のみ表示されます</strong></span>
+
+      <%= f.submit "投稿する", class: "btn btn-primary btn-block btn-signup" %>
+    <% end %>
+  </div>
+</div>    
+</div>
+<div id="new_post_back">
+  <%= link_to "一覧へ戻る",posts_path,class:"btn btn-default" %>
+</div>
+
+<style>
+    body{background-color:pink;}
+</style>

@@ -1,0 +1,45 @@
+<%= provide(:title,"投稿一覧") %>
+
+<div id="post_index_main">
+    <div id="post_index_head">
+        <h1>投稿一覧</h1>
+        <p class="text-primary">
+        　皆さんの猫ちゃんについての相談や質問、日々の出来事など、<br>
+        　なんでも投稿しよう
+        </p>
+    </div>
+<!--メニュー -->
+    <div id="post_index_menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <% if logged_in? %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary",style:"width:200px;margin-right:50px;" %>
+                    <% else %>
+                      <div class="alert alert-warning">投稿するにはログインしてください</div>
+                    <% end %>
+                </div>
+                <div class="col-md-9"></div>
+            </div>
+        </div>
+    </div>
+    
+<!--投稿エリア-->    
+    <div class="container">
+        <div class="row">
+<!-- 投稿覧 -->        
+            <div class="col-md-9">
+                <div id="post_index_left">
+                    
+                </div>
+            </div>
+<!--投稿中央 -->            
+            <div class="col-md-0">
+                <div id="post_index_center"></div>
+            </div>
+<!--投稿右-->
+            <div class="col-md-3">
+                 <div id="post_index_right"></div>
+            </div>
+        </div>
+    </div>
