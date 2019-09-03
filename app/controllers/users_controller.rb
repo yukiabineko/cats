@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
-  before_action :set_user,only:[:show,:edit,:show_image]
+  before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user]
+  before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user,only: :destroy
   
-  def index
+  
+
+  #ユーザー全表示ページネーション機能持ち
+  def index 
+    @users = User.paginate(page: params[:page],:per_page => 2)
   end
 
   def new                   #新規登ページ
@@ -27,12 +34,28 @@ class UsersController < ApplicationController
   def show
   end
   
-  def show_image  #画像バイナリー表示
+  def update      #update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_parameter)
+      flash[:success] = "情報更新しました。"
+      redirect_to @user
+    else
+      render :edit      
+    end
+  end
+#ユーザー削除
+  def destroy
+     @user.destroy
+     flash[:success] = "オーナー情報#{@user.name}を削除しました。"
+     redirect_to users_url
+  end
+ #画像バイナリー表示 
+  def show_image  
     send_data @user.image
   end
 private
-
-  def set_user                                                                  #個別ユーザー呼び出し
+   #個別ユーザー呼び出し
+  def set_user                                                               
     @user = User.find(params[:id] )
   end
   
@@ -50,4 +73,20 @@ private
      end
     params.require(:user).permit(:image, :name, :email, :password, :password_confirmation)
   end
+   #==ログインされたユーザーかチェック
+  def logged_in_user                       
+      unless logged_in?
+        store_location
+        flash[:danger] = "ログインしてください。"
+        redirect_to login_url
+      end
+  end
+  #==アクセスユーザーとアクセス先のユーザーがあっているか?
+  def correct_user
+      redirect_to(root_url) unless current_user?(@user)
+  end
+  # システム管理権限所有かどうか判定します。
+    def admin_user
+      redirect_to root_url unless current_user.admin?
+    end
 end

@@ -3,7 +3,7 @@
 <% provide(:button_text, '更新') %>
 
 <div id="new_user_head">
- <h1 style="color:#fff;font-weight:bold;margin-left:20%;">ユーザー情報の更新</h1>
+ <h1 style="color:#fff;font-weight:bold;margin-left:20%;">オーナー編集</h1>
 </div>
 
 <!--フォームと左右エリア-->
@@ -43,10 +43,10 @@
       <%= f.label :パスワード確認 %><span style="color:red"><strong>*必須です</strong></span>
       <%= f.password_field :password_confirmation,placeholder:"確認のためもう一度",class:"form-control" %><br>
 </div>
-<div id="empty"></div><br>
-<div style="text-align;center;margin-left:250px;" id="bt_area">
+<div id="empty"></div><br><br>
+<div  id="bt_area">
    
-     <%= f.submit "更新する", class: "btn btn-primary btn-lg" %>
+     <%= f.submit "更新する", class: "btn btn-primary btn-lg w-50" %>
       <%= link_to "TOPへ戻る",root_path,data: {"turbolinks" => false},class:"btn btn-default btn-lg" %>
 </div>
 </div>

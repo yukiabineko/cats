@@ -80,10 +80,19 @@ body{
 }
 
 }
+#bt_area{
+  text-align:center;
+}
 
 /* /オーナー編集画面 */
+/* ユーザー一覧ページ */
 
-
+#table-users {
+  td {
+    vertical-align: middle;
+  }  
+}
+/* /ユーザー一覧ページ */
 /*  ログインページ */
 #new_session_head{
   h1{color: #fff;letter-spacing: 16px;font-weight: bold;}
@@ -149,7 +158,9 @@ body{
 
 }
 #bt_area{
-
+  
+  text-align:left;
+  
 }
 /* /オーナー編集画面 */
 }
