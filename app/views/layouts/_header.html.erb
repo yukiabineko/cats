@@ -1,26 +1,39 @@
- <header class="navbar navbar-fixed-top bg-dark" style="background-color:#000;">
-      <div class="container">
-        
-        <nav>
-          <ul class="nav navbar-nav navbar-left" id="header_nav">
-            <li><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
-            <li style="margin-top:10px;"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
-            <li><%= link_to "Top", root_path,data: {"turbolinks" => false},style:"font-size:20px;color:#c0c0c0;" %></li>
-            <li style="margin-left:10px;"><%= link_to "投稿コーナー",posts_path,style:"font-size:18px;color:#c0c0c0;" %></li>
-            <li style="margin-left:10px;"><%= link_to "健康チェック", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
-            <li style="margin-left:10px;"><%= link_to "検索", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
-          </ul>  
-            &emsp;&emsp;&emsp;&emsp;
-          <ul class="nav navbar-nav navbar-right" id="header-right">
-            <!--ログインしてるか分岐-->
-            <% if logged_in? %>
-               <li style="color:#fff;margin-top:10px;font-weight:bold;">
-                  <%= image_tag(show_image_path(current_user.id),size:"30x30",id:"header_img") %>
-                  <%= "こんにちは#{current_user.name}さん" %>
-                </li>
+ <header class="navbar navbar-fixed-top bg-dark" style="background-color:#000;",id="nav_pc">
+     <nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+　　　<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarEexample7">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+	 </button>
+	        <%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %>
+			<%= link_to "ハッピーフィールド", root_path, id: "logo",style:"color:orange" %>
+			<h5 style="color:#fff"; id="h5">猫オーナーのためのアプリ</h5>
+		</div>
+		<div class="collapse navbar-collapse" id="navbarEexample7">
+			<ul class="nav navbar-nav">
+				<li><%= link_to "Top", root_path,data: {"turbolinks" => false},style:"font-size:20px;color:#c0c0c0;" %><li>
+				<li><%= link_to "投稿コーナー",posts_path,style:"font-size:18px;color:#c0c0c0;" %></li>
+				<li><%= link_to "健康チェック", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+			    <li><%= link_to "検索", '#',style:"font-size:20px;color:#c0c0c0;" %></li>
+			    <% if logged_in? %>
+			       <li style="color:#fff;margin-top:10px;font-size:16px;">
+                      <%= image_tag(show_image_path(current_user.id),size:"30x30",id:"header_img") %>
+                      <%= "こんにちは#{current_user.name}さん" %>
+                  </li>
+			    <% end %>
+			</ul>
+		
+          <ul class="navbar-text navbar-right">
+          	 <% if logged_in? %>
+       
             <!-- ドロップダウン -->    
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:orange;font-weight:bold;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:orange;font-weight:bold;text-decoration:none;">
                   オーナーメニュー <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
@@ -33,66 +46,27 @@
                   </li>
                 </ul>
               </li>
-            <% else %>
-              <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規登録",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
-              <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
-              <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
-            <% end %>
-            <!--/-->
-            
-          </ul>
-    
-      <!--スマホレイアウト -->
-            
-           <ul class="nav navbar-nav navbar-left" id="header_nav2">
-                
-             <li style="display:inline-block"><%=image_tag('/cat.png',size:"30x30",style:"margin-top:10px") %></li>
-             <li style="margin-top:10px;display:inline-block"><%= link_to "ハッピーフィールド", '#', id: "logo" %></li>
-             <% if logged_in? %>
-                <li style="color:#fff;">
-                  <%= image_tag(show_image_path(current_user),size:"30x30",id:"header_img") %>
-                  <%= "こんにちは#{current_user.name}さん" %>
-                </li>
-                 <!-- ドロップダウン -->    
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:orange;font-weight:bold;">
-                  オーナーメニュー <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "マイページ", current_user,style:"color:#fff"  %></li>
-                  <li><%= link_to "オーナー編集", edit_user_path(current_user),style:"color:#fff" %></li>
-                  <li><%= link_to "猫ちゃん設定", '#',style:"color:#fff"  %></li>
-                  <li class="divider"></li>
-                  <li>
-                    <%= link_to "ログアウト", logout_path, method: :delete,style:"color:#fff"  %>
+              <ul id="pc_header">
+              	<li><%= link_to "マイページ", current_user %></li>
+                  <li><%= link_to "オーナー編集", edit_user_path(current_user)  %></li>
+                  <li><%= link_to "猫ちゃん設定", '#' %></li>
+                  <li></li>
+                   <%= link_to "ログアウト", logout_path, method: :delete %>
                   </li>
-                </ul>
-              </li>
-                <style>#google{display:none;}#facebook{display:none;}</style>
-             <% else %>
-               <li style="margin-left:10px;text-align:center;"><%= link_to "ログイン/新規",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
-               <style>#google{display:block;}#facebook{display:block;}</style>
-             <% end %>
-             <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                     &emsp;<%=image_tag('/menu.png',style:"margin-top:10px") %><br>Menu
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "TOP",root_path,data: {"turbolinks" => false},style:"color:#fff;" %></li>
-                    <li><%= link_to "投稿コーナー",posts_path,style:"color:#fff;" %></li>
-                    <li><%= link_to "健康チェック", "#",style:"color:#fff;" %></li>
-                    <li><%= link_to "検索", "#",style:"color:#fff;" %></li>
-                  </ul>
-               </li> 
-              
-                <li id="google"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
-                <li id="facebook"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
-           </ul>
-           
-           <ul class="nav navbar-nav navbar-right" id="header-right2">
-           
-            
-          </ul>
-        </nav>
-      </div>
-    </header>
+              </ul>
+     
+            <% else %>
+             <ul style="list_style:none">
+              <li style="margin-left:20px;text-align:center;display:inline-block;margin-top:10px;"><%= link_to "ログイン/新規登録",login_path,style:"font-size:20px;color:#c0c0c0;" %></li>
+              <li style="margin-left:20px;text-align:center;display:inline-block;color:#fff;"><%=image_tag('/g.png',size:"30x30",style:"margin-top:10px;margin-right:5px;") %><span>googleでログイン</span></li>
+              <li style="margin-left:20px;text-align:center;display:inline-block;color:#fff"><%=image_tag('/f.png',size:"30x30",style:"margin-top:10px") %><span>facebookでログイン</span></li>
+            </ul>  
+            <% end %>
+
+          </ul></p>
+
+		</div>
+	</div>
+</nav>
+</header>
+  

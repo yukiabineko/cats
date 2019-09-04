@@ -68,6 +68,8 @@ p {
 
 /* header */
 header{
+  height:40px;
+  display:block;
     #header-ul{
       list-style:none;
       li{
@@ -80,9 +82,9 @@ header{
     }
     #header-right{
     text-align:left;
-    #google{color:#fff;font-size:16px;margin-left:5px;}
+    #google{color:#fff;font-size:16px;margin-left:5px;display:inline-block;text-decoration:none;}
     #google span{display:none;}
-    #facebook{color:#fff;;font-size:16px;}
+    #facebook{color:#fff;;font-size:16px;display:inline-block;text-decoration:none;}
     #facebook span{display:none;}
   }
 }
@@ -92,6 +94,7 @@ header{
     width:30px;
     height:30px;
   }
+
 #logo {
   float: left;
   margin-right: 20px;
@@ -107,7 +110,8 @@ header{
   color: #fff;
   text-decoration: none;
 }
-
+#pc_header{display:none;}
+.dropdown{display:block;}
 #header_nav{display:block;}
 #header_nav2{display:none;}
 #header_right{display:block;}
@@ -174,6 +178,7 @@ header{
   body {
     padding-top: 10px;
 }
+#h5{display:block;}
 
   /* header */
   header{
@@ -187,12 +192,13 @@ header{
   }
   #logo{
     float:none;
-    font-size:18px;
+    font-size:12px;
     font-style: italic; 
+    text-decoration:none;
     color:yellow;
     letter-spacing:10px;
     margin-top:10px;
-    border-bottom:1px solid #fff;
+    
   }
   #logo:hover {
   text-decoration: none;
@@ -209,6 +215,7 @@ header{
    
    
   }
+  .dropdown-menu{width:100%;}
   #header_nav{display:none;}
   #header-right{display:none;}
   #header_nav2{display:block;}
@@ -216,9 +223,22 @@ header{
   #google{margin-right:30px;color:#fff;}
   #facebook{color:#fff;}
 /* /header */
+#pc_header{
+  display:inline;
+  margin:0;
+  padding:0;
+  li{
+    display:table;
+    text-decoration:none;
+    color:#fff;
+  }
+  
+}
+h5{margin-left:25%;}
+.dropdown{display:none;}
 /*-----top--------------------------------------------*/
 #tops{display:block};
-.sldeshow{margin-top:200px;}
+.sldeshow{margin-top:40px;}
 .img_text{display: none;}
  /*-----------topページ------------*/
 }
