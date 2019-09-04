@@ -1,0 +1,15 @@
+<tr >
+    <td>
+       <div class="row">
+         <div class="col-md-2"><%= image_tag(show_image_url(post.user),size:"60x60") %></div>
+         <div class="col-md-5"><label><%= post.post_title %></label></div>
+         <div class="col-md-5"><label><%= post.category.present? ? post.category : "その他" %></label></div>
+         </div>
+          <div class="row">
+            <div class="col-md-12"><span><%= post.post_content %></span></div>
+          </div>
+    </td>
+    <tr>
+        <td style="border-radius:none;background-color:#fff;height:40px;"></td>
+    </tr>
+</tr>

@@ -14,12 +14,13 @@
             <div class="row">
                 <div class="col-md-3">
                     <% if logged_in? %>
-                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary",style:"width:200px;margin-right:50px;" %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary",style:"width:200px;margin-right:50px;margin-top:40px;" %>
                     <% else %>
                       <div class="alert alert-warning">投稿するにはログインしてください</div>
                     <% end %>
                 </div>
-                <div class="col-md-9"></div>
+                <div class="col-md-4"><%=will_paginate @posts %></div>
+                <div class="col-md-5"></div>
             </div>
         </div>
     </div>
@@ -30,8 +31,22 @@
 <!-- 投稿覧 -->        
             <div class="col-md-9">
                 <div id="post_index_left">
-                    
-                </div>
+<!--投稿一覧-->     <table id="post_index_table">
+                      <thead>
+                          <tr>
+                             <th>
+                               <div class="row">
+                                   <div class="col-md-2"></div>
+                                   <div class="col-md-5"><label>タイトル</label></div>
+                                   <div class="col-md-5"><label>カテゴリー</label></div>
+                             </th>      
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <%= render @posts %>
+                      </tbody>
+                    </table>
+                </div>      
             </div>
 <!--投稿中央 -->            
             <div class="col-md-0">

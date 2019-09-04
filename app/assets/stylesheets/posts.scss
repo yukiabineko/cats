@@ -19,17 +19,17 @@ body{background-color:pink;}
     }
 }
 #post_index_menu{
-    margin-bottom:20px;
+    margin-bottom:10px;
     span{
         font-size:16px;
         font-weight:bold;
     }
 }
 #post_index_left{
-    background-color:yellow;
+    background-color:#fff;
     border-radius:9px;
-    height:400px;
-    padding-right:50px;
+    height:auto;
+    padding: 30px 60px 100px 0;
 }
 #post_index_center{
     display:none;
@@ -39,6 +39,34 @@ body{background-color:pink;}
     background-color:red;
     border-radius:9px;
     height:400px;
+}
+#post_index_table{    /*テーブル*/
+    width:100%;
+    margin: 10px 0 0 15px;
+　 th {margin-left:80px;}   
+　 tr{margin-bottom:60px;}
+   td{
+        width:100%;
+        background-color:#eee;
+        border-radius:9px;
+        img{
+            border-radius:100px;
+            border:1px solid orange;
+            margin-top:7px;
+        }
+        label{
+             padding:10px;
+             margin-right:35%;
+             font-size:18px;
+             font-weight:bold;
+        }
+        span{
+             margin-right:30%;
+             font-weight:bold;
+             color:blue;
+        }
+      
+    }
 }
 /*---------/一覧 -------------*/
 /*----------新規-------------- */

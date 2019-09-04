@@ -11,10 +11,10 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
    <div id="new_posts_area">
-     <%= form_with(model: @post, local: true) do |f| %>
+     <%= form_with(model: @post,url:user_posts_path(@user), local: true) do |f| %>
        <%= render 'shared/post_error' %>
        <% if @post.errors.any? %>
-         <style>#new_user_area{height:700px;}</style>
+         <style>#new_posts_area{height:600px;}</style>
     　 <% end %>    
     　
        <%= f.label :投稿タイトル %><span style="color:red"><strong>*必須です</strong></span>
@@ -24,11 +24,13 @@
        <%= f.text_area :post_content,class:"form-control" %><br>
 
        <%= f.label :カテゴリー %>
-       <%= f.select :category,@array,{},class:"form-control" %><br><br>
+       <%= f.select :category,@data,{},class:"form-control"  %><br><br>
 
        <%= f.label :一般公開 %>
        <%= f.check_box :public %><br>
        <span style="color:blue"><strong>*チェックしなかった場合登録オーナーさん間のみ表示されます</strong></span>
+       
+       
 
       <%= f.submit "投稿する", class: "btn btn-primary btn-block btn-signup" %>
     <% end %>

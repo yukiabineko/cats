@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20190903145705) do
     t.string "post_title", null: false
     t.string "post_content", null: false
     t.string "category"
-    t.boolean "public"
+    t.boolean "public", default: true
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
