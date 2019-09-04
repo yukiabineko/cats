@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 #投稿一覧  
   def index
-    @posts = Post.paginate(page: params[:paginate],:per_page => 10)
+    @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
   end
 
 #新規投稿

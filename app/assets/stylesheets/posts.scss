@@ -52,22 +52,29 @@ body{background-color:pink;}
         img{
             border-radius:100px;
             border:1px solid orange;
-            margin-top:7px;
+            margin-top:1px;
         }
         label{
              padding:10px;
              margin-right:35%;
              font-size:18px;
              font-weight:bold;
+             height:20px;
+             color:blue;
         }
         span{
              margin-right:30%;
-             font-weight:bold;
-             color:blue;
+             p{font-size:12px;}
+             
+        }
+        #table-border{
+           border-bottom:1px dotted #c0c0c0;
+           width:100%;
         }
       
     }
 }
+
 /*---------/一覧 -------------*/
 /*----------新規-------------- */
 #new_post_head{
