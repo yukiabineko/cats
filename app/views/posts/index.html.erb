@@ -31,14 +31,20 @@
 <!-- 投稿覧 -->        
             <div class="col-md-9">
                 <div id="post_index_left">
+                    <% if logged_in? %>
+                     <label>投稿にしたい場合は場合はタイトルを押してください</label>
+                    <% else %>
+                    　<label>投稿するにはログインが必要です。</label>
+                    <% end %>
+                    <label id="phone_title">表示は上からタイトル、カテゴリー、内容です。</label>
 <!--投稿一覧-->     <table id="post_index_table">
                       <thead>
                           <tr>
                              <th>
                                <div class="row">
                                    <div class="col-md-2"></div>
-                                   <div class="col-md-5"><label>タイトル</label></div>
-                                   <div class="col-md-5"><label>カテゴリー</label></div>
+                                   <div class="col-md-5"><label id="td_title">タイトル</label></div>
+                                   <div class="col-md-5"><label id="td_category">カテゴリー</label></div>
                              </th>      
                           </tr>
                       </thead>
