@@ -1,11 +1,20 @@
 class PostsController < ApplicationController
   before_action :set_user,only:[:new,:create]
-  before_action :set_array,only:[:new,:create,:post_edit]
+  before_action :set_array,only:[:index,:new,:create,:post_edit]
 
 #投稿一覧  
   def index
+     @data = [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]] 
     if logged_in?
-      @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+      if params[:category]
+         @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category]).order('created_at desc')
+         if params[:category] == "すべて"
+               @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+         end   
+         flash[:info] = "#{params[:category]}の投稿検索しました"
+      else
+         @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+      end  
     else
       @posts = Post.paginate(page: params[:paginate],:per_page => 10).where.not(public: false).order('created_at desc')  #公開投稿のみ
     end  

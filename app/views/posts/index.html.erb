@@ -14,14 +14,25 @@
             <div class="row">
                 <div class="col-md-3">
                     <% if logged_in? %>
-                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary",style:"width:200px;margin-right:50px;margin-top:40px;" %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary",style:"width:200px;margin-right:30px;margin-top:40px;" %>
                     <% else %>
                       <div class="alert alert-warning">投稿するにはログインしてください</div>
                     <% end %>
                 </div>
                 <div class="col-md-4"><%=will_paginate @posts %></div>
                 <div class="col-md-5"></div>
-            </div>
+            </div><br>
+            <!-- ここにカテゴリー検索box-->
+          <div  class="row">
+              <div class="col-md-3">
+                  <%= form_with(url:posts_path,local:true) do |f| %>
+                     <%= f.select :category,@data,{},class:"form-control",id:"select" %>
+               </div>
+              <div class="col-md-1">
+                  <%= f.submit "カテゴリー検索",class:"btn btn-primary",id:"category_bt" %>
+              </div>
+            <% end %>      
+          </div><br>
         </div>
     </div>
     <!--  編集モーダル-->

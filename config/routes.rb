@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'                           #ログアウト処理
   
   get 'posts',to:'posts#index'                                       #投稿一覧
+  post 'posts',to:'posts#index'   
   get 'newPosts',to: 'posts#new',        as: :new_posts              #新規投稿
   get 'post_edit/:id',to:'posts#post_edit',as:  :post_edit           #投稿編集モーダル
   patch 'post_update/:id',to:'posts#post_update', as: :post_update   #モダール編集アップデート
