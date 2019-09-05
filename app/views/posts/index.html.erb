@@ -34,9 +34,9 @@
             <div class="col-md-9">
                 <div id="post_index_left">
                     <% if logged_in? %>
-                     <label>投稿コメントにしたい場合はタイトルを押してください</label>
+                     <label id="post_index_info">投稿コメントにしたい場合はタイトルを押してください</label>
                     <% else %>
-                    　<label>投稿するにはログインが必要です。</label>
+                    　<label id="post_index_info">投稿するにはログインが必要です。</label>
                     <% end %>
                     <label id="phone_title">表示は上からタイトル、カテゴリー、内容です。</label>
 <!--投稿一覧-->     <table id="post_index_table">

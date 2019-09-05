@@ -42,6 +42,15 @@ class PostsController < ApplicationController
     end    
     redirect_to posts_url
   end
+#投稿削除
+def destroy
+   @user = User.find(params[:user_id])
+   @post = @user.posts.find(params[:id])
+   @post.destroy
+   flash[:success] = "削除しました"
+   redirect_to posts_url
+end
+  
   
 private
 

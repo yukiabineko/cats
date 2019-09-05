@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/signup',to: 'users#new'                                      #会員登録
   
   resources :users do                                                #ユーザーカラム一式
-     resources :posts,only:[:new,:create]                    
+     resources :posts,only:[:new,:create,:destroy]                    
   end
  
   get 'show_image/:id',to:'users#show_image',as: :show_image         #イメージ表示
