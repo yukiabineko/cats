@@ -5,21 +5,30 @@ class PostsController < ApplicationController
 #投稿一覧  
   def index
      @data = [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]] 
-    if logged_in?
+    if logged_in?      #ログインしていてのですべてのデータ
       if params[:category]
          @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category]).order('created_at desc')
          if params[:category] == "すべて"
-               @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
-         end   
-         flash[:info] = "#{params[:category]}の投稿検索しました"
+           @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+         end 
+#default
       else
          @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
       end  
+#------------------------------------------------------------------------------------------------------------------------------------------------------------      
+#ログインされてないので　公開許可ののみ      
     else
-      @posts = Post.paginate(page: params[:paginate],:per_page => 10).where.not(public: false).order('created_at desc')  #公開投稿のみ
+       if params[:category]
+           @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category],public:true).order('created_at desc')
+         if params[:category] == "すべて"
+           @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(public: true).order('created_at desc')
+         end   
+       else
+         @posts = Post.paginate(page: params[:paginate],:per_page => 10).where.not(public: false).order('created_at desc')  #公開投稿のみ default
+       end  
     end  
-    
-    
+#ピックアップ用
+      @data_post = Post.paginate(page: params[:page]).order("created_at desc")
   end
 
 #新規投稿

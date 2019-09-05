@@ -37,10 +37,31 @@ body{background-color:pink;}
     display:none;
     height:400px;
 }
-#post_index_right{
-    background-color:red;
+#post_index_right{        /*ページ右側 */
+    background-color:#fff;
     border-radius:9px;
-    height:400px;
+    height:auto;
+    p{
+        color:#7733bb;
+        background-color:#c0c0c0;
+        border-left:4px solid brown;
+        padding-top:4px;
+    }
+    #post_index_ul{
+        list-style-type: none;
+        margin:0;
+        padding:0;
+    }
+    div{
+        background-color:#c0c0c0;
+        border-left:4px solid brown;
+        color:#7733bb;
+        font-size:16px;
+        font-weight:bold;
+        padding-top:4px;
+        padding:10px;
+        margin-top:50px;
+    }
 }
 #post_index_table{    /*テーブル*/
     width:100%;
