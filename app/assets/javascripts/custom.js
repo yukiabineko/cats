@@ -24,8 +24,3 @@ var mql = window.matchMedia('screen and (max-width: 599px)');
   // 初回チェック
   checkBreakPoint(mql);
 });
-var select= document.getElementById('select');
-
-select.addEventListener('onchange',function(){
-    alert("d");
-})
