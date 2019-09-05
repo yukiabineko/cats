@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_user,only:[:new,:create]
-  before_action :set_array,only:[:new,:create]
+  before_action :set_array,only:[:new,:create,:post_edit]
 
 #投稿一覧  
   def index
@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   end
   
 #登録
+
   def create
     @post = @user.posts.new(post_parameter)
    
@@ -22,11 +23,24 @@ class PostsController < ApplicationController
       render :new
     end  
   end
+  
+#=投稿編集モーダル
 
-  def edit
+  def post_edit
+    @post = Post.find(params[:id])
+    
   end
+  
+#=投稿編集モーダルアップデート  
 
-  def show
+  def post_update
+    @post =  Post.find(params[:id])
+    if @post.update_attributes(post_parameter)
+      flash[:success] = "編集しました"
+    else
+       flash[:success] = "編集失敗内容を確認してください"
+    end    
+    redirect_to posts_url
   end
   
 private

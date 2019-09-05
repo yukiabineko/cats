@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   
   get 'posts',to:'posts#index'                                       #投稿一覧
   get 'newPosts',to: 'posts#new',        as: :new_posts              #新規投稿
-  
+  get 'post_edit/:id',to:'posts#post_edit',as:  :post_edit           #投稿編集モーダル
+  patch 'post_update/:id',to:'posts#post_update', as: :post_update   #モダール編集アップデート
   
   
   

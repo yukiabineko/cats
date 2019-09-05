@@ -24,6 +24,8 @@
             </div>
         </div>
     </div>
+    <!--  編集モーダル-->
+    <div id="post_edit" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
     
 <!--投稿エリア-->    
     <div class="container">
@@ -32,7 +34,7 @@
             <div class="col-md-9">
                 <div id="post_index_left">
                     <% if logged_in? %>
-                     <label>投稿にしたい場合は場合はタイトルを押してください</label>
+                     <label>投稿コメントにしたい場合はタイトルを押してください</label>
                     <% else %>
                     　<label>投稿するにはログインが必要です。</label>
                     <% end %>
