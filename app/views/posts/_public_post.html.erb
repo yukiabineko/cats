@@ -1,0 +1,42 @@
+<tr >
+  
+    <td>
+       
+       <div class="row">
+           
+         <div class="col-md-2"><%= image_tag(show_image_url(post.user),size:"40x40") %><%= post.user.name %></div>
+         <div class="col-md-5">
+             
+             <label id="content_title"><%= post.post_title %></label>
+        </div>
+         <div class="col-md-5">
+             <label id="content_category"><%= post.category.present? ? post.category : "その他" %></label>
+         </div>
+       </div>
+       <div class="row">
+           <div class="col-md-12"> <div id="table-border"></div></div>
+       </div>
+         
+       <div class="row">
+         <div class="col-md-12">
+             <span>
+                 <% (post.post_content.split "\n").each do |content| %>
+                   <p><%= content %></p>
+                 <% end %>
+            </span>
+        </div>
+       </div>
+    </td>
+    <tr>
+        <td style="border-radius:none;background-color:#fff;height:40px;">
+          <div style="text-align:right">
+               <% if current_user?(post.user) %>
+                 <%= link_to "|編集|",post_edit_url(post),remote:true,style:"font-weight:bold" %>
+                 <%= link_to "削除|",user_post_path(post.user,post),data:{confirm: "本当に削除しますか？"},method: :delete,style:"font-weight:bold" %>
+               <% end %>
+               <%= "投稿日:#{post.created_at.year}/#{post.created_at.month}/#{post.created_at.day} #{post.created_at.hour}時#{post.created_at.min}分" %>
+          </div>    
+           
+        </td>
+    </tr>
+</tr>

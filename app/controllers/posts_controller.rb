@@ -4,7 +4,13 @@ class PostsController < ApplicationController
 
 #投稿一覧  
   def index
-    @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+    if logged_in?
+      @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+    else
+      @posts = Post.paginate(page: params[:paginate],:per_page => 10).where.not(public: false).order('created_at desc')  #公開投稿のみ
+    end  
+    
+    
   end
 
 #新規投稿
@@ -44,8 +50,8 @@ class PostsController < ApplicationController
   end
 #投稿削除
 def destroy
-   @user = User.find(params[:user_id])
-   @post = @user.posts.find(params[:id])
+   
+   @post = Post.find(params[:id])
    @post.destroy
    flash[:success] = "削除しました"
    redirect_to posts_url
@@ -66,6 +72,6 @@ private
 #配列セット
 
   def set_array
-    @data = [["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["キャットライフ","キャットライフ"],["その他","その他"]]  
+    @data = [["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
   end
 end
