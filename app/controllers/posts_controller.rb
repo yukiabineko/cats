@@ -44,10 +44,7 @@ class PostsController < ApplicationController
       @data_post = Post.paginate(page: params[:page],:per_page => 10).order("created_at desc")
   end
 #-------------------------------------------------------ここまでindex--------------------------------------
-#日付け検索
-def date_search
-  
-ends
+
 #新規投稿
   def new
     @post = @user.posts.new
@@ -109,4 +106,5 @@ private
   def set_array
     @data = [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
   end
+
 end
