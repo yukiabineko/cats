@@ -13,7 +13,8 @@ class PostsController < ApplicationController
          end 
 #パラメータ日付け時         
       elsif params[:date]
-          @posts = Post.paginate(page: params[:page]).where('created_at like?','%'+params[:date]+'%').order('created_at desc') 
+      
+          @posts = Post.paginate(page: params[:page]).where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc') 
 #パラメータ投稿者時
       elsif params[:name]
         user= User.find_by(name: params[:name])
