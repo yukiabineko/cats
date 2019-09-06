@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 #投稿一覧  
   def index
-     
+    @datas =  [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]   
     if logged_in?      #ログインしていてのですべてのデータ
       if params[:category]
          @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category]).order('created_at desc')
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
        end  
     end  
 #ピックアップ用
-      @data_post = Post.paginate(page: params[:page],:per_page => 10).order("created_at desc")
+      @data_post = Post.all
   end
 #-------------------------------------------------------ここまでindex--------------------------------------
 
@@ -105,7 +105,7 @@ private
 #配列セット
 
   def set_array
-    @data = [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
+    @data = [["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
   end
 
 end

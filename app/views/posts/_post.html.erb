@@ -7,7 +7,7 @@
          <div class="col-md-2"><%= image_tag(show_image_url(post.user),size:"40x40") %><%= post.user.name %></div>
          <div class="col-md-5">
              
-             <label id="content_title"><%= post.post_title %></label>
+             <label id="content_title"><%= link_to "#{post.post_title}",messages_show_path(post) %></label>
         </div>
          <div class="col-md-5">
              <label id="content_category"><%= post.category.present? ? post.category : "その他" %></label>

@@ -1,0 +1,79 @@
+/*---------show--------------*/
+#message_show_main{
+    margin-bottom:30px;
+    text-align:center;
+    h1{
+        color: #fff;
+        font-weight:bold;
+        margin: 90px 0 10px 0;
+        letter-spacing: 9px;
+    }
+    p{
+        font-weight:bold;
+        font-size: 20px;
+        letter-spacing: 9px;
+    }
+}
+#info_area{
+    width:100%;
+    background-color:#f0f0f0;
+    border-radius:8px;
+    padding-bottom:2px;
+}
+#post_data{
+    width:90%;
+    border-radius:9px;
+    margin-left:5%;
+    margin-bottom:2%;
+    padding-right:5px;
+    #post-title{
+        padding:8px;
+    }
+    #post-name{
+        padding: 0 0 8px 0 ;
+    }
+    #post-content{
+        padding: 0 0 8px 0 ;
+    }
+    span{
+        color:#444;
+    }
+    img{
+        border-radius:100px;
+    }
+    #border{border-bottom: dotted 2px #c0c0c0};
+    #post_content{
+        p{
+            color: #eee;
+        }
+    }
+}
+#input_area{
+    width:100%;
+    #input{
+        width:30%;
+        background-color:#e0e0e0;
+    }
+}
+#post_area{
+    width:100%;
+    height:500px;
+    background-color:#fff;
+}
+#empty{
+    clear:both;
+    overflow:hidden;
+}
+
+
+/*---------/show--------------*/
+
+/*--------スマートフォン----------------*/
+@media screen and (max-width: 767px){
+    #message_show_main{
+        h1{
+            margin-top:150px;
+        }
+    }
+        
+}
