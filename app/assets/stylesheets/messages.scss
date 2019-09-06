@@ -18,13 +18,13 @@
     width:100%;
     background-color:#f0f0f0;
     border-radius:8px;
-    padding-bottom:2px;
+    padding-bottom:8px;
 }
 #post_data{
     width:90%;
     border-radius:9px;
     margin-left:5%;
-    margin-bottom:2%;
+    margin-bottom:1%;
     padding-right:5px;
     #post-title{
         padding:8px;
@@ -53,6 +53,7 @@
     #input{
         width:30%;
         background-color:#e0e0e0;
+        
     }
 }
 #post_area{
@@ -73,7 +74,10 @@
     #message_show_main{
         h1{
             margin-top:150px;
+            font-size:24px;
         }
     }
-        
+   #message_text{margin-top:10px;margin-left:10%;width:100%;}  
+   #message_submit{margin-top:10px;width:100%;}
+ 
 }

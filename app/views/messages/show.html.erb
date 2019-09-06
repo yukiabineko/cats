@@ -28,8 +28,18 @@
                         <% end %>    
                       </div>
                 </div>
-                 <div id="input-area">
-                     <input type="text" placeholder="投稿へメッセージ" class="form-control" style="width:90%;margin-left;">
+                 <div id="input-area" class="form-group">
+                   <%= form_with(model:@message,url:"#") do |f| %>
+                   <%= render 'shared/post_error' %>
+                   <% if @post.errors.any? %>
+                       <style>#new_posts_area{height:600px;}</style>
+    　              <% end %>
+                   <div class="form-inline" style:"text-align:center">
+                     <%= f.text_field :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
+                     <%= f.submit "送信",class:"btn btn-primary",id:"message_submit" %>
+                   </div>
+                  
+                   <% end %>
                 </div>
                  <div id="empty"></div>
             </div>      
