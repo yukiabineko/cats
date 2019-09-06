@@ -75,24 +75,20 @@
                  <div id="post_index_right">
                      <p>投稿日</p>
                      <ul id="post_index_ul">
-                         <% post_day.each do |day| %>
-                           <% if day.present? %>
-                            <li><%= link_to day, "#" %></li>
-                           <% else %>
-                             まだ投稿がありません
-                           <% end %>
+                         <% 14.times  do |i| %>
+                            <li><%= link_to post_day[i], posts_path(params:{date: post_day[i]})  unless post_day[i].nil? %></li>
                          <% end %>
                      </ul>
-                     <div>投稿者</div>
+                    
+                     <div id="div-title">投稿者</div>
                      <ul id="post_index_ul">
                          <% post_names.each do |name| %>
                            <% if name.present? %>
-                            <li><%= link_to name, "#" %></li>
-                           <% else %>
-                             まだ投稿がありません
+                            <li><%= link_to name, posts_path(params:{name: name}) %></li>
                            <% end %>
                          <% end %>
                      </ul>
+                   
                  </div>
             </div>
         </div>

@@ -4,33 +4,50 @@ class PostsController < ApplicationController
 
 #投稿一覧  
   def index
-     @data = [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]] 
+     
     if logged_in?      #ログインしていてのですべてのデータ
       if params[:category]
          @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category]).order('created_at desc')
          if params[:category] == "すべて"
            @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
          end 
+#パラメータ日付け時         
+      elsif params[:date]
+          @posts = Post.paginate(page: params[:page]).where('created_at like?','%'+params[:date]+'%').order('created_at desc') 
+#パラメータ投稿者時
+      elsif params[:name]
+        user= User.find_by(name: params[:name])
+        @posts = Post.paginate(page: params[:page]).where('user_id=?',user.id).order('created_at desc') 
 #default
       else
          @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
       end  
-#------------------------------------------------------------------------------------------------------------------------------------------------------------      
+#-----------------------      
 #ログインされてないので　公開許可ののみ      
     else
        if params[:category]
            @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category],public:true).order('created_at desc')
          if params[:category] == "すべて"
            @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(public: true).order('created_at desc')
-         end   
+         end 
+       elsif params[:date]
+          @posts = Post.paginate(page: params[:page]).where('created_at like?','%'+params[:date]+'%',public: true).order('created_at desc')
+       #パラメータ投稿者時
+       elsif params[:name]
+         user= User.find_by(name: params[:name])
+         @posts = Post.paginate(page: params[:page]).where('user_id=?',user.id,public: true).order('created_at desc')    
        else
          @posts = Post.paginate(page: params[:paginate],:per_page => 10).where.not(public: false).order('created_at desc')  #公開投稿のみ default
        end  
     end  
 #ピックアップ用
-      @data_post = Post.paginate(page: params[:page]).order("created_at desc")
+      @data_post = Post.paginate(page: params[:page],:per_page => 10).order("created_at desc")
   end
-
+#-------------------------------------------------------ここまでindex--------------------------------------
+#日付け検索
+def date_search
+  
+end
 #新規投稿
   def new
     @post = @user.posts.new
@@ -90,6 +107,6 @@ private
 #配列セット
 
   def set_array
-    @data = [["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
+    @data = [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
   end
 end

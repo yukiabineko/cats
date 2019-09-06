@@ -52,15 +52,17 @@ body{background-color:pink;}
         margin:0;
         padding:0;
     }
-    div{
+    #div-title{
         background-color:#c0c0c0;
         border-left:4px solid brown;
         color:#7733bb;
-        font-size:16px;
+        font-size:22px;
         font-weight:bold;
         padding-top:4px;
         padding:10px;
-        margin-top:50px;
+        margin-top:8px;
+        margin-bottom:15px;
+        letter-spacing:6px;
     }
 }
 #post_index_table{    /*テーブル*/

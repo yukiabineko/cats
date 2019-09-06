@@ -16,5 +16,10 @@ module PostsHelper
           array << post.user.name
         end
       return array.uniq 
-    end          
+    end
+    
+    def day_data
+           
+    end
+
 end
