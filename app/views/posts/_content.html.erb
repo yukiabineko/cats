@@ -73,14 +73,12 @@
 <!--投稿右-->
             <div class="col-md-3">
                  <div id="post_index_right">
-                     <p>投稿日</p>
-                     <ul id="post_index_ul">
-                         <% 14.times  do |i| %>
-                            <li><%= link_to post_day[i], posts_path(params:{date: post_day[i]})  unless post_day[i].nil? %></li>
-                         <% end %>
-                     </ul>
-                    
-                     <div id="div-title">投稿者</div>
+                     <p>投稿日検索</p>
+                     <%= form_with(url:posts_path,local:true) do |f| %>
+                       <%= f.date_field :date %>
+                       <%= f.submit "日付検索",class:"btn btn-primary" %>
+                     <% end %>
+                     <div id="div-title">投稿者名検索</div>
                      <ul id="post_index_ul">
                          <% post_names.each do |name| %>
                            <% if name.present? %>
