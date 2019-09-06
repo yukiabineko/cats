@@ -47,7 +47,7 @@ class PostsController < ApplicationController
 #日付け検索
 def date_search
   
-end
+ends
 #新規投稿
   def new
     @post = @user.posts.new
