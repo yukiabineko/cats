@@ -1,0 +1,23 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <div class="text-primary text-center"><h5 class style="font-size:16px;font-weight:bold;"="modal-title" id="label1">メッセージ編集</h5></div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body">
+                <%= form_with(model:@message,url:update_path(@message),local:true) do |f| %>
+                <%= render 'shared/message_error' %>
+                   <% if @message.errors.any? %>
+                       <style>#new_posts_area{height:600px;}</style>
+    　              <% end %>
+                   <div class="form-inline" style:"text-align:center">
+                     <%= f.text_field :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
+                     <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
+                     <%= f.submit "編集",class:"btn btn-primary",id:"message_submit" %>
+                   </div>
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>

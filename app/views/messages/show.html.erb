@@ -1,5 +1,8 @@
 
 <%= provide(:title,"#{@post.post_title}") %>
+<div class="alert atert-info"><%=flash[:info] %></div>
+<!--モーダル-->
+<div id="edit" class="modal fade" role="dialog" tabindex="-1" area-hidden="true"></div>
 
 <div id="message_show_main">
     <h1><%="投稿内容:#{@post.post_title}" %></h1><br>
@@ -31,8 +34,9 @@
                 </div>
                  <div id="input-area" class="form-group">
                    <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
-                   <%= render 'shared/post_error' %>
-                   <% if @post.errors.any? %>
+                   <%= render 'shared/message_error' %>
+                   
+                   <% if @message.errors.any? %>
                        <style>#new_posts_area{height:600px;}</style>
     　              <% end %>
                    <div class="form-inline" style:"text-align:center">
@@ -69,7 +73,13 @@
                                        <li id="message_list2">
                                            <label id="message_label"><%=message.message_content %></label>
                                            <div style="text-align:right;">
-                                               <%= link_to "返信する","#" %><%= link_to "|３件の返信","#",style:"font-weight:bold;" %>
+                                               <%= link_to "返信する","#" %><%= link_to "|３件の返信","#",style:"font-weight:bold;" %><br>
+                                               <% if current_user?(message.user) %>
+                                               <div>
+                                                  <%= link_to "編集|",edit_path(message),remote:true,style:"color:orange;" %>
+                                                  <%= link_to "削除", delete_path(message),data:{confirm:"削除しますか？"},method: :delete,style:"color:orange;" %>
+                                                </div>
+                                              <% end %>
                                            </div>
                                            </div>
                                       </li>
@@ -80,17 +90,12 @@
                          
                        </div>
                    </td>
-                   <tr>
+                 </tr>
+                 <tr>
                        <td>
-                           <% if current_user?(message.user) %>
-                             <div style="text-align:right;margin:-30px 15%; 0 0;">
-                                 <%= link_to "編集|","#" %>
-                                 <%= link_to "削除","#" %>
-                             </div>
-                           <% end %>
+                           
                        </td>
                    </tr>
-                 </tr>
                  <% end %>
              </table>
          </div> 

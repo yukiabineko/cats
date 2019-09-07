@@ -21,9 +21,10 @@ Rails.application.routes.draw do
   patch 'post_update/:id',to:'posts#post_update', as: :post_update            #モダール編集アップデート
   
   get 'posts/:id/message_show',to:'messages#show',  as: :messages_show        #投稿へのメッセージページへ
-  post 'posts/:id/message_create',to:'messages#show',  as: :messages_create       #投稿へのメッセージ登録する
-  
-  
+  post 'posts/:id/message_create',to:'messages#show',  as: :messages_create   #投稿へのメッセージ登録する
+  get 'messege/edit/:id',to:"messages#edit",as: :edit                         #メッセージの編集モーダル
+  patch 'messege/update/:id',to:"messages#update",as: :update                 #メッセージの編集アップデート
+  delete 'message/delete/:id',to: 'messages#destroy' , as: :delete             #メッセージの削除
   
 end
 
