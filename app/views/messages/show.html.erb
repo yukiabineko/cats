@@ -12,6 +12,7 @@
     <div class="row">
         <div class="col-md-1"></div>
             <div class="col-md-10">
+                <%= link_to "投稿一覧へ戻る",posts_path,class:"btn btn-primary",id:"posts_back" %><br><br>
                 <div id="info_area">    
                  <div id="memo">投稿内容</div>
                 
@@ -29,13 +30,14 @@
                       </div>
                 </div>
                  <div id="input-area" class="form-group">
-                   <%= form_with(model:@message,url:"#") do |f| %>
+                   <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
                    <%= render 'shared/post_error' %>
                    <% if @post.errors.any? %>
                        <style>#new_posts_area{height:600px;}</style>
     　              <% end %>
                    <div class="form-inline" style:"text-align:center">
                      <%= f.text_field :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
+                     <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
                      <%= f.submit "送信",class:"btn btn-primary",id:"message_submit" %>
                    </div>
                   
@@ -48,5 +50,34 @@
         </div>
         <div class="col-md-1"></div>
     </div>
+<!-- -----------------------------------------メッセージエリア----------------------------------------------- -->
+  <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+         <div id="post_area">
+             <table id="message_table">
+                 <% @messages.each do |message| %>
+                 <tr>
+                      <td>
+                       <div class="row">
+                           <div class="col-md-12">
+                               <div id="message_content">
+                                  
+                                   <ul>
+                                       <li> <%= image_tag(show_image_url(message.user.id),size:"40x40") %></li>
+                                       <li id="message_list"><%= message.user.name %></li>
+                                       <li id="message_list2"><label id="message_label"><%=message.message_content %></label></li>
+                                   <ul>
+                               </div>
+                          </div>
+                         
+                       </div>
+                   </td>
+                 </tr>
+                 <% end %>
+             </table>
+         </div> 
+      </div>
+      <div class="col-md-1"></div>
+  </div>
 </div>
-<!---------------------------------------------------------------------------------------------------------------------!>
