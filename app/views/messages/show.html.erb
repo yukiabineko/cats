@@ -13,8 +13,8 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-1"></div>
-            <div class="col-md-10">
+        <div class="col-md-0.5"></div>
+            <div class="col-md-10.5">
                 <%= link_to "投稿一覧へ戻る",posts_path,class:"btn btn-primary",id:"posts_back" %><br><br>
                 <div id="info_area">    
                  <div id="memo">投稿内容</div>
@@ -32,6 +32,7 @@
                         <% end %>    
                       </div>
                 </div>
+                <div id="memo">メッセージ送信フォーム</div>
                  <div id="input-area" class="form-group">
                    <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
                    <%= render 'shared/message_error' %>
@@ -56,10 +57,10 @@
     </div>
 <!-- -----------------------------------------メッセージエリア----------------------------------------------- -->
   <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
+      <div class="col-md-0.5"></div>
+      <div class="col-md-10.5">
          <div id="post_area">
-             <p>投稿へのメッセージ<%= @messages.count %>件</p>
+             <div id="div">投稿へのメッセージ<%= @messages.count %>件</div>
              <table id="message_table">
                  <% @messages.each do |message| %>
                  <tr>
@@ -74,12 +75,7 @@
                                            <label id="message_label"><%=message.message_content %></label>
                                            <div style="text-align:right;">
                                                <%= link_to "返信する","#" %><%= link_to "|３件の返信","#",style:"font-weight:bold;" %><br>
-                                               <% if current_user?(message.user) %>
-                                               <div>
-                                                  <%= link_to "編集|",edit_path(message),remote:true,style:"color:orange;" %>
-                                                  <%= link_to "削除", delete_path(message),data:{confirm:"削除しますか？"},method: :delete,style:"color:orange;" %>
-                                                </div>
-                                              <% end %>
+                                               
                                            </div>
                                            </div>
                                       </li>
@@ -92,9 +88,14 @@
                    </td>
                  </tr>
                  <tr>
-                       <td>
-                           
-                       </td>
+                     <td>
+                       <% if current_user?(message.user) %>
+                         <div>
+                           <%= link_to "編集|",edit_path(message),remote:true,style:"color:blue;" %>
+                           <%= link_to "削除", delete_path(message),data:{confirm:"削除しますか？"},method: :delete,style:"color:blue;" %>
+                         </div>
+                      <% end %>
+                     </td>
                    </tr>
                  <% end %>
              </table>

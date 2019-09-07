@@ -21,6 +21,7 @@
     border-radius:8px;
     padding-bottom:8px;
     margin-bottom:40px;
+    #memo{text-align:center;color:blue;font-weight:bold;padding:5px;}
 }
 #post_data{
     width:90%;
@@ -58,6 +59,7 @@
         background-color:#e0e0e0;
         
     }
+    
 }
 /*--投稿に対するメッセージエリア--*/
 #post_area{
@@ -65,7 +67,7 @@
     height: auto;
     background-color:#fff;
     border-radius:12px;
-    p{color:#c0c0c0;margin: 8px 0 0 8px;}
+    #div{color:#c0c0c0;text-align:center;font-weight:bold;font-size:16px;padding-top:8px;}
 /*--テーブル-- */    
     #message_table{
         width:100%;
@@ -92,7 +94,7 @@
                    max-width: 100%;
                    color: #555;
                    font-size: 16px;
-                   background: pink;
+                   background-color: #F5DEB3;
                    border-radius:9px;
                   
                     
@@ -104,7 +106,7 @@
                     left: -30px;
                     margin-top: -15px;
                     border: 15px solid transparent;
-                    border-right: 15px solid pink;
+                    border-right: 15px solid #F5DEB3;
                 }
                 #message_name{
                     margin-top:-5%;
