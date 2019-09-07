@@ -55,6 +55,7 @@
       <div class="col-md-1"></div>
       <div class="col-md-10">
          <div id="post_area">
+             <p>投稿へのメッセージ<%= @messages.count %>件</p>
              <table id="message_table">
                  <% @messages.each do |message| %>
                  <tr>
@@ -65,14 +66,30 @@
                                   
                                    <ul>
                                        <li> <%= image_tag(show_image_url(message.user.id),size:"40x40") %></li>
-                                       <li id="message_list"><%= message.user.name %></li>
-                                       <li id="message_list2"><label id="message_label"><%=message.message_content %></label></li>
+                                       <li id="message_list2">
+                                           <label id="message_label"><%=message.message_content %></label>
+                                           <div style="text-align:right;">
+                                               <%= link_to "返信する","#" %><%= link_to "|３件の返信","#",style:"font-weight:bold;" %>
+                                           </div>
+                                           </div>
+                                      </li>
                                    <ul>
+                                    <div id="message_name"><%= message.user.name %></div>  
                                </div>
                           </div>
                          
                        </div>
                    </td>
+                   <tr>
+                       <td>
+                           <% if current_user?(message.user) %>
+                             <div style="text-align:right;margin:-30px 15%; 0 0;">
+                                 <%= link_to "編集|","#" %>
+                                 <%= link_to "削除","#" %>
+                             </div>
+                           <% end %>
+                       </td>
+                   </tr>
                  </tr>
                  <% end %>
              </table>
