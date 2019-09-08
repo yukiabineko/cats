@@ -1,0 +1,23 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <div class="text-primary text-center"><h5 class style="font-size:16px;font-weight:bold;"="modal-title" id="label1">返信フォーム</h5></div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button></div>
+            <div class="modal-body">
+                <div style="text-align:center">
+                    <h4 style="font-weight:bold;">返信するメッセージ</h4>
+                    <% (@message.message_content.split "\n").each do |msg| %>
+                     <p id="modal_message"><%= msg %></p>
+                    <% end %><hr>
+                   <%= form_with(model:@reply,url:replay_create_path(@message),local:true) do |f| %>
+                     <%= f.text_area :reply_content,class:"form-control" %>
+                     <%= f.hidden_field :user_id,value:current_user.id %><br>
+                     <%= f.submit "返信する",class:"btn btn-primary" %>
+                    
+                   <% end %>
+                </div>
+            </div>
+        </div>
+</div>

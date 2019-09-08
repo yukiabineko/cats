@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190906071103) do
+ActiveRecord::Schema.define(version: 20190907130342) do
 
   create_table "messages", force: :cascade do |t|
     t.string "message_content"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20190906071103) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "reply_content"
+    t.integer "user_id"
+    t.integer "message_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["message_id"], name: "index_replies_on_message_id"
   end
 
   create_table "users", force: :cascade do |t|

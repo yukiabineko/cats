@@ -17,7 +17,7 @@
 /*--当該投稿--*/
 #info_area{
     width:100%;
-    background-color:#f0f0f0;
+    background-color:#fff;
     border-radius:8px;
     padding-bottom:8px;
     margin-bottom:40px;
@@ -127,11 +127,13 @@
 /*--------スマートフォン----------------*/
 @media screen and (max-width: 767px){
     #message_show_main{
+        margin-bottom:15px;
         h1{
             margin-top:150px;
             font-size:24px;
         }
     }
+    
    #message_text{margin-top:10px;margin-left:10%;width:100%;}  
    #message_submit{margin-top:10px;width:100%;}
    #posts_back{width:100%;}

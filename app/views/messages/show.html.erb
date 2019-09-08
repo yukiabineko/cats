@@ -1,8 +1,10 @@
 
 <%= provide(:title,"#{@post.post_title}") %>
-<div class="alert atert-info"><%=flash[:info] %></div>
-<!--モーダル-->
+
+<!--モーダル編集-->
 <div id="edit" class="modal fade" role="dialog" tabindex="-1" area-hidden="true"></div>
+<!--モーダル返信 -->
+<div id="replay_show" class="modal fade" tabindex="-1" aria-hidden="true"></div> 
 
 <div id="message_show_main">
     <h1><%="投稿内容:#{@post.post_title}" %></h1><br>
@@ -41,7 +43,7 @@
                        <style>#new_posts_area{height:600px;}</style>
     　              <% end %>
                    <div class="form-inline" style:"text-align:center">
-                     <%= f.text_field :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
+                     <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
                      <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
                      <%= f.submit "送信",class:"btn btn-primary",id:"message_submit" %>
                    </div>
@@ -56,6 +58,8 @@
         <div class="col-md-1"></div>
     </div>
 <!-- -----------------------------------------メッセージエリア----------------------------------------------- -->
+  <%=will_paginate @messages,previous_label: '&lt 前へ', next_label: '次へ &gt' %>
+  
   <div class="row">
       <div class="col-md-0.5"></div>
       <div class="col-md-10.5">
@@ -74,10 +78,17 @@
                                        <li id="message_list2">
                                            <label id="message_label"><%=message.message_content %></label>
                                            <div style="text-align:right;">
-                                               <%= link_to "返信する","#" %><%= link_to "|３件の返信","#",style:"font-weight:bold;" %><br>
-                                               
+                                               <%= link_to "返信する",replay_show_path(message),remote:true,style:"font-weight:bold;" %>
+                                               <% replies = replay_count(message) %>
+                                               <% if  replies > 0 %>
+                                                <%= link_to "|#{replies}件の返信","#",style:"font-weight:bold;" %><br>
+                                               <% end %>    
                                            </div>
-                                           </div>
+                            <!----------------返信コメントここに---------------------------------------------->
+                                           <% replies.each do |reply| %>
+                                           
+                                           <% end %>
+                                           
                                       </li>
                                    <ul>
                                     <div id="message_name"><%= message.user.name %></div>  
