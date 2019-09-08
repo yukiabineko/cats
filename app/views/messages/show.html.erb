@@ -93,8 +93,8 @@
                                             <label>返信メッセージ</label>
                                            <% replies.each do |reply| %>
                                              <ul id="div<%= message.id %>" class="reply">
-                                                 <li><%= image_tag(show_image_url(reply.message.user),size:"40x40") %></li>
-                                                 <li><%= reply.message.user.name %></li>
+                                                 <li><%= image_tag(show_image_url(reply.user),size:"40x40") %></li>
+                                                 <li><%= reply.user.name %></li>
                                                  <li id="reply_li"><%= reply.reply_content %></li> 
                                              </ul>
                                            <% end %>
