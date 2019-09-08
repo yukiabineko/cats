@@ -19,7 +19,7 @@
     width:100%;
     background-color:#fff;
     border-radius:8px;
-    padding-bottom:8px;
+    padding-bottom:10px;
     margin-bottom:40px;
     #memo{text-align:center;color:blue;font-weight:bold;padding:5px;}
 }
@@ -51,22 +51,15 @@
         }
     }
 }
-/*--メッセージ入力form--*/
-#input_area{
-    width:100%;
-    #input{
-        width:30%;
-        background-color:#e0e0e0;
-        
-    }
-    
-}
+
 /*--投稿に対するメッセージエリア--*/
 #post_area{
     width:100%;
     height: auto;
+    padding-bottom:200px;
     background-color:#fff;
     border-radius:12px;
+    position: relative;
     #div{color:#c0c0c0;text-align:center;font-weight:bold;font-size:16px;padding-top:8px;}
 /*--テーブル-- */    
     #message_table{
@@ -116,9 +109,23 @@
         }
     }
 }
+/*--メッセージ入力form--*/
+#input-area{
+    width:100%;
+    background-color:#fff;
+    padding-bottom:30px;
+    position: fixed;
+    bottom:0;
+    left:0;
+    padding: 30px 0 40px 0;
+    border-radius:9px;
+    #memo{color:blue; text-align:center;}
+    
+}
 #empty{
     clear:both;
     overflow:hidden;
+   
 }
 
 
@@ -143,7 +150,7 @@
 /*--------スマートフォン----------------*/
 @media screen and (max-width: 767px){
     #message_show_main{
-        margin-bottom:15px;
+        margin-bottom:5px;
         h1{
             margin-top:150px;
             font-size:24px;
@@ -153,4 +160,7 @@
    #message_text{margin-top:10px;margin-left:10%;width:100%;}  
    #message_submit{margin-top:10px;width:100%;}
    #posts_back{width:100%;}
+   #post_area{
+       padding-bottom:250px;
+   }
 }

@@ -34,23 +34,7 @@
                         <% end %>    
                       </div>
                 </div>
-                <div id="memo">メッセージ送信フォーム</div>
-                 <div id="input-area" class="form-group">
-                   <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
-                   <%= render 'shared/message_error' %>
-                   
-                   <% if @message.errors.any? %>
-                       <style>#new_posts_area{height:600px;}</style>
-    　              <% end %>
-                   <div class="form-inline" style:"text-align:center">
-                     <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
-                     <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
-                     <%= f.submit "送信",class:"btn btn-primary",id:"message_submit" %>
-                   </div>
-                  
-                   <% end %>
-                </div>
-                 <div id="empty"></div>
+               
             </div>      
           <!--ここまで投稿詳細-->
            
@@ -120,6 +104,26 @@
                    </tr>
                  <% end %>
              </table>
+<!--メッセージフォーム ---------------------------------------------------->
+                
+                 <div id="input-area" class="form-group">
+                    <div id="memo">メッセージ送信フォーム</div>     
+                   <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
+                   <%= render 'shared/message_error' %>
+                   
+                   <% if @message.errors.any? %>
+                       <style>#new_posts_area{height:600px;}</style>
+    　              <% end %>
+                   <div class="form-inline" style:"text-align:center">
+                     <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:5%;",id:"message_text" %>
+                     <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
+                     <%= f.submit "送信",class:"btn btn-primary btn-lg",id:"message_submit" %>
+                   </div>
+                  
+                   <% end %>
+                </div>
+                 <div id="empty"></div>
+<!---------メッセージ終了-------------------------------------------------->             
          </div> 
       </div>
       <div class="col-md-1"></div>

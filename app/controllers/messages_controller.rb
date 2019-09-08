@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
 #message 表示登録
 
   def show
-    @messages = Message.paginate(page: params[:page],:per_page => 2).where(post_id: @post.id).order('created_at desc')
+    @messages = Message.paginate(page: params[:page],:per_page => 10).where(post_id: @post.id).order('created_at desc')
     if request.post?
       @message = @post.messages.build(message_parameter)  
       if @message.save
