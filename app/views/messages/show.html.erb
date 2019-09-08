@@ -65,6 +65,7 @@
       <div class="col-md-10.5">
          <div id="post_area">
              <div id="div">投稿へのメッセージ<%= @messages.count %>件</div>
+             
              <table id="message_table">
                  <% @messages.each do |message| %>
                  <tr>
@@ -78,19 +79,28 @@
                                        <li id="message_list2">
                                            <label id="message_label"><%=message.message_content %></label>
                                            <div style="text-align:right;">
-                                               <%= link_to "返信する",replay_show_path(message),remote:true,style:"font-weight:bold;" %>
-                                               <% replies = replay_count(message) %>
-                                               <% if  replies > 0 %>
-                                                <%= link_to "|#{replies}件の返信","#",style:"font-weight:bold;" %><br>
+                                               <%= link_to "返信する",replay_show_path(message),remote:true,style:"font-weight:bold" %>
+                                               <% count = replay_count(message) %>
+                                               <% replies = replies(message) %>
+                                               <% if   count > 0 %>
+                                                 <input type="button" value="<%= "#{count}件の返信"%>" id="bt" onClick='func(<%=message.id %>)'>
                                                <% end %>    
                                            </div>
+                                           
                             <!----------------返信コメントここに---------------------------------------------->
+                                        <div class="reply-div" id="div<%=message.id %>">
+                                            <hr>
+                                            <label>返信メッセージ</label>
                                            <% replies.each do |reply| %>
-                                           
+                                             <ul id="div<%= message.id %>" class="reply">
+                                                 <li><%= image_tag(show_image_url(reply.message.user),size:"40x40") %></li>
+                                                 <li><%= reply.message.user.name %></li>
+                                                 <li id="reply_li"><%= reply.reply_content %></li> 
+                                             </ul>
                                            <% end %>
-                                           
+                                        </div>   
                                       </li>
-                                   <ul>
+                                   </ul>
                                     <div id="message_name"><%= message.user.name %></div>  
                                </div>
                           </div>
@@ -115,3 +125,19 @@
       <div class="col-md-1"></div>
   </div>
 </div>
+<script>
+    function func(num){
+        var div = document.getElementById('div'+num);
+       
+        
+        if (div.style.display == 'none'){
+            div.style.display ="block";
+        }
+        else if(div.style.display == "block"){
+            div.style.display = "none";
+        }
+        else{
+             div.style.display ="block";
+        }
+    }
+</script>

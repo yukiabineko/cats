@@ -123,6 +123,22 @@
 
 
 /*---------/show--------------*/
+/*-------------------------------------------reply-------------------------------------------------------------------*/
+.reply-div{display:none;}
+.reply{
+    background-color: #fff;
+    
+    
+    li{
+        padding: 24px 0 8px 4px;
+       
+    }
+    #reply_li{margin-left: 10%;font-weight:bold;word-break: break-all;}
+    
+}
+/*ボタン*/
+#bt{border: none;color:blue;background-color:#F5DEB3;font-weight:bold;}
+/*-------------------------------------------/reply-------------------------------------------------------------------*/
 
 /*--------スマートフォン----------------*/
 @media screen and (max-width: 767px){
