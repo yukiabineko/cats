@@ -1,11 +1,14 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+#new_session_head{
+  margin-top:9%;
+}
 #new_login_area{
     width:60%;
     height:250px;
     background-color:#fff;
+    margin-top:30px;
     margin-left:20%;
     border-radius:9px;
     padding-top:8px;

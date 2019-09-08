@@ -12,6 +12,7 @@
         投稿された内容について<br>
         皆さんでお話をしたり、質問、相談に答えたあげよう。
     </p>
+    <div class="alert alert-info"><%= "コメントおよび返信するにはログインしてください" unless logged_in? %></div>
 </div>
 <div class="container">
     <div class="row">
@@ -63,7 +64,7 @@
                                        <li id="message_list2">
                                            <label id="message_label"><%=message.message_content %></label>
                                            <div style="text-align:right;">
-                                               <%= link_to "返信する",replay_show_path(message),remote:true,style:"font-weight:bold" %>
+                                               <%= link_to "返信する",replay_show_path(message),remote:true,style:"font-weight:bold" if logged_in? %>
                                                <% count = replay_count(message) %>
                                                <% replies = replies(message) %>
                                                <% if   count > 0 %>
@@ -105,24 +106,28 @@
                  <% end %>
              </table>
 <!--メッセージフォーム ---------------------------------------------------->
-                
-                 <div id="input-area" class="form-group">
-                    <div id="memo">メッセージ送信フォーム</div>     
-                   <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
-                   <%= render 'shared/message_error' %>
-                   
-                   <% if @message.errors.any? %>
-                       <style>#new_posts_area{height:600px;}</style>
-    　              <% end %>
-                   <div class="form-inline" style:"text-align:center">
-                     <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:5%;",id:"message_text" %>
-                     <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
-                     <%= f.submit "送信",class:"btn btn-primary btn-lg",id:"message_submit" %>
-                   </div>
-                  
-                   <% end %>
-                </div>
-                 <div id="empty"></div>
+                <% if logged_in? %>
+                     <div id="input-area" class="form-group">
+                        <div id="memo">メッセージ送信フォーム</div>     
+                       <%= form_with(model:@message,url:messages_create_path(@post),local:true) do |f| %>
+                       <%= render 'shared/message_error' %>
+                       
+                       <% if @message.errors.any? %>
+                           <style>#new_posts_area{height:600px;}</style>
+        　              <% end %>
+                       <div class="form-inline" style:"text-align:center">
+                         <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",id:"message_text" %>
+                         <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
+                         <%= f.submit "送信",class:"btn btn-primary btn-lg",id:"message_submit" %>
+                       </div>
+                      
+                       <% end %>
+                     </div>
+                <% else %>
+                  <style>
+                      #post_area{padding-bottom: 50px;}
+                  </style>
+                <% end %>     
 <!---------メッセージ終了-------------------------------------------------->             
          </div> 
       </div>

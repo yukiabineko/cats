@@ -102,6 +102,32 @@ body{
 .btn-signup {
   margin-top: 20px;
 }
+/****詳細ページ********/
+#row1{
+  background-color:"#fff";
+}
+#user_show_image{
+  width:100%;
+  height:300px;
+  background-color:#fff;
+}
+
+#user_table{
+  margin: 10px 0  20px 0;
+  th{
+    background-color:orange;
+    height:40px;
+    text-align: center;
+    width:40%;
+  }
+  td{
+     background-color:#fff;
+     height:40px;
+     text-align: center;
+  }
+}
+/****詳細ページ********/
+
 /* *****************************************:スマートフォン処理**************************************************************** */
 @media screen and (max-width: 767px){
   /* /新規登録画面 */
@@ -164,4 +190,11 @@ body{
   
 }
 /* /オーナー編集画面 */
+/****詳細ページ********/
+#user_table{
+  margin-bottom:0;
+}
+#edit_link{padding:4px;margin-top:14px;}
+/****詳細ページ********/
+
 }

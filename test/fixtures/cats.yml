@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat_name: MyString
+  cat_image: 
+  cat_sex: MyString
+  cat_weight: 1
+  cat_age: 1
+  user: one
+
+two:
+  cat_name: MyString
+  cat_image: 
+  cat_sex: MyString
+  cat_weight: 1
+  cat_age: 1
+  user: two
