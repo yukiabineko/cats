@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   
   get 'replay/show_modal/:msg_id',to:'messages#replay_show',  as: :replay_show    #返信用モーダル
   post 'replay/create/:msg_id',to:"messages#replay_create",   as: :replay_create  #返信登録 
-  get 'cats_new/:user_id',to:"users#cat_new",                          as: :cat_new        #猫新規登録ページ
-  post 'cat_create',to:'users#cat_create',                    as: :cat_create     #猫新規登録
+  get 'cats_new/:user_id',to:"users#cat_new",                 as: :cat_new        #猫新規登録ページ
+  post 'cat_create/:user_id',to:'users#cat_create',           as: :cat_create     #猫新規登録
+  get 'cat_show_image/:id',to:'users#cat_show_image',         as: :cat_show_image #猫写真アクセス
 end
 

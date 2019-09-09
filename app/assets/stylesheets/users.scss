@@ -111,6 +111,7 @@ body{
  border: 1px solid #a0a0a0;
  box-shadow: 4px 4px 4px #8EB8FF;
  margin-bottom:5%;
+ padding-bottom:4%;
  
 }
 #user_show_image{
@@ -153,7 +154,7 @@ body{
       letter-spacing:12px;
       padding: 18px 0;
       width:100;
-      margin-bottom: 1%;
+      margin-bottom: 3%;
     }    
 /*まだ猫登録されてない時*/
   #none_cat_field{
@@ -176,6 +177,8 @@ body{
   #present_cat{
     background-color:#fff;
     width: 100%;
+    padding:3% 1%;
+    margin-bottom: 2%;
   }
 
 /**** /詳細ページ********/
@@ -198,18 +201,15 @@ body{
     border-radius:9px;
     box-shadow: 5px 5px 5px cyan;
 }
+/*猫テーブル*/
+#cat_table{
+    width:100%;
+    th{background-color:orange;text-align:center;}
+    td{font-size:16px;text-align:center;}
+}
 /* ****** /猫新規登録******** */
 
-@media screen and (max-width: 767px){
-  
-    #show_h1{font-size:22px;}
-    #user_show_image{
-    img{
-        left: 8%;
-      }
-    }
 
-}
 /* *****************************************:スマートフォン処理**************************************************************** */
 /***************極小スマホ*********************************************/
 @media screen and (min-width: 300px) and (max-width: 375px){
@@ -218,6 +218,7 @@ body{
        margin-top:100px;
        h1{font-size: 20px;font-weight:bold;}
     }
+    #show_h1{font-size:16px;}
     #user_show_image{   /*イメージ*/
     img{
         left: -1%;
@@ -237,6 +238,7 @@ body{
        margin-top:100px;
        h1{font-size: 26px;font-weight:bold;}
     }
+    #show_h1{font-size:18px;} /*タイトル*/
     #user_show_image{   /*イメージ*/
     img{
         left: 7%;
@@ -256,6 +258,7 @@ body{
        margin-top:100px;
        h1{font-size: 26px;font-weight:bold;}
     }
+    #show_h1{font-size:18px;} /*タイトル*/
     #user_show_image{   /*イメージ*/
     img{
         left: 7%;
@@ -274,6 +277,7 @@ body{
        margin-top:100px;
        h1{font-size: 26px;font-weight:bold;}
     }
+     #show_h1{font-size:20px;} /*タイトル*/
     #user_show_image{   /*イメージ*/
     img{
         left: 24%;
@@ -287,6 +291,7 @@ body{
        h1{font-size: 26px;font-weight:bold;}
        margin-bottom:50px;
     }
+     #show_h1{font-size:20px;} /*タイトル*/
     #user_show_image{   /*イメージ*/
     img{
         left: 30%;
@@ -319,6 +324,7 @@ body{
        h1{font-size: 22px;font-weight:bold;}
        margin-bottom:80px;
     }
+     #show_h1{font-size:22px;} /*タイトル*/
     #user_show_image{   /*イメージ*/
     img{
         left: 30%;
@@ -338,6 +344,7 @@ body{
        h1{font-size: 28px;font-weight:bold;}
        margin-bottom:50px;
     }
+     #show_h1{font-size:24px;} /*タイトル*/
     #user_show_image{   /*イメージ*/
     img{
         left: 30%;

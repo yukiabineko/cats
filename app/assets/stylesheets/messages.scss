@@ -56,7 +56,7 @@
 #post_area{
     width:100%;
     height: auto;
-    padding-bottom:200px;
+    padding-bottom:2%;
     background-color:#fff;
     border-radius:12px;
     position: relative;
@@ -111,13 +111,13 @@
 }
 /*--メッセージ入力form--*/
 #input-area{
-    width:90%;
+    width:100%;
     background-color:#fff;
+    border-top: 2px solid #000;
     padding-bottom:30px;
     position: fixed;
     bottom:0;
     left:10;
-    border-radius:9px;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{width:75%;margin-left:2%;height:5%;}
     
@@ -159,9 +159,8 @@
     width:100%;
     background-color:#fff;
     position: fixed;
-    bottom:0;
+    bottom:-3%;
     left:20;
-    border-radius:9px;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{margin-top:40px;width:-20%;margin-left:2%;} 
     
@@ -191,9 +190,8 @@
     width:100%;
     background-color:#fff;
     position: fixed;
-    bottom:0;
+    bottom:-3%;
     left:0;
-    border-radius:9px;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{margin-top:40px;width:-20%;margin-left:3%;} 
     
@@ -222,9 +220,8 @@
     width:100%;
     background-color:#fff;
     position: fixed;
-    bottom:0;
+    bottom:-3%;
     left:0;
-    border-radius:9px;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{margin-top:40px;width:-20%;margin-left:1%;} 
     
@@ -254,9 +251,8 @@
     background-color:#fff;
     padding-bottom:30px;
     position: fixed;
-    bottom:0;
+    bottom:-3%;
     left:0;
-    border-radius:9px;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{margin-top:40px;width:-20%;margin-left:1%;} 
     
@@ -286,9 +282,8 @@
     background-color:#fff;
     padding-bottom:30px;
     position: fixed;
-    bottom:0;
+    bottom:-3%;
     left:0;
-    border-radius:9px;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{margin-top:40px;width:-20%;margin-left:1%;} 
     
