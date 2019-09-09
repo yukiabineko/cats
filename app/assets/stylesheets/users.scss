@@ -135,13 +135,117 @@ body{
 }
 /****詳細ページ********/
 
-/* *****************************************:スマートフォン処理**************************************************************** */
+
 @media screen and (max-width: 767px){
   
     #show_h1{font-size:22px;}
     #user_show_image{
     img{
         left: 8%;
+      }
+    }
+}
+/* *****************************************:スマートフォン処理**************************************************************** */
+/***************極小スマホ*********************************************/
+@media screen and (min-width: 300px) and (max-width: 375px){
+  
+    #show_user_head{    /*タイトルヘッダー*/
+       margin-top:100px;
+       h1{font-size: 20px;font-weight:bold;}
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: -1%;
+      }
+    }
+}
+/***************小スマホ*********************************************/
+@media screen and (min-width: 375px) and (max-width: 411px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:100px;
+       h1{font-size: 26px;font-weight:bold;}
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 7%;
+      }
+    }
+}
+/***************中スマホ*********************************************/
+@media screen and (min-width: 411px) and (max-width: 500px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:100px;
+       h1{font-size: 26px;font-weight:bold;}
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 7%;
+      }
+    }
+}
+/***************大スマホ*********************************************/
+@media screen and (min-width: 500px) and (max-width: 660px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:100px;
+       h1{font-size: 26px;font-weight:bold;}
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 24%;
+      }
+    }
+}
+/***************小タブ*********************************************/
+@media screen and (min-width: 500px) and (max-width: 670px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:18%;
+       h1{font-size: 26px;font-weight:bold;}
+       margin-bottom:50px;
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 30%;
+      }
+    }
+}
+/**************中タブ*********************************************/
+@media screen and (min-width: 670px) and (max-width: 767px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:22%;
+       h1{font-size: 26px;font-weight:bold;}
+       margin-bottom:100px;
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 30%;
+      }
+    }
+}
+/***************大タブ*********************************************/
+@media screen and (min-width: 767px) and (max-width: 1024px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:20%;
+       h1{font-size: 22px;font-weight:bold;}
+       margin-bottom:80px;
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 30%;
+      }
+    }
+}
+/***************PC*********************************************/
+@media screen and (min-width: 1024px){
+   #show_user_head{    /*タイトルヘッダー*/
+       margin-top:5%;
+       h1{font-size: 28px;font-weight:bold;}
+       margin-bottom:50px;
+    }
+    #user_show_image{   /*イメージ*/
+    img{
+        left: 30%;
+        top:-3%;
+        margin-bottom:10px;
       }
     }
 }

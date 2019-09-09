@@ -7,15 +7,13 @@
  <div id="user" style="border:2px solid #c0c0c0;background-color:#fff;">
    <div class="container">
     <div class="row">
-      
-        <div class="col-md-1"></div>
           <h1 style="letter-spacing:9px" id="show_h1"><%= "#{@user.name}さんページ" %></h1>
-        <div class="col-md-5" >
+        <div class="col-md-6" >
             <div id="user_show_image" style="back-ground-color:#fff;">
                 <%= image_tag(show_image_url(@user),size:"300x300") %>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div id="user_show_table">
             <table class="table table-bordered" id="user_table">
                 <tr>
@@ -39,7 +37,6 @@
             <%= link_to "アカウント情報変更する",edit_user_path(@user),class:"btn btn-primary btn-block",style:"padding:20px",id:"edit_link" %>
          </div>    
         </div>
-        <div class="col-md-1"></div>
     </div>
     </div>
 </div>
