@@ -3,8 +3,8 @@
 <div id="show_user_head" class="text-center text-primary">
     <h1>ｵｰﾅｰさんと猫ちゃんの個別ページ</h1>
 </div>
-<!----------/コンテナ--------->
- <div id="user" style="border:2px solid #c0c0c0;background-color:#fff;">
+<!----------/コンテナ1--------->
+ <div id="user_area_show">
    <div class="container">
     <div class="row">
           <h1 style="letter-spacing:9px" id="show_h1"><%= "#{@user.name}さんページ" %></h1>
@@ -40,4 +40,24 @@
     </div>
     </div>
 </div>
-<!----------/コンテナ--------->
+<!----------/コンテナ1--------->
+<h1 id="cat_info">オーナー猫ちゃん情報</h1>
+
+<div id="cat_area-show">
+ <!----------コンテナ2-------------------------------> 
+ <div class="container">
+     <div class="row">
+         <div class="col-md-12">
+            <% if @cats.count == 0 %>
+              <div id="none_cat_field">
+                  <h3>まだ猫ちゃん登録されてません</h3>
+              </div><br>
+               <div style="text-align:center"><%= link_to "新規猫ちゃん登録","#",class:"btn btn-primary btn-lg" %> </div>
+            <% else %>
+            <% end %>
+           
+         </div>
+     </div>
+ </div>
+ <!----------コンテナ2------------------------------->  
+</div>

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     has_many :posts,dependent: :destroy 
     has_many :messages,dependent: :destroy 
     has_many :replies,dependent: :destroy 
+    has_many :cats,dependent: :destroy 
     
      # 「remember_token」という仮想の属性を作成します。
     attr_accessor :remember_token

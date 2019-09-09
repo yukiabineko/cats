@@ -30,11 +30,14 @@ class UsersController < ApplicationController
 
   def edit
   end
-
+  
+#各オーナーさん個別ページ
   def show
+    @cats = @user.cats.all
   end
   
-  def update      #update
+#update  
+  def update     
     @user = User.find(params[:id])
     if @user.update_attributes(user_parameter)
       flash[:success] = "情報更新しました。"

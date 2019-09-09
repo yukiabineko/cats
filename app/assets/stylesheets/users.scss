@@ -106,6 +106,13 @@ body{
 #row1{
   background-color:"#fff";
 }
+#user_area_show{
+ background-color:#fff;
+ border: 1px solid #a0a0a0;
+ box-shadow: 4px 4px 4px #8EB8FF;
+ margin-bottom:5%;
+ 
+}
 #user_show_image{
   img{
     width:300px;
@@ -133,7 +140,39 @@ body{
      text-align: center;
   }
 }
-/****詳細ページ********/
+/*猫info h1*/    
+
+    #cat_info{
+      background-color:#fce2c4;
+      background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+      -webkit-background-size: 14px 14px;
+      color: #909090;
+      font-size: 20px;
+      font-weight: bold;
+      border-left: 8px solid #DD0000;
+      letter-spacing:12px;
+      padding: 18px 0;
+      width:100;
+      margin-bottom: 1%;
+    }    
+/*まだ猫登録されてない時*/
+  #none_cat_field{
+      background-color: #c0c0c0;
+      width:100%;
+      height:300px;
+      text-align: center;
+      position: relative;
+      h3{
+          color: #fff;
+          position: relative;
+          top:50%;
+          left:-2%;
+          letter-spacing: 10px;
+          font-weight:bold;
+         
+      }
+  }
+/**** /詳細ページ********/
 
 
 @media screen and (max-width: 767px){
@@ -144,6 +183,7 @@ body{
         left: 8%;
       }
     }
+
 }
 /* *****************************************:スマートフォン処理**************************************************************** */
 /***************極小スマホ*********************************************/
@@ -182,6 +222,7 @@ body{
         left: 7%;
       }
     }
+   
 }
 /***************大スマホ*********************************************/
 @media screen and (min-width: 500px) and (max-width: 660px){
