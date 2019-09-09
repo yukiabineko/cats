@@ -30,7 +30,11 @@ class UsersController < ApplicationController
 
   def edit
   end
-  
+#猫新規登録ページ
+ def cat_new
+   @user = User.find(params[:user_id])
+   @cat = @user.cats.new
+ end
 #各オーナーさん個別ページ
   def show
     @cats = @user.cats.all
@@ -56,6 +60,7 @@ class UsersController < ApplicationController
   def show_image  
     send_data @user.image
   end
+#-----------------------------------------------------------------------------------  
 private
    #個別ユーザー呼び出し
   def set_user                                                               
