@@ -12,7 +12,9 @@
         投稿された内容について<br>
         皆さんでお話をしたり、質問、相談に答えたあげよう。
     </p>
-    <div class="alert alert-info"><%= "コメントおよび返信するにはログインしてください" unless logged_in? %></div>
+    <% unless logged_in? %>
+      <div class="alert alert-info"><%= "コメントおよび返信するにはログインしてください" %></div>
+    <% end %>  
 </div>
 <div class="container">
     <div class="row">
