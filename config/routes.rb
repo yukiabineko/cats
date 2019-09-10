@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   post 'cat_create/:user_id',to:'users#cat_create',           as: :cat_create     #猫新規登録
   get 'cat_show_image/:id',to:'users#cat_show_image',         as: :cat_show_image #猫写真アクセス
   get 'cat_modal/:id',to:'users#cat_modal',                   as: :cat_modal      #猫詳細
-  delete 'cat_delete/:id',to:'users#cat_delete',               as: :cat_delete     #猫データ削除
+  delete 'cat_delete/:id',to:'users#cat_delete',              as: :cat_delete     #猫データ削除
+  
+  get 'cats/:id/plan_show/:user_id',to:'schedules#show',       as:  :plan_show     #各猫スケジュール
   
 end
 

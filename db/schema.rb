@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190908143440) do
+ActiveRecord::Schema.define(version: 20190910100115) do
 
   create_table "cats", force: :cascade do |t|
-    t.string "cat_name", null: false
+    t.string "cat_name"
     t.binary "cat_image"
     t.string "cat_sex"
     t.integer "cat_weight"
     t.integer "cat_age"
-    t.integer "user_id" , null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cats_on_user_id"
@@ -45,12 +45,21 @@ ActiveRecord::Schema.define(version: 20190908143440) do
   end
 
   create_table "replies", force: :cascade do |t|
-    t.string "reply_content", null: false
-    t.integer "user_id"   , null: false
-    t.integer "message_id" , null: false
+    t.string "reply_content"
+    t.integer "user_id"
+    t.integer "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_id"], name: "index_replies_on_message_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.date "plan_date"
+    t.string "plan_content"
+    t.integer "cat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cat_id"], name: "index_schedules_on_cat_id"
   end
 
   create_table "users", force: :cascade do |t|

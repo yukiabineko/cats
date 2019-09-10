@@ -1,0 +1,43 @@
+<%= provide(:title,"#{@cat.cat_name}ちゃんスケジュール管理") %>
+<div id="plan_head">
+    <h1><%= "#{@cat.cat_name}ちゃんスケジュール管理" %></h1>
+</div>
+<!-- main -->
+<div id="plan_main">
+    <div class="col-md-3 col-md-offset-1">
+<!--新規-->
+      <div id="new_plan">
+          <h1>新規スケジュール作成</h1>
+          <%= form_with(model:@plan,url:"#",local:true) do |f| %>
+            <%=f.label :"予定日" %>
+            <%=f.date_field :plan_date,class:"form-control" %>
+            
+            <%=f.label :"内容" %>
+            <%=f.text_area :plan_content,row:2,class:"form-control" %><br>
+            
+            <div style="text-align:center">
+                 <%= f.submit "登録",class:"btn btn-primary btn-block" %>
+            </div>
+           
+          <% end %>
+          
+      </div>
+    </div>
+<!--スケジュール更新-->    
+    <div class="col-md-8">
+        <div id="edit_plan">
+            <h4>登録スケジュール</h4>
+            <table class="table table-striped" id="plan_table">
+                <thead>
+                    <tr>
+                        <th>日付</th><th>内容</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plan_date: 2019-09-10
+  plan_content: MyString
+  cat: one
+
+two:
+  plan_date: 2019-09-10
+  plan_content: MyString
+  cat: two
