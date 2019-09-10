@@ -36,7 +36,7 @@
                 <button id="button1" class="btn btn-primary">更新作業する</button>
                 <button id="button2" class="btn btn-warning">更新終了</button>
             </div>
-            <%= form_with(model:@cat,url:plan_update_path,method: :patch) do |f| %>
+            <%= form_with(model:@cat,url:plan_update_path(params:{cat_id:@cat.id}),method: :patch) do |f| %>
             <table class="table table-striped" id="plan_table">
                 <thead>
                     <tr>
@@ -54,8 +54,11 @@
                           <td>
                               <% (schedule.plan_content).split("\n").each do |content| %>
                                 <p class="plan_p"><%= content %></p>
-                                 <%= af.text_area :plan_content, row:2,class:"form-control area_form" %>
+                                 <%= af.text_area :plan_content, row:4,class:"form-control area_form" %>
                               <% end %>
+                          </td>
+                          <td>
+                              <%= link_to "終了/削除",plan_delete_path(schedule),data:{confirm:"終了させますか？"},method: :delete,class:"btn btn-danger" %>
                           </td>
                       </tr>
                       <% end %>
