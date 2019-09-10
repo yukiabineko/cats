@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   delete 'cat_delete/:id',to:'users#cat_delete',              as: :cat_delete     #猫データ削除
   
   get 'cats/:id/plan_show/:user_id',to:'schedules#show',       as:  :plan_show     #各猫スケジュール
-  
+  post 'cats/plan_create',to:'schedules#create',                as:  :plan_create  #スケジュール登録
+  patch 'cats/plan_update',to:'schedules#update',              as:  :plan_update   #スケジュールupdate
 end
 

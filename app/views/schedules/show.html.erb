@@ -8,12 +8,17 @@
 <!--新規-->
       <div id="new_plan">
           <h1>新規スケジュール作成</h1>
-          <%= form_with(model:@plan,url:"#",local:true) do |f| %>
-            <%=f.label :"予定日" %>
-            <%=f.date_field :plan_date,class:"form-control" %>
+          <%= form_with(model:@schedule,url:plan_create_path,local:true) do |f| %>
+             <%= render 'shared/schedule_error' %>
+                   <% if @schedule.errors.any? %>
+                       <style>#new_plan{padding:bottom:100px;}</style>
+    　              <% end %>
+            <%= f.label :"予定日" %>
+            <%= f.date_field :plan_date,class:"form-control" %>
             
-            <%=f.label :"内容" %>
-            <%=f.text_area :plan_content,row:2,class:"form-control" %><br>
+            <%= f.label :"内容" %>
+            <%= f.text_area :plan_content,row:2,class:"form-control" %><br>
+            <%= f.hidden_field :cat_id,value:@cat.id %>
             
             <div style="text-align:center">
                  <%= f.submit "登録",class:"btn btn-primary btn-block" %>
@@ -27,17 +32,79 @@
     <div class="col-md-8">
         <div id="edit_plan">
             <h4>登録スケジュール</h4>
+            <div class="text-left">
+                <button id="button1" class="btn btn-primary">更新作業する</button>
+                <button id="button2" class="btn btn-warning">更新終了</button>
+            </div>
+            <%= form_with(model:@cat,url:plan_update_path,method: :patch) do |f| %>
             <table class="table table-striped" id="plan_table">
                 <thead>
                     <tr>
-                        <th>日付</th><th>内容</th>
+                        <th style="width:15%;">日付</th><th>内容</th><th style="width:10%;">終了</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <% @schedules.each do |schedule| %>
+                     <%= fields_for "plans[]",schedule do |af| %>
+                      <tr>
+                          <td>
+                              <label class="plan_lb"><%= schedule.plan_date %></label><br>
+                              <%= af.date_field :plan_date,class:"form-control date_form" %>
+                         </td>
+                          <td>
+                              <% (schedule.plan_content).split("\n").each do |content| %>
+                                <p class="plan_p"><%= content %></p>
+                                 <%= af.text_area :plan_content, row:2,class:"form-control area_form" %>
+                              <% end %>
+                          </td>
+                      </tr>
+                      <% end %>
+                    <% end %>
                 </tbody>
             </table>
+            <div style="text-align:center">
+                <%= f.submit "内容更新",class:"btn btn-primary btn-block",id:"form_submit" %>
+                <% end %>
+            </div>
         </div>
     </div>
     
 </div>
+<script>
+    var date = document.getElementsByClassName("date_form");
+    var area = document.getElementsByClassName("area_form");
+    var label =document.getElementsByClassName("plan_lb");
+    var p = document.getElementsByClassName("plan_p");
+    var button1 = document.getElementById("button1");
+    var button2 = document.getElementById("button2");
+    var submit = document.getElementById("form_submit");
+    
+    button1.addEventListener('click',function(){
+       for(var i=0; i<date.length; i++){
+           date[i].style.display = "block";
+           area[i].style.display = "block";
+           label[i].style.display = "none";
+           p[i].style.display = "none";
+       }
+       button2.style.display = "block";
+       button1.style.display = "none";
+       submit.style.display = "block";
+       
+    });
+    button2.addEventListener('click',function(){
+       for(var i=0; i<date.length; i++){
+           date[i].style.display = "none";
+           area[i].style.display = "none";
+           label[i].style.display = "block";
+           p[i].style.display = "block";
+       }
+       button2.style.display = "none";
+       button1.style.display = "block";
+       submit.style.display = "none";
+       
+    });
+    
+    
+    
+    
+</script>
