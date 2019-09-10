@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user]
+  before_action :set_cat,only:[:cat_modal,:cat_delete]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user,only: :destroy
@@ -31,11 +32,13 @@ class UsersController < ApplicationController
   def edit
   end
 #猫新規登録ページ
+
  def cat_new
    @user = User.find(params[:user_id])
    @cat = @user.cats.new
  end
 #猫登録
+
 def cat_create
    @user = User.find(params[:user_id])
    @cat = @user.cats.new(cat_parameter)
@@ -46,7 +49,22 @@ def cat_create
      render :cat_new
    end   
 end 
+
+#猫詳細モーダル
+
+def cat_modal
+  
+end  
+
+#猫データ削除
+
+def cat_delete
+  @cat.destroy
+  redirect_to user_url @cat.user
+end
+
 #各オーナーさん個別ページ
+
   def show
     @cats = @user.cats.all
   end
@@ -82,6 +100,10 @@ private
    #個別ユーザー呼び出し
   def set_user                                                               
     @user = User.find(params[:id] )
+  end
+#個別猫呼び出し
+  def set_cat
+     @cat = Cat.find(params[:id])
   end
   
   def user_parameter     #ユーザーのpost patchパラメーター    rmasicで処理

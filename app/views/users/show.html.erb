@@ -43,6 +43,9 @@
 <!----------/コンテナ1--------->
 <h1 id="cat_info">オーナー猫ちゃん情報</h1>
 
+<!--猫モーダル-->
+<div id="cat-show" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
+
 <div id="cat_area-show">
  <!----------コンテナ2-------------------------------> 
  <div class="container">
@@ -63,7 +66,7 @@
                   <table class="table table-bordered table-striped" id="cat_table">
                      <thead>
                          <tr>
-                             <th style="width:40px;"></th><th style="width:40%;">猫ちゃん名</th><th>年齢</th><th>性別</th><th>体重(kg)</th>
+                             <th style="width:40px;"></th><th style="width:70%;">猫ちゃん名</th><th colspan="2"></th>
                          </tr>
                      </thead>
                      <tbody>
@@ -71,9 +74,15 @@
                            <tr>
                                <td><%= image_tag(cat_show_image_url(cat),size:"40x40") %></td>
                                <td><%= "#{cat.cat_name}ちゃん" %></td>
-                               <td><%= "#{cat.cat_age}才" %></td>
-                               <td><%= cat.cat_sex %></td>
-                               <td><%= cat.cat_weight %></td>
+                               <td>
+                                   <div class=row>
+                                       <div class="col-md-12">
+                                           <%=link_to "詳細",cat_modal_path(cat),remote:true,class:"btn btn-primary" %>
+                                           <%=link_to "削除",cat_delete_path(cat),data:{confirm:"削除しますか？"},method: :delete,class:"btn btn-danger" %>
+                                           <%=link_to "計画","#",class:"btn btn-info" %>
+                                       </div>
+                                   </div
+                               </td>
                            </tr>
                          <% end %>
                      </tbody>
