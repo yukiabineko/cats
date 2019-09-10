@@ -5,26 +5,27 @@
 <div id="new_user_head">
  <h1 style="color:#fff;font-weight:bold;margin-left:20%;">オーナー編集</h1>
 </div>
-
-<!--フォームと左右エリア-->
 <div id="edit_main">
-
-<%= form_with(model: @user, local: true,multipart: true) do |f| %>
-<div id="edit_user_left">
-    <div id="edit_picture">
-        <%=image_tag(show_image_url(@user),id:"user_img") %>
-    </div>
-    <div class="input-group">
-     <label class="input-group-btn">
-          <span class="btn btn-primary">
-            プロフィール画像<%=f.file_field :image,style:"display:none" %>
-          </span>
-        </label>
-        <input type="text" class="form-control" placeholder="画像選択してください" readOnly="true">
-    </div><br>
-    
+<div class="row">
+    <div class="col-md-2 col-md-offset-1">
+        <%= form_with(model: @user, local: true,multipart: true) do |f| %>
+        <div id="edit_user_left">
+            <div id="edit_picture">
+                <%=image_tag(show_image_url(@user),id:"user_img") %>
+            </div>
+            <div class="input-group">
+             <label class="input-group-btn">
+                  <span class="btn btn-primary">
+                    プロフィール画像<%=f.file_field :image,style:"display:none" %>
+                  </span>
+                </label>
+                <input type="text" class="form-control" placeholder="画像を選択してください" readOnly="true">
+            </div><br>
+            </div>
 </div>
-<div id="edit_user_right">
+<!--フォームと左右エリア-->
+ <div class="col-md-8 col-md-offset-1">
+    <div id="edit_user_right">
   
       <%= render 'shared/error_messages' %>
       <% if @user.errors.any? %>
@@ -42,16 +43,20 @@
 
       <%= f.label :パスワード確認 %><span style="color:red"><strong>*必須です</strong></span>
       <%= f.password_field :password_confirmation,placeholder:"確認のためもう一度",class:"form-control" %><br>
-</div>
-<div id="empty"></div><br><br>
+</div> 
+ </div>
+
+</div><br>
 <div  id="bt_area">
-   
-     <%= f.submit "更新する", class: "btn btn-primary btn-lg w-50" %>
+  　　<%= f.submit "更新する", class: "btn btn-primary btn-lg w-50" %>
       <%= link_to "TOPへ戻る",root_path,data: {"turbolinks" => false},class:"btn btn-default btn-lg" %>
+       <% end %> 
 </div>
+
+　　
 </div>
-  <% end %>
+ 
 
 <style>
-    body{background-color:pink;width:980px;}
+    body{background-color:pink;}
 </style>
