@@ -2,8 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #plan_head{
-    background-color:#c0c0c0;
-    margin-top:5%;
+    color:#fff;
+    margin:5% 0;
+    h1{margin-bottom:3%;font-weight:bold;}
 }
 #plan_main{
     width:100%;
@@ -26,14 +27,22 @@
     background-color:#fff;
     padding:30px 0;
     text-align:center;
+    h4{
+        color:#c0c0c0;
+        font-weight:bold;
+    
+    }
     
 }
 #plan_table{
     th{ background-color:orange;}
        
 }
+#button_area{
+  margin-top:-8%;
+}
 .date_form{display:none;margin-top:-5%;}
 .area_form{display:none;}
-#button1{margin: 0 0 2% 2%;}
-#button2{margin: 0 0 2% 2%;display:none;}
+#button1{margin: 3% 0 2% 0;}
+#button2{margin: 3% 0 2% 0%;display:none;}
 #form_submit{display:none;}

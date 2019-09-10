@@ -31,11 +31,12 @@
 <!--スケジュール更新-->    
     <div class="col-md-8">
         <div id="edit_plan">
-            <h4>登録スケジュール</h4>
-            <div class="text-left">
-                <button id="button1" class="btn btn-primary">更新作業する</button>
-                <button id="button2" class="btn btn-warning">更新終了</button>
-            </div>
+            <h4><%= "#{@cat.cat_name}ちゃんの登録スケジュール" %></h4>
+            <div class="text-center"><%=will_paginate @messages,previous_label: '&lt 前へ', next_label: '次へ &gt' %></div>
+             <div class="text-left" id="button_area">
+                      <button id="button1" class="btn btn-primary">更新作業する</button>
+                      <button id="button2" class="btn btn-warning">更新終了</button>
+                 </div>
             <%= form_with(model:@cat,url:plan_update_path(params:{cat_id:@cat.id}),method: :patch) do |f| %>
             <table class="table table-striped" id="plan_table">
                 <thead>
@@ -52,13 +53,11 @@
                               <%= af.date_field :plan_date,class:"form-control date_form" %>
                          </td>
                           <td>
-                              <% (schedule.plan_content).split("\n").each do |content| %>
-                                <p class="plan_p"><%= content %></p>
+                                <p class="plan_p"><%= schedule.plan_content  %></p>
                                  <%= af.text_area :plan_content, row:4,class:"form-control area_form" %>
-                              <% end %>
                           </td>
                           <td>
-                              <%= link_to "終了/削除",plan_delete_path(schedule),data:{confirm:"終了させますか？"},method: :delete,class:"btn btn-danger" %>
+                              <%= link_to "終了/削除",plan_delete_path(schedule),data:{confirm:"終了させますか？"},method: :delete,class:"btn btn-danger delete_form" %>
                           </td>
                       </tr>
                       <% end %>
@@ -77,6 +76,7 @@
     var date = document.getElementsByClassName("date_form");
     var area = document.getElementsByClassName("area_form");
     var label =document.getElementsByClassName("plan_lb");
+    var del =document.getElementsByClassName("delete_form");
     var p = document.getElementsByClassName("plan_p");
     var button1 = document.getElementById("button1");
     var button2 = document.getElementById("button2");
@@ -88,6 +88,7 @@
            area[i].style.display = "block";
            label[i].style.display = "none";
            p[i].style.display = "none";
+           del[i].style.display ="none";
        }
        button2.style.display = "block";
        button1.style.display = "none";
@@ -100,6 +101,7 @@
            area[i].style.display = "none";
            label[i].style.display = "block";
            p[i].style.display = "block";
+          del[i].style.display ="block";
        }
        button2.style.display = "none";
        button1.style.display = "block";
