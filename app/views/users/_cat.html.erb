@@ -10,29 +10,32 @@
               <span aria-hidden="true">&times;</span>
             </button></div>
                 </div>
-            <div class="modal-body">
+               <div class="modal-body">
+                 <h1 id="cat_info">詳細</h1>
                <div class="row">
-                 <div class="col-md-12">
-                    <div style="width:100%;">
-                      <%= image_tag(cat_show_image_url(@cat),style:"width:100%;") %>
-                      <h1 id="cat_info">詳細</h1>
-                      <table class="table table-bordered" id="cat_table">
-                        <tr>
-                          <th>年齢</th>
-                          <td><%= "#{@cat.cat_age}歳" %></td>
-                        </tr>
-                         <tr>
-                          <th>性別</th>
+                 <div class="col-md-6">
+                   <%= image_tag(cat_show_image_url(@cat),style:"width:100%;") %>
+                </div>
+                <div class="col-md-6">
+                  <table class="table table-bordered" id="cat_table">
+                    <tr>
+                     <th>名前</th>
+                       <td><%= "#{@cat.cat_name}ちゃん" %></td>
+                     </tr>  
+                    <tr>
+                     <th>年齢</th>
+                       <td><%= "#{@cat.cat_age}歳" %></td>
+                     </tr>
+                     <tr>
+                       <th>性別</th>
                           <td><%= @cat.cat_sex %></td>
                         <tr>
-                          <th>体重</th>
+                    <th>体重</th>
                           <td><%= "#{@cat.cat_weight}kg" %></td>
-                        </tr>
-                      </table>
-                    </div>
-                 </div>
+                    </tr>
+                 </table>
                </div>
-              
+              </div>
             </div>
         </div>
     </div>
