@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
-  before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit]
+  before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update,:cat_new]
   before_action :admin_user,only: :destroy
@@ -56,7 +56,16 @@ end
 
 def cat_modal
 end  
-
+#猫データアップデート
+def cat_update
+  @cat = Cat.find(params[:id])
+  if @cat.update_attributes(cat_parameter)
+     flash[:success] = "編集成功"
+  else
+    flash[:danger] = "編集失敗"
+  end  
+  redirect_to user_url @cat.user
+end
 #猫データ削除
 
 def cat_delete
