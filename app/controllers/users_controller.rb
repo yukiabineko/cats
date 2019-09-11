@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
-  before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update]
+  before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update, :cat_plan]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update,:cat_new]
   before_action :admin_user,only: :destroy
@@ -75,6 +75,7 @@ end
 
 #猫計画モーダル
 def cat_plan
+   @schedule = @cat.schedules.new
   
 end
 

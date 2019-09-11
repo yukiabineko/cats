@@ -81,11 +81,11 @@
                                    <% over = date_over(cat) %>
                                    
                                    <!-- 通知関連-->
-                                   <% if count >0 %>
-                                     <br><br><%= link_to "[#{count}件の登録スケジュールあります]",cat_plan_path(cat),remote:true,id:"count_link" %>
-                                   <% end %>
-                                   <% if over >0 %>
-                                     <br id="br"><%=link_to "[#{over}件期限切れの計画あります確認ください]",plan_show_path(cat,cat.user) ,id:"over_link" %>
+                                   <% if over==0 && count> 0 %>
+                                     <br><br><%= link_to "[#{count}件の登録スケジュールあります]",plan_show_path(cat,cat.user),id:"count_link" %>
+                                
+                                   <% elsif over >0 %>
+                                     <br><br id="br"><%=link_to "[#{over}件期限切れの計画あります確認ください]",plan_show_path(cat,cat.user) ,id:"over_link" %>
                                    <% end %>
                                </td>
                                <td>
@@ -93,7 +93,7 @@
                                        <div class="col-md-12">
                                            <%=link_to "編集",cat_edit_path(cat),remote:true,class:"btn btn-primary" %>
                                            <%=link_to "削除",cat_delete_path(cat),data:{confirm:"削除しますか？"},method: :delete,class:"btn btn-danger" %>
-                                           <%=link_to "計画",plan_show_path(cat,cat.user),class:"btn btn-info" %>
+                                           <%=link_to "計画",cat_plan_path(cat),remote:true,class:"btn btn-info" %>
                                        </div>
                                    </div
                                </td>

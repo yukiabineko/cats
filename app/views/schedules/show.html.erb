@@ -8,32 +8,11 @@
 </div>
 
 <div id="plan_main">
-    <div class="col-md-3 col-md-offset-1">
 <!--新規-->
-      <div id="new_plan">
-          <h1>新規スケジュール作成</h1>
-          <%= form_with(model:@schedule,url:plan_create_path,local:true) do |f| %>
-             <%= render 'shared/schedule_error' %>
-                   <% if @schedule.errors.any? %>
-                       <style>#new_plan{padding:bottom:100px;}</style>
-    　              <% end %>
-            <%= f.label :"予定日" %>
-            <%= f.date_field :plan_date,class:"form-control" %>
-            
-            <%= f.label :"内容" %>
-            <%= f.text_area :plan_content,row:2,class:"form-control" %><br>
-            <%= f.hidden_field :cat_id,value:@cat.id %>
-            
-            <div style="text-align:center">
-                 <%= f.submit "登録",class:"btn btn-primary btn-block" %>
-            </div>
-           
-          <% end %>
-          
-      </div>
+      
     </div>
 <!--スケジュール更新-->    
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div id="edit_plan">
             <h4><%= "#{@cat.cat_name}ちゃんの登録スケジュール" %></h4>
             <% if @schedules.count > 0 %>
@@ -54,7 +33,12 @@
                      <%= fields_for "plans[]",schedule do |af| %>
                       <tr>
                           <td>
-                              <label class="plan_lb"><%= schedule.plan_date %></label><br>
+                              <% if schedule.plan_date< Date.today %>
+                              <label class="plan_lb"> <span style="background-color:red;color:#fff;padding:6px">期限切れ</span><%= schedule.plan_date %></label><br>
+                              <% else %>
+                                <label class="plan_lb"><%= schedule.plan_date %></label><br>
+                              <% end %>
+                              
                               <%= af.date_field :plan_date,class:"form-control date_form" %>
                          </td>
                           <td>

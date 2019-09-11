@@ -374,7 +374,10 @@ body{
         font-size:12px;
      }
 #br{display:none;} /*通知縦並び防止*/
-    
+/*モーダル内スケジュールテーブル*/
+#modal_plan_table{      
+    th{background-color:orange; text-align:center;}
+}    
 /*******猫新規登録*********/
 /*先頭*/
 #new_cat_head{
