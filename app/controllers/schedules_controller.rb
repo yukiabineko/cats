@@ -1,4 +1,6 @@
 class SchedulesController < ApplicationController
+  before_action :cat_user,only:[:show,:correct_user]
+  before_action :correct_user,only:[:show]
   
 #表示して  
   def show
@@ -40,5 +42,13 @@ private
   end
   def plan_parameter
     params.permit(plans:[:plan_date, :plan_content])[:plans]
+  end
+#ユーザー
+ def cat_user
+   @user = User.find(params[:user_id])
+ end
+#ログインユーザー自身以外の猫ページアクセス禁止  
+  def correct_user
+      redirect_to(root_url) unless current_user?(@user)
   end
 end

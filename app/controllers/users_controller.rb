@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user]
+  before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new]
   before_action :set_cat,only:[:cat_modal,:cat_delete]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update,:cat_new]
   before_action :admin_user,only: :destroy
   
   
@@ -34,7 +34,6 @@ class UsersController < ApplicationController
 #猫新規登録ページ
 
  def cat_new
-   @user = User.find(params[:user_id])
    @cat = @user.cats.new
  end
 #猫登録

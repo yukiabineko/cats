@@ -10,7 +10,7 @@
                 <div class="row">
                   <div class="col-md-8 col-md-offset-2">
                     <div id="new_cat_form"> 
-                    <%= form_with(model:@cat,url:cat_create_path,local:true) do |f| %>
+                    <%= form_with(model:@cat,url:cat_create_path(@user),local:true) do |f| %>
                        <%= render 'shared/cat_error' %>
                        <% if @cat.errors.any? %>
                          <style>#new_cat_form{padding_bottom:8px;}</style>
