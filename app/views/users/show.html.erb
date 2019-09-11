@@ -45,6 +45,7 @@
 
 <!--猫モーダル-->
 <div id="cat-show" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
+<div id="cat-edit" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
 
 <div id="cat_area-show">
  <!----------コンテナ2-------------------------------> 
@@ -66,7 +67,7 @@
                   <table class="table table-bordered table-striped" id="cat_table">
                      <thead>
                          <tr>
-                             <th style="width:40px;"></th><th style="width:70%;">猫ちゃん名</th><th colspan="2"></th>
+                             <th style="width:40px;"></th><th style="width:70%;">猫ちゃん名<br><span style="color:red">*予定ある場合表示</span></th><th colspan="2"></th>
                          </tr>
                      </thead>
                      <tbody>
@@ -74,7 +75,7 @@
                            <tr>
                                <td><%= image_tag(cat_show_image_url(cat),size:"40x40") %></td>
                                <td>
-                                   <%= "#{cat.cat_name}ちゃん" %>
+                                　 <%=link_to "#{cat.cat_name}ちゃん",cat_modal_path(cat),remote:true,style:"color:black"; %>
                                    <% count = plan_count(cat)  %>
                                    <% over = date_over(cat) %>
                                    
@@ -89,7 +90,7 @@
                                <td>
                                    <div class=row>
                                        <div class="col-md-12">
-                                           <%=link_to "詳細",cat_modal_path(cat),remote:true,class:"btn btn-primary" %>
+                                           <%=link_to "編集",cat_edit_path(cat),remote:true,class:"btn btn-primary" %>
                                            <%=link_to "削除",cat_delete_path(cat),data:{confirm:"削除しますか？"},method: :delete,class:"btn btn-danger" %>
                                            <%=link_to "計画",plan_show_path(cat,cat.user),class:"btn btn-info" %>
                                        </div>
@@ -102,7 +103,7 @@
               </div>
             <!--/猫登録-->      
             <% end %>
-            <div style="text-align:center"><%= link_to "新規猫ちゃん登録/編集",cat_new_path(@user),class:"btn btn-primary btn-lg" %> </div>
+            <div style="text-align:center"><%= link_to "新規猫ちゃん登録",cat_new_path(@user),class:"btn btn-primary btn-lg" %> </div>
          </div>
      </div>
  </div>

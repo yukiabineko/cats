@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new]
-  before_action :set_cat,only:[:cat_modal,:cat_delete]
+  before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
+  before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update,:cat_new]
   before_action :admin_user,only: :destroy
@@ -48,11 +48,13 @@ def cat_create
      render :cat_new
    end   
 end 
+#猫編集モーダル
+  def cat_edit
+  end
 
 #猫詳細モーダル
 
 def cat_modal
-  
 end  
 
 #猫データ削除

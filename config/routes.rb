@@ -28,12 +28,12 @@ Rails.application.routes.draw do
   
   get 'replay/show_modal/:msg_id',to:'messages#replay_show',  as: :replay_show    #返信用モーダル
   post 'replay/create/:msg_id',to:"messages#replay_create",   as: :replay_create  #返信登録 
-  get 'cats_new/:id',to:"users#cat_new",                 as: :cat_new        #猫新規登録ページ
+  get 'cats_new/:id',to:"users#cat_new",                      as: :cat_new        #猫新規登録ページ
   post 'cat_create/:user_id',to:'users#cat_create',           as: :cat_create     #猫新規登録
   get 'cat_show_image/:id',to:'users#cat_show_image',         as: :cat_show_image #猫写真アクセス
   get 'cat_modal/:id',to:'users#cat_modal',                   as: :cat_modal      #猫詳細
   delete 'cat_delete/:id',to:'users#cat_delete',              as: :cat_delete     #猫データ削除
-  
+  get 'cat_edit/:id',to:"users#cat_edit",                      as: :cat_edit      #猫編集モーダル
   get 'cats/:id/plan_show/:user_id',to:'schedules#show',       as:  :plan_show     #各猫スケジュール
   post 'cats/plan_create',to:'schedules#create',                as:  :plan_create  #スケジュール登録
   patch 'cats/plan_update',to:'schedules#update',              as:  :plan_update   #スケジュールupdate
