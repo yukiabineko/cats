@@ -46,6 +46,7 @@
 <!--猫モーダル-->
 <div id="cat-show" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
 <div id="cat-edit" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
+<div id="cat-plan" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true"></div>
 
 <div id="cat_area-show">
  <!----------コンテナ2-------------------------------> 
@@ -81,10 +82,10 @@
                                    
                                    <!-- 通知関連-->
                                    <% if count >0 %>
-                                     <br><br><%= link_to "[#{count}件の登録スケジュールあります]","#",id:"count_link" %>
+                                     <br><br><%= link_to "[#{count}件の登録スケジュールあります]",cat_plan_path(cat),remote:true,id:"count_link" %>
                                    <% end %>
                                    <% if over >0 %>
-                                     <br id="br"><%=link_to "[#{over}件の期限切れの計画あります。すぐ確認ください]","#",id:"over_link" %>
+                                     <br id="br"><%=link_to "[#{over}件期限切れの計画あります確認ください]",plan_show_path(cat,cat.user) ,id:"over_link" %>
                                    <% end %>
                                </td>
                                <td>
@@ -109,3 +110,21 @@
  </div>
  <!----------コンテナ2------------------------------->  
 </div>
+<script>
+     var obj = document.getElementById('over_link');
+      var num =0;
+      colorChange();
+      function colorChange(){
+    num +=1
+    if(num %2 == 0){
+        obj.style.color = "#ff3333";
+       
+    }
+    else{
+         obj.style.color = "#990000";
+         
+    }
+    setTimeout("colorChange()",50);
+}
+ 
+</script>

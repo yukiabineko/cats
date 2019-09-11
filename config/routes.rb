@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'cat_modal/:id',to:'users#cat_modal',                   as: :cat_modal      #猫詳細
   delete 'cat_delete/:id',to:'users#cat_delete',              as: :cat_delete     #猫データ削除
   get 'cat_edit/:id',to:"users#cat_edit",                      as: :cat_edit      #猫編集モーダル
+  get 'cat_plan/:id',to:'users#cat_plan',                     as:  :cat_plan      #猫スケジュールモーダル
   get 'cats/:id/plan_show/:user_id',to:'schedules#show',       as:  :plan_show     #各猫スケジュール
   post 'cats/plan_create',to:'schedules#create',                as:  :plan_create  #スケジュール登録
   patch 'cats/plan_update',to:'schedules#update',             as:  :plan_update   #スケジュールupdate

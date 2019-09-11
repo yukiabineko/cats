@@ -399,12 +399,15 @@ body{
 /*通知処理*/
       #count_link{
         font-weight:none; 
-        font-size:8px;
+        font-size:10px;
       }
 /*期限切れ*/
       #over_link{
         color:red;  
         font-weight:none; 
-        font-size:8px;
+        font-size:9px;
      }
+    #cat_update_sbmit{
+        text-align:center;
+    } 
 }

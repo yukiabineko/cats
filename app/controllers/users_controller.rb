@@ -73,6 +73,11 @@ def cat_delete
   redirect_to user_url @cat.user
 end
 
+#猫計画モーダル
+def cat_plan
+  
+end
+
 #各オーナーさん個別ページ
 
   def show
@@ -121,6 +126,7 @@ private
         params[:user][:image] = params[:user][:image].read
         image = params[:user][:image]
         rmagick_image = Magick::Image.from_blob(image).first
+        rmagick_image = image2.resize(0.6)
         rmagick_image.auto_orient!
         rmagick_image.strip!
         rmagick_image.write('public/make.jpg')
@@ -137,7 +143,7 @@ private
         params[:cat][:cat_image] = params[:cat][:cat_image].read
         image = params[:cat][:cat_image]
         image2 = Magick::Image.from_blob(image).first
-        rmagick_image = image2.resize(0.2)
+        rmagick_image = image2.resize(0.6)
         rmagick_image.auto_orient!
         rmagick_image.strip!
         rmagick_image.write('public/make2.jpg')
