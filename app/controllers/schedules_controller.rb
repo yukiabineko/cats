@@ -5,12 +5,12 @@ class SchedulesController < ApplicationController
     @user = User.find(params[:user_id])
     @cat = Cat.find(params[:id])
     @schedule = @cat.schedules.new
-    @schedules = Schedule.paginate(page:params[:page],:per_page => 5).order('plan_date asc')
+    @schedules = Schedule.paginate(page:params[:page],:per_page => 5).where(cat_id: @cat.id).order('plan_date asc')
   end
 #登録  
   def create
-     @schedules = Schedule.paginate(page:params[:page],:per_page => 5).order('plan_date asc')
      @cat = Cat.find(params[:schedule][:cat_id])
+     @schedules = Schedule.paginate(page:params[:page],:per_page => 5).where(cat_id: @cat.id).order('plan_date asc')
      @schedule = @cat.schedules.new(parameter)
      if @schedule.save
        redirect_to plan_show_url(@cat,@cat.user)

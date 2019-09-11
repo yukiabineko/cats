@@ -8,6 +8,7 @@
 }
 #plan_main{
     width:100%;
+    background-color:#c0c0c0;
 }
 #new_plan{
     h1{
@@ -20,7 +21,7 @@
     }
     background-color:#fff;
     width: 100%;
-    padding: 40px 60px 80px 60px;
+    padding: 40px 40px 40px 60px;
     margin-bottom:2%;
 }
 #edit_plan{
@@ -30,6 +31,8 @@
     h4{
         color:#c0c0c0;
         font-weight:bold;
+        margin-top:-5%;
+        padding:30px 0;
     
     }
     
@@ -46,3 +49,28 @@
 #button1{margin: 3% 0 2% 0;}
 #button2{margin: 3% 0 2% 0%;display:none;}
 #form_submit{display:none;}
+
+/********************************スマートフォン************************************/
+@media screen and (max-width: 767px){
+    #plan_head{
+    margin:20% 0 15% 0;
+    h1{font-size:22px;}
+   }
+   #edit_plan{
+    h4{font-size:22px;}
+  }
+  #plan-link{text-align:center;}
+}
+/************************************pc******************************************/
+@media screen and (min-width: 1024px){
+    #plan-link{margin-left:10%;}
+    #edit_plan{
+    h4{font-size:28px;}
+   }
+   #plan_table{
+       th{
+           text-align:center;
+       }
+   }
+}
+    

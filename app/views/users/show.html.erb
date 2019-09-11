@@ -73,7 +73,19 @@
                          <% @cats.each do |cat| %>
                            <tr>
                                <td><%= image_tag(cat_show_image_url(cat),size:"40x40") %></td>
-                               <td><%= "#{cat.cat_name}ちゃん" %></td>
+                               <td>
+                                   <%= "#{cat.cat_name}ちゃん" %>
+                                   <% count = plan_count(cat)  %>
+                                   <% over = date_over(cat) %>
+                                   
+                                   <!-- 通知関連-->
+                                   <% if count >0 %>
+                                     <br><br><%= link_to "[#{count}件の登録スケジュールあります]","#",id:"count_link" %>
+                                   <% end %>
+                                   <% if over >0 %>
+                                     <br id="br"><%=link_to "[#{over}件の期限切れの計画あります。すぐ確認ください]","#",id:"over_link" %>
+                                   <% end %>
+                               </td>
                                <td>
                                    <div class=row>
                                        <div class="col-md-12">

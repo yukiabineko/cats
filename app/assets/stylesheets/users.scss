@@ -349,6 +349,19 @@ body{
         margin-bottom:10px;
       }
     }
+/*通知処理*/    
+#count_link{
+        font-size:12px;
+         font-weight:none; 
+ }
+ /*期限切れ*/
+      #over_link{
+        color:red;  
+        font-weight:none; 
+        font-size:12px;
+     }
+#br{display:none;} /*通知縦並び防止*/
+    
 /*******猫新規登録*********/
 /*先頭*/
 #new_cat_head{
@@ -369,5 +382,16 @@ body{
      #modal_img{
          height:200px;
         
+     }
+/*通知処理*/
+      #count_link{
+        font-weight:none; 
+        font-size:8px;
+      }
+/*期限切れ*/
+      #over_link{
+        color:red;  
+        font-weight:none; 
+        font-size:1px;
      }
 }
