@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-　
   get 'sessions/new'
-
   get 'auth/provider/callback', to: 'sessions#create2'
   get 'signout', to: 'sessions#destroy2', as: 'signout'
   get '/auth/:provider/callback',    to: 'users#facebook_login',      as: :auth_callback
