@@ -4,7 +4,7 @@
 </div>
 <!-- main -->
 <div class="text-left" id="plan-link">
-    <%=link_to "マイページに戻る",user_path(@user),class:"btn btn-primary"%><br><br>
+    <%=link_to "マイページに戻る",user_path(@cat.user),class:"btn btn-primary"%><br><br>
 </div>
 
 <div id="plan_main">
@@ -25,7 +25,7 @@
             <table class="table" id="plan_table">
                 <thead>
                     <tr id="tr">
-                        <th style="width:15%;">日付</th><th colspan="2">予定スケジュール内容</th><th id="th"></th>
+                        <th style="width:20%;">日付</th><th>予定スケジュール内容</th><th id="th"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,8 @@
                       <tr>
                           <td>
                               <% if schedule.plan_date< Date.today %>
-                              <label class="plan_lb"> <span style="background-color:red;color:#fff;padding:6px">期限切れ</span><%= schedule.plan_date %></label><br>
+                              <label class="plan_lb"> <span  style="background-color:red;color:#fff;padding:6px;font-size:8px;">
+                                  期限切れ</span><br><%= schedule.plan_date %></label><br>
                               <% else %>
                                 <label class="plan_lb"><%= schedule.plan_date %></label><br>
                               <% end %>

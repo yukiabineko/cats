@@ -85,7 +85,7 @@
                                      <br><br><%= link_to "[#{count}件の登録スケジュールあります]",plan_show_path(cat,cat.user),id:"count_link" %>
                                 
                                    <% elsif over >0 %>
-                                     <br><br id="br"><%=link_to "[#{over}件期限切れの計画あります確認ください]",plan_show_path(cat,cat.user) ,id:"over_link" %>
+                                     <br><br id="br"><%=link_to "#{over}件期限切れの計画あります確認ください",plan_show_path(cat,cat.user) ,id:"over_link" %>
                                    <% end %>
                                </td>
                                <td>
