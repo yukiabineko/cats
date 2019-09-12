@@ -14,7 +14,8 @@ class SchedulesController < ApplicationController
      @cat = Cat.find(params[:schedule][:cat_id])
      @schedules = Schedule.paginate(page:params[:page],:per_page => 5).where(cat_id: @cat.id).order('plan_date asc')
      @schedule = @cat.schedules.new(parameter)
-       redirect_to user_url(@cat.user)
+     @schedule.save
+     redirect_to user_url(@cat.user)
     
   end
 #アップデート

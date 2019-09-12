@@ -25,7 +25,7 @@
             <table class="table" id="plan_table">
                 <thead>
                     <tr id="tr">
-                        <th style="width:20%;">日付</th><th style="width:60%;">予定スケジュール内容</th><th id="th"></th>
+                        <th>日付</th><th style="width:45%;">予定スケジュール内容</th><th id="th"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +47,7 @@
                                  <%= af.text_area :plan_content, row:4,class:"form-control area_form" %>
                           </td>
                           <td class="delete_form">
-                              <%= link_to "終了/削除",plan_delete_path(schedule),data:{confirm:"終了させますか？"},method: :delete,class:"btn btn-danger " %>
+                              <%= link_to "終了/削除",plan_delete_path(schedule),data:{confirm:"終了させますか？"},method: :delete,class:"btn btn-danger delete_p" %>
                           </td>
                       </tr>
                       <% end %>
@@ -101,7 +101,7 @@
            p[i].style.display = "block";
           del[i].style.display ="block";
        }
-       th.style.display = "table";
+       th.style.display = "table-cell";
        th.style.backgroundColor = "orange"
        button2.style.display = "none";
        button1.style.display = "block";
