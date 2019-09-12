@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(request.env["omniauth.auth"])
     if user.save
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to user
     else
       redirect_to login_path
     end
