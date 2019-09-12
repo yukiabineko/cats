@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+　root "tops#show"  
   get 'sessions/new'
 
   get 'auth/provider/callback', to: 'sessions#create2'
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback',    to: 'users#facebook_login',      as: :auth_callback
   
 
-  root "tops#show"                                                                #root
+                                                                #root
   get '/signup',to: 'users#new'                                                   #会員登録
   
   resources :users do                                                             #ユーザーカラム一式
