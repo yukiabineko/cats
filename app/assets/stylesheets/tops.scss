@@ -1,3 +1,30 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ #tops{
+       .slideshow{
+           margin-top:-2%;
+       }
+    }
+
+
+@media screen and (max-width: 767px){
+    #tops{
+        margin-top:15%;
+    }
+    .slideshow{
+        .img_text{
+            p{
+                font-size: 18px;
+                left:20%;
+            }
+            img{
+                padding-bottom:3%;
+            }
+        }
+    }
+    #top_maininfo{
+        margin-top:-8%;
+    }
+    
+}
