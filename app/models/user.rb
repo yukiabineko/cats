@@ -56,10 +56,10 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.name = auth.info.name  
-      user.email = auth.info.email  
-      user.image = File.open('public/user.png').read  
-      user.password = "123456"
+      user.name = auth.info.name  if user.name.nil?
+      user.email = auth.info.email  if user.email.nil?
+      user.image = File.open('public/user.png').read  if user.image.nil?
+      user.password = "123456"          
       user.password_confirmation = "123456"
       return user
     end
