@@ -2,6 +2,24 @@ class SessionsController < ApplicationController
   
   def new  #ログインページ
   end
+
+  def create2
+    user = User.from_omniauth(request.env["omniauth.auth"])
+    if user.save
+      session[:user_id] = user.id
+      redirect_to root_path
+    else
+      redirect_to login_path
+    end
+  end
+
+  def destroy2
+    session[:user_id] = nil
+    redirect_to new_session_path
+  end
+
+
+
   
   def create  #ログイン機能
     user = User.find_by(email: params[:session][:email].downcase)

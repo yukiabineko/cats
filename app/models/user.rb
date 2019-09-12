@@ -3,6 +3,7 @@ class User < ApplicationRecord
     has_many :messages,dependent: :destroy 
     has_many :replies,dependent: :destroy 
     has_many :cats,dependent: :destroy 
+
     
      # 「remember_token」という仮想の属性を作成します。
     attr_accessor :remember_token
@@ -51,5 +52,17 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.email = auth.info.email
+      user.image = File.open('public/user.png').read 
+      user.password = "123456"
+      user.password_confirmation = "123456"
+      return user
+    end
+  end
 
 end

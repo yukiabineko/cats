@@ -8,7 +8,7 @@
 <div id="edit_main">
 <div class="row">
     <div class="col-md-2 col-md-offset-1">
-        <%= form_with(model: @user, local: true,multipart: true) do |f| %>
+        <%= form_with(model: @user,url:user_path(@user), local: true,multipart: true,method: :patch) do |f| %>
         <div id="edit_user_left">
             <div id="edit_picture">
                 <%=image_tag(show_image_url(@user),id:"user_img") %>

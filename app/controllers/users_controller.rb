@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
   before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update, :cat_plan]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update,:cat_new]
+  before_action :correct_user, only: [:edit,:cat_new]
   before_action :admin_user,only: :destroy
   
   
@@ -87,8 +87,10 @@ end
   
 #update  
   def update     
+  
     @user = User.find(params[:id])
     if @user.update_attributes(user_parameter)
+      
       flash[:success] = "情報更新しました。"
       redirect_to @user
     else
@@ -110,6 +112,16 @@ end
      @cat = Cat.find(params[:id])
     send_data @cat.cat_image
   end  
+
+  def facebook_login
+      user = User.from_omniauth(request.env["omniauth.auth"])
+      if user.save
+        session[:user_id] = user.id
+        redirect_to root_path
+      else
+        redirect_to root_path
+      end
+  end  
   
 #-----------------------------------------------------------------------------------  
 private
@@ -126,7 +138,7 @@ private
      if params[:user][:image]
         params[:user][:image] = params[:user][:image].read
         image = params[:user][:image]
-        rmagick_image = Magick::Image.from_blob(image).first
+        image2 = Magick::Image.from_blob(image).first
         rmagick_image = image2.resize(0.6)
         rmagick_image.auto_orient!
         rmagick_image.strip!
