@@ -85,7 +85,7 @@
                                      <br><br><%= link_to "[#{count}件の登録スケジュールあります]",plan_show_path(cat,cat.user),id:"count_link" %>
                                 
                                    <% elsif over >0 %>
-                                     <br><br id="br"><%=link_to "#{over}件期限切れの計画あります確認ください",plan_show_path(cat,cat.user) ,id:"over_link" %>
+                                     <br><br id="br"><%=link_to "#{over}件期限切れの計画あります確認ください",plan_show_path(cat,cat.user) ,class:"over_link" %>
                                    <% end %>
                                </td>
                                <td>
@@ -111,20 +111,23 @@
  <!----------コンテナ2------------------------------->  
 </div>
 <script>
-     var obj = document.getElementById('over_link');
+     var obj = document.getElementsByClassName('over_link');
       var num =0;
       colorChange();
-      function colorChange(){
-    num +=1
+    function colorChange(){
+     for(var i=0; i<obj.length; i++){
+         num +=1
     if(num %2 == 0){
-        obj.style.color = "#ff3333";
+        obj[i].style.color = "#ff3333";
        
     }
     else{
-         obj.style.color = "#990000";
+         obj[i].style.color = "#990000";
          
     }
     setTimeout("colorChange()",50);
+     }     
+    
 }
  
 </script>

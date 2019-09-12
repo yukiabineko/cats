@@ -154,6 +154,11 @@
     #reply_li{margin-left: 10%;font-weight:bold;word-break: break-all;}
     
 }
+#modal_message{
+    width:100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
 /*ボタン*/
 #bt{border: none;color:blue;background-color:#F5DEB3;font-weight:bold;}
 /*-------------------------------------------/reply-------------------------------------------------------------------*/
