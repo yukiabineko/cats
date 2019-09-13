@@ -108,10 +108,18 @@ header{
 }
  #login_link{     /*通常のログイン */
  color:#444;
+ width: 140%;
  font-size:12px;
  font-weight:bold;
 }
-
+#google_link{
+ width: 140%;
+  
+}
+#facebook_link{
+  width: 140%;
+  
+}
 
 /* header */
 /*-----------topペー��------------*/
@@ -259,11 +267,29 @@ h5{margin-left:25%;}
 #facebook_link{
   width: 80%;
 }
-.dp-li{
+#pc_header{
   width:100%;
+}
+#dp-li{
+  width:90%;
 
 }
 }
+/**********************タブレット******************/
+@media screen and (min-width: 767px) and (max-width: 1000px){
 
+#google_link{
+  width: 100%;
+  
+}
+#facebook_link{
+  width: 100%;
+  text-align:left;
+}
+#login_link{     /*通常のログイン */
+ width:100%;
+ 
+}
+}
 
 

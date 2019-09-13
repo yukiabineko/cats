@@ -48,27 +48,27 @@
               </li>
               <ul id="pc_header">
                 <div class="row">
-                  <div class="col-md-3 dp-li"><%= link_to "マイページ", current_user,class:"btn btn-primary" %></div>
-                  <div class="col-md-3"><%= link_to "オーナー編集", edit_user_path(current_user),class:"btn btn-primary"  %></div>
-                  <div class="col-md-3"><%= link_to "猫ちゃん設定", '#',class:"btn btn-primary"%></div>
-                   <div class="col-md-3"><%= link_to "ログアウト", logout_path, method: :delete ,class:"btn btn-danger"%></div>
+                  <div class="col-md-3 "><%= link_to "マイページ", current_user,class:"btn btn-primary",id:"dp-li" %></div>
+                  <div class="col-md-3"><%= link_to "オーナー編集", edit_user_path(current_user),class:"btn btn-primary",id:"dp-li"  %></div>
+                  <div class="col-md-3"><%= link_to "猫ちゃん設定", '#',class:"btn btn-primary",id:"dp-li"%></div>
+                   <div class="col-md-3"><%= link_to "ログアウト", logout_path, method: :delete ,class:"btn btn-danger",id:"dp-li"%></div>
                 </div>
               </ul>
      
             <% else %>
             <div class="conteiner">
              <div class="row">
-                 <div class="col-md-4">
-                  <%= link_to "ログイン/新規登録",login_path,class:"btn btn-default btn-lg",id:"login_link" %>
+                 <div class="col-md-3">
+                  <%= link_to "ログイン/新規登録 ",login_path,class:"btn btn-default btn-lg",id:"login_link" %>
                  </div>
-                 <div class="col-md-4">
+                 <div class="col-md-3 col-md-offset-1">
                    <a href="/auth/google_oauth2" class="btn btn-danger" id="google_link"><%=image_tag('/g.png',size:"20x20") %>Googleでログイン</a>
                  </div>
                  
-                <div class="col-md-4">
-                   <a href="/auth/facebook" class="btn btn-primary btn" id="facebook_link"><%=image_tag('/f.png',size:"20x20") %>Facebookでログイン</a>
+                <div class="col-md-3 col-md-offset-1">
+                   <a href="/auth/facebook" class="btn btn-primary" id="facebook_link"><%=image_tag('/f.png',size:"20x20") %>Facebookでログイン</a>
                  </div>
-                 
+              <div class="col-md-3"></div>   
                </div>
             <% end %>
 
