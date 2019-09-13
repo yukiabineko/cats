@@ -82,10 +82,6 @@ header{
     }
     #header-right{
     text-align:left;
-    #google{color:#fff;font-size:16px;margin-left:5px;display:inline-block;text-decoration:none;}
-    #google span{display:none;}
-    #facebook{color:#fff;;font-size:16px;display:inline-block;text-decoration:none;}
-    #facebook span{display:none;}
   }
 }
  #header_img{
@@ -110,12 +106,13 @@ header{
   color: #fff;
   text-decoration: none;
 }
-#pc_header{display:none;}
-.dropdown{display:block;}
-#header_nav{display:block;}
-#header_nav2{display:none;}
-#header_right{display:block;}
-#header-right2{display:none;}
+ #login_link{     /*通常のログイン */
+ color:#444;
+ font-size:12px;
+ font-weight:bold;
+}
+
+
 /* header */
 /*-----------topペー��------------*/
 #tops{display:none;}
@@ -249,4 +246,20 @@ h5{margin-left:25%;}
 }
 .img_text{display: none;}
  /*-----------topページ------------*/
+ #login_link{     /*通常のログイン */
+ width:80%;
+ 
+ margin-right:100%;
 }
+#google_link{
+  width: 80%;
+  img{margin-right:6%;}
+  
+}
+#facebook_link{
+  width: 80%;
+}
+}
+
+
+
