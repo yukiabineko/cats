@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
 
   def create2
     user = User.from_omniauth(request.env["omniauth.auth"])
-    if user.save
+    obj = User.find_by(email: user.email)
+    if obj.nil?
+      user.save
+    end  
+    if user.save || obj.present?
       session[:user_id] = user.id
       redirect_to root_url
     else
