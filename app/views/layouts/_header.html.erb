@@ -47,12 +47,12 @@
                 </ul>
               </li>
               <ul id="pc_header">
-              	<li><%= link_to "マイページ", current_user %></li>
-                  <li><%= link_to "オーナー編集", edit_user_path(current_user)  %></li>
-                  <li><%= link_to "猫ちゃん設定", '#' %></li>
-                  <li></li>
-                   <%= link_to "ログアウト", logout_path, method: :delete %>
-                  </li>
+                <div class="row">
+                  <div class="col-md-3 dp-li"><%= link_to "マイページ", current_user,class:"btn btn-primary" %></div>
+                  <div class="col-md-3"><%= link_to "オーナー編集", edit_user_path(current_user),class:"btn btn-primary"  %></div>
+                  <div class="col-md-3"><%= link_to "猫ちゃん設定", '#',class:"btn btn-primary"%></div>
+                   <div class="col-md-3"><%= link_to "ログアウト", logout_path, method: :delete ,class:"btn btn-danger"%></div>
+                </div>
               </ul>
      
             <% else %>
@@ -68,7 +68,7 @@
                 <div class="col-md-4">
                    <a href="/auth/facebook" class="btn btn-primary btn" id="facebook_link"><%=image_tag('/f.png',size:"20x20") %>Facebookでログイン</a>
                  </div>
-               </div>  
+                 
                </div>
             <% end %>
 
