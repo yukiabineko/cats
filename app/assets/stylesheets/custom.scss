@@ -13,7 +13,7 @@ body {
     margin: 0 0 30px 0;
   }
 }
-
+#pc_header{display:none;}
 .field_with_errors {
   @extend .has-error;
   .form-control {
