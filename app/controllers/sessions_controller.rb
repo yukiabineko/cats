@@ -8,8 +8,10 @@ class SessionsController < ApplicationController
     obj = User.find_by(email: user.email)
     if obj.nil?
       user.save
+      session[:user_id] = user.id
+      redirect_to root_url
     end  
-    if user.save || obj.present?
+    if  obj.present?
       session[:user_id] = user.id
       redirect_to root_url
     else
