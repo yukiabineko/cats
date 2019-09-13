@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
     if obj.nil?
       user.save
       session[:user_id] = user.id
-      redirect_to root_url
+      redirect_to user
     end  
     if  obj.present?
       session[:user_id] = user.id
       redirect_to root_url
     else
-      redirect_to login_path
+      redirect_to obj
     end
   end
 
