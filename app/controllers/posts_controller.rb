@@ -13,8 +13,17 @@ class PostsController < ApplicationController
          end 
 #パラメータ日付け時         
       elsif params[:date]
-      
-          @posts = Post.paginate(page: params[:page]).where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc') 
+        if params[:date].blank?
+           flash[:danger] = "検索日が無効です"
+           redirect_to posts_url
+        else
+            @posts = Post.paginate(page: params[:page]).where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc')
+            if @posts.count ==0
+               flash[:danger] = "その日付に投稿はありません"
+               redirect_to posts_url
+            end        
+        end    
+          
 #パラメータ投稿者時
       elsif params[:name]
         user= User.find_by(name: params[:name])
@@ -31,8 +40,18 @@ class PostsController < ApplicationController
          if params[:category] == "すべて"
            @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(public: true).order('created_at desc')
          end 
-       elsif params[:date]
-          @posts = Post.paginate(page: params[:page]).where('created_at like?','%'+params[:date]+'%',public: true).order('created_at desc')
+       elsif params[:date]  #日検索
+          if params[:date].blank?
+              flash[:danger] = "検索日が無効です"
+              redirect_to posts_url
+          else
+             @posts = Post.paginate(page: params[:page]).where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1)
+             .where(public:true).order('created_at desc')
+             if @posts.count ==0
+               flash[:danger] = "その日付に投稿はありません"
+               redirect_to posts_url
+             end        
+          end          
        #パラメータ投稿者時
        elsif params[:name]
          user= User.find_by(name: params[:name])
