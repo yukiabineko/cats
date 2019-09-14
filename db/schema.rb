@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190910100115) do
+ActiveRecord::Schema.define(version: 20190914052154) do
+
+  create_table "bases", force: :cascade do |t|
+    t.float "data_age"
+    t.float "min_weight"
+    t.float "max_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cats", force: :cascade do |t|
     t.string "cat_name"
     t.binary "cat_image"
     t.string "cat_sex"
-    t.integer "cat_weight"
+    t.float "cat_weight"
     t.integer "cat_age"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -42,6 +50,17 @@ ActiveRecord::Schema.define(version: 20190910100115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.date "save_date"
+    t.float "ideal_weight"
+    t.float "result_weight"
+    t.string "result"
+    t.integer "cat_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cat_id"], name: "index_records_on_cat_id"
   end
 
   create_table "replies", force: :cascade do |t|

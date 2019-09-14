@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cat_age: 1.5
+  min_weight: 1.5
+  max_weight: 1.5
+
+two:
+  cat_age: 1.5
+  min_weight: 1.5
+  max_weight: 1.5

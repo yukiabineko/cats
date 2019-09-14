@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+ 
+
   get 'sessions/new'
   get 'auth/:provider/callback', to: 'sessions#create2'
   get 'auth/failure', to: redirect('/')
@@ -44,5 +46,6 @@ Rails.application.routes.draw do
   post 'cats/plan_create',to:'schedules#create',                as:  :plan_create  #スケジュール登録
   patch 'cats/plan_update',to:'schedules#update',             as:  :plan_update   #スケジュールupdate
   delete 'cat/plan_delete/:id',to:'schedules#destroy',         as:  :plan_delete   #スケジュール削除
+  get 'records/show',to:"records#show",                         as:  :record        #健康チェックtop
 end
 

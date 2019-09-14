@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_category: MyString
+  data_age: 1
+  data_sex: MyString
+  data_weight: 1.5
+
+two:
+  data_category: MyString
+  data_age: 1
+  data_sex: MyString
+  data_weight: 1.5
