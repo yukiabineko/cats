@@ -20,18 +20,33 @@
                         <% if @cats.count ==0 %>
                           <h3>登録猫ちゃんがいません</h3>
                         <% else %>
-                          <% @cats.each do |cat| %>
-                          <select id="select" class="form-control">
-                            <option value="<%= cat.cat_name %>"><%= cat.cat_name %></option>
-                            <option value="すべて">全ての猫ちゃん</option>
-                          </select>    
-                         <!--each終了-->
-                        <% end %>
+                        <div class="form-inline">
+                            <%= form_with(url:record_path,local:true) do |f| %>
+                             <%= f.select :select,@array,{},class:"form-control",id:"select" %>
+                             <%= f.submit "選択",class:"btn btn-primary", id:"btn" %>
+                            <% end %>    
+                        </div> 
+                        <table class="table">
+                          <% if params[:select] == "すべての猫ちゃん" %>
+                             <% @cats.each do |cat| %>
+                               <tr>
+                                   <td><span style="color:blue">猫ちゃん名:</span><%= cat.cat_name %></td>
+                                   <td><span style="color:blue">年齢:</span><%= "#{cat.cat_age}歳" %></td>
+                                   <td><span style="color:blue">体重:</span><%= "#{cat.cat_weight}kg" %></td>
+                               </tr>
+                             <% end %>
+                        <!--個別選択された場合-->     
+                          <% else %>
+                            <tr>
+                                <td><span style="color:blue">猫ちゃん名:</span><%= @cat.cat_name %></td>
+                                <td><span style="color:blue">年齢:</span><%="#{@cat.cat_age}歳" %></td>
+                                <td><span style="color:blue">体重:</span><%= "#{@cat.cat_weight}kg" %></td>
+                            </tr>
+                          <% end %>
+                        </table>
                         <!--/登録猫いなかったら --> 
                       <% end %>
-                      <table class="table">
-                        <th>猫名</th>
-                      </table>
+                     
                 <!--ここまでログイン済み処理-->
                 <% else %>
                    <div id="loginess">

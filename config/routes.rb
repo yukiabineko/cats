@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   post 'cats/plan_create',to:'schedules#create',                as:  :plan_create  #スケジュール登録
   patch 'cats/plan_update',to:'schedules#update',             as:  :plan_update   #スケジュールupdate
   delete 'cat/plan_delete/:id',to:'schedules#destroy',         as:  :plan_delete   #スケジュール削除
-  get 'records/show',to:"records#show",                         as:  :record        #健康チェックtop
+  get 'record_show',to:"records#show",                         as:  :record        #健康チェックtop
+  post 'record_show',to:'records#show'
 end
 
