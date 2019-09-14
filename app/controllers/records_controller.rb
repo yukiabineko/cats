@@ -9,7 +9,7 @@ class RecordsController < ApplicationController
     else
       @cat = Cat.new
     end  
-    @array = set_array
+    @array = set_array if @cats.present?
   
   end
   
