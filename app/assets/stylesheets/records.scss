@@ -21,9 +21,16 @@
     width:50%;
     margin-left:3%;
 }
+.form-inline{
+    margin-bottom:2%;
+    
+}
 /*テーブル*/
 table{
     td{font-size:20px;font-weight:bold;}
+    img{
+        border-radius:50%;
+    }
 }
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){

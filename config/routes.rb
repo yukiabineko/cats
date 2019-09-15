@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   patch 'cats/plan_update',to:'schedules#update',             as:  :plan_update   #スケジュールupdate
   delete 'cat/plan_delete/:id',to:'schedules#destroy',         as:  :plan_delete   #スケジュール削除
   get 'record_show',to:"records#show",                         as:  :record        #健康チェックtop
-  post 'record_show',to:'records#show'
+  post 'record_show',to:'records#show'                                             #健康チェック猫選択
+  post 'result_view',to:'records#result_view',                as: :result_view
 end
 

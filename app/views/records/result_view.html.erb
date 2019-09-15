@@ -1,0 +1,27 @@
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>実施日</th>
+            <th>猫ちゃん名</th>
+            <th>猫ちゃん体重</th>
+            <th>理想体重</th>
+            <th>結果</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @obj.each do |id,obj| %>
+         <tr>
+              <td><%= obj[:date] %></td>
+             <td><%= obj[:name] %></td>
+             <td><%= obj[:weight] %></td>
+             <td><%= obj[:data_weight] %></td>
+             <td><%= obj[:result] %></td>
+         </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<style>
+    table{background:#c0c0c0;}
+    th{background:orange;}
+</style>

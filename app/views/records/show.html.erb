@@ -26,27 +26,55 @@
                              <%= f.submit "選択",class:"btn btn-primary", id:"btn" %>
                             <% end %>    
                         </div> 
-                        <table class="table">
-                          <% if params[:select] == "すべての猫ちゃん" %>
-                             <% @cats.each do |cat| %>
-                               <tr>
-                                   <td><span style="color:blue">猫ちゃん名:</span><%= cat.cat_name %></td>
-                                   <td><span style="color:blue">年齢:</span><%= "#{cat.cat_age}歳" %></td>
-                                   <td><span style="color:blue">体重:</span><%= "#{cat.cat_weight}kg" %></td>
-                               </tr>
-                             <% end %>
-                        <!--個別選択された場合-->     
-                          <% else %>
-                            <tr>
-                                <td><span style="color:blue">猫ちゃん名:</span><%= @cat.cat_name %></td>
-                                <td><span style="color:blue">年齢:</span><%="#{@cat.cat_age}歳" %></td>
-                                <td><span style="color:blue">体重:</span><%= "#{@cat.cat_weight}kg" %></td>
-                            </tr>
+                          <!--このform_withは猫が単数か複数で分岐します-->   
+                          
+                        <%= form_with(url:result_view_path,local:true) do |f| %>
+                            <table class="table">
+                              <% if params[:select] == "すべての猫ちゃん" %>
+                                 <% @cats.each do |cat| %>
+                                 <!--猫複数分岐-->
+                                  <%= fields_for "records[]",cat do |af| %>
+                                   <tr>
+                                       <td><%= image_tag(cat_show_image_url(cat),size:"40x40") %></td>
+                                       <td><span style="color:blue">猫ちゃん名:</span><%= cat.cat_name %></td>
+                                       <td><span style="color:blue">年齢:</span><%= "#{cat.cat_age}歳" %></td>
+                                       <td><span style="color:blue">体重:</span><%= "#{cat.cat_weight}kg" %></td>
+                                       <%= af.hidden_field :name,value: cat.cat_name %>
+                                       <%= af.hidden_field :age,value: cat.cat_age %>
+                                       <%= af.hidden_field :width,value: cat.cat_weight %>
+                                   </tr>
+                                  <!--fields_for終了--> 
+                                  <% end %> 
+                                  <!--猫複数分岐終了-->
+                                 <% end %>
+                            <!--個別選択された場合-->     
+                              <% else %>
+                                <tr>
+                                    <td><%= image_tag(cat_show_image_url(@cat),size:"40x40") unless @cat.cat_image.nil?  %></td>
+                                    <td><span style="color:blue">猫ちゃん名:</span><%= @cat.cat_name %></td>
+                                    <td><span style="color:blue">年齢:</span><%="#{@cat.cat_age}歳" %></td>
+                                    <td><span style="color:blue">体重:</span><%= "#{@cat.cat_weight}kg" %></td>
+                                    
+                                    <!-- form単数分岐-->
+                                    
+                                    <%= f.hidden_field :name,value: @cat.cat_name %>
+                                    <%= f.hidden_field :age,value: @cat.cat_age %>
+                                    <%= f.hidden_field :width,value: @cat.cat_weight %>
+                                </tr> 
+                              <% end %>
+                            </table>
+                            <div style="text-align:center">
+                                <% if params[:select] == "すべての猫ちゃん"  %>
+                                 <%=f.submit "健康チェック開始",class:"btn btn-primary"%>
+                                <% elsif !@cat.cat_name.nil? %>
+                                   <%=f.submit "健康チェック開始",class:"btn btn-primary"%>
+                                <% end %>
+                            <!--form終了 -->    
+                                <% end %>
+                            </div>
+                            <!--/登録猫いなかったら --> 
                           <% end %>
-                        </table>
-                        <!--/登録猫いなかったら --> 
-                      <% end %>
-                     
+                         
                 <!--ここまでログイン済み処理-->
                 <% else %>
                    <div id="loginess">
