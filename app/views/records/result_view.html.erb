@@ -9,14 +9,27 @@
         </tr>
     </thead>
     <tbody>
-        <% @obj.each do |id,obj| %>
-         <tr>
+<!--猫複数処理-->        
+        <% if params[:records]  %>
+           <% @obj.each do |id,obj| %>
+           <tr>
               <td><%= obj[:date] %></td>
              <td><%= obj[:name] %></td>
              <td><%= obj[:weight] %></td>
              <td><%= obj[:data_weight] %></td>
              <td><%= obj[:result] %></td>
-         </tr>
+           </tr>
+         <!-- each 文終了-->  
+          <% end %> 
+<!--猫単体処理-->          
+        <% else %>
+          <tr>
+              <td><%= @date %></td>
+              <td><%= @cat.cat_name %></td>
+              <td><%= @cat.cat_weight %></td>
+              <td><%= @data_weight %></td>
+              <td><%= @result %></td>
+          </tr>
         <% end %>
     </tbody>
 </table>

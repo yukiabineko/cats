@@ -33,17 +33,31 @@ class RecordsController < ApplicationController
             str = "標準です"    
           end
         end
+        @cats[:id] = cat.id
         @cats[:date] = Date.today
         @cats[:name] = cat.cat_name
         @cats[:weight] = cat.cat_weight
-        @cats[:data_weight] = "#{obj.min_weight}~#{obj.max_weight}"
+        @cats[:data_weight] = "#{min_weight}~#{max_weight}"
         @cats[:result] = str
         @obj[id]=@cats
       end    
 #猫単数パラメーター      
     elsif params[:name]
-      flash[:danger]=params[:name]
-      redirect_to root_url
+      @cat = Cat.find(params[:id])
+      @date = Date.today
+      if @cat.cat_age > 1.2
+        obj = Base.find_by(data_age: 1.2)
+        min_weight = obj.min_weight
+        max_weight = obj.max_weight
+        @data_weight = "#{min_weight}~#{max_weight}"
+        if @cat.cat_weight < min_weight
+          @result = "痩せてます"
+        elsif  @cat.cat_weight > max_weight
+          @result ="太ってます"
+        else
+          @result = "標準です"    
+        end    
+      end     
     end    
   end
 #========================================================  
@@ -51,11 +65,11 @@ private
 
 #猫単数パラメーター
   def cats_multiple_parameter
-    params.permit(records:[:name,:age,:weight])[:records]
+    params.permit(records:[:id,:name,:age,:weight])[:records]
   end
 #猫単数パラメーター
   def cat_single_parameter
-    params.permit(:name,:age,:weight)
+    params.permit(:id,:name,:age,:weight)
   end
   
 end

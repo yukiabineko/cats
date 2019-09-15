@@ -39,6 +39,7 @@
                                        <td><span style="color:blue">猫ちゃん名:</span><%= cat.cat_name %></td>
                                        <td><span style="color:blue">年齢:</span><%= "#{cat.cat_age}歳" %></td>
                                        <td><span style="color:blue">体重:</span><%= "#{cat.cat_weight}kg" %></td>
+                                       <%= af.hidden_field :id,value: cat.id %>
                                        <%= af.hidden_field :name,value: cat.cat_name %>
                                        <%= af.hidden_field :age,value: cat.cat_age %>
                                        <%= af.hidden_field :width,value: cat.cat_weight %>
@@ -56,10 +57,10 @@
                                     <td><span style="color:blue">体重:</span><%= "#{@cat.cat_weight}kg" %></td>
                                     
                                     <!-- form単数分岐-->
-                                    
+                                    <%= f.hidden_field :id,value: @cat.id %>
                                     <%= f.hidden_field :name,value: @cat.cat_name %>
                                     <%= f.hidden_field :age,value: @cat.cat_age %>
-                                    <%= f.hidden_field :width,value: @cat.cat_weight %>
+                                    <%= f.hidden_field :weight,value: @cat.cat_weight %>
                                 </tr> 
                               <% end %>
                             </table>
