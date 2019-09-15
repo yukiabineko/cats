@@ -8,7 +8,8 @@
 /*メインエリア */
 #record_area{
     background-color:#fff;
-    height:300px;
+    height:auto;
+    padding-bottom:5%;
 }
 /*インフォメーション */
 #info{
@@ -35,8 +36,11 @@ table{
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){
     #main-head{
-       margin-top:10%;  
+       margin-top:15%;  
+       h1{font-size:22px;}
+       p{font-size:18px;}
     }
+h5{margin-right:12%;}    
 /*selectbox */
 #select{
     width:100%;

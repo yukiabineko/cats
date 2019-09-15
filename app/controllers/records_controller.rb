@@ -21,9 +21,15 @@ class RecordsController < ApplicationController
       cats_multiple_parameter.each do |id,item|
         @cats={}
         cat = Cat.find id
+#１歳以上の猫        
         if cat.cat_age >1.2
           obj= Base.find_by(data_age: 1.2)
-          min_weight = obj.min_weight
+#1才未満          
+        elsif cat.cat_age <=1.0
+#ここが複雑        
+          obj= Base.find_by(data_age: params[:records][id][:cat_age])
+        end
+        min_weight = obj.min_weight
           max_weight = obj.max_weight
           if cat.cat_weight < min_weight
             str = "痩せてます"
@@ -32,7 +38,6 @@ class RecordsController < ApplicationController
           elsif cat.cat_weight >= min_weight && cat.cat_weight<= max_weight
             str = "標準です"    
           end
-        end
         @cats[:id] = cat.id
         @cats[:date] = Date.today
         @cats[:name] = cat.cat_name
@@ -45,19 +50,22 @@ class RecordsController < ApplicationController
     elsif params[:name]
       @cat = Cat.find(params[:id])
       @date = Date.today
+#1才以上の猫      
       if @cat.cat_age > 1.2
         obj = Base.find_by(data_age: 1.2)
-        min_weight = obj.min_weight
-        max_weight = obj.max_weight
-        @data_weight = "#{min_weight}~#{max_weight}"
-        if @cat.cat_weight < min_weight
-          @result = "痩せてます"
-        elsif  @cat.cat_weight > max_weight
-          @result ="太ってます"
-        else
-          @result = "標準です"    
-        end    
-      end     
+      elsif @cat.cat_age <= 1.0 
+        obj = Base.find_by(data_age: params[:age])  
+      end 
+      min_weight = obj.min_weight
+      max_weight = obj.max_weight
+      @data_weight = "#{min_weight}~#{max_weight}"
+      if @cat.cat_weight < min_weight
+        @result = "痩せてます"
+      elsif  @cat.cat_weight > max_weight
+        @result ="太ってます"
+      else
+        @result = "標準です"    
+      end 
     end    
   end
 #========================================================  

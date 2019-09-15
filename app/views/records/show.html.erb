@@ -37,11 +37,15 @@
                                    <tr>
                                        <td><%= image_tag(cat_show_image_url(cat),size:"40x40") %></td>
                                        <td><span style="color:blue">猫ちゃん名:</span><%= cat.cat_name %></td>
-                                       <td><span style="color:blue">年齢:</span><%= "#{cat.cat_age}歳" %></td>
+                                       <% if cat.cat_age <= 1.0 %>
+                                         <td><%= af.select :cat_age,cat_ages,{},class:"form-control" %></td>
+                                       <% else %>
+                                          <td><span style="color:blue">年齢:</span><%= "#{cat.cat_age}歳" %></td>
+                                         <%= af.hidden_field :age,value: cat.cat_age %>
+                                       <% end %>
                                        <td><span style="color:blue">体重:</span><%= "#{cat.cat_weight}kg" %></td>
                                        <%= af.hidden_field :id,value: cat.id %>
                                        <%= af.hidden_field :name,value: cat.cat_name %>
-                                       <%= af.hidden_field :age,value: cat.cat_age %>
                                        <%= af.hidden_field :width,value: cat.cat_weight %>
                                    </tr>
                                   <!--fields_for終了--> 
@@ -53,13 +57,18 @@
                                 <tr>
                                     <td><%= image_tag(cat_show_image_url(@cat),size:"40x40") unless @cat.cat_image.nil?  %></td>
                                     <td><span style="color:blue">猫ちゃん名:</span><%= @cat.cat_name %></td>
-                                    <td><span style="color:blue">年齢:</span><%="#{@cat.cat_age}歳" %></td>
+                                    <% if @cat.cat_age.to_f <= 1.0 && @cat.cat_age.present? %>
+                                         <td><%= f.select :age,cat_ages,{},class:"form-control" %></td>
+                                    <% else %>
+                                      <td><span style="color:blue">年齢:</span><%="#{@cat.cat_age}歳" %></td>
+                                      <%= f.hidden_field :age,value: @cat.cat_age %>
+                                    <% end %>
+                                   
                                     <td><span style="color:blue">体重:</span><%= "#{@cat.cat_weight}kg" %></td>
                                     
                                     <!-- form単数分岐-->
                                     <%= f.hidden_field :id,value: @cat.id %>
                                     <%= f.hidden_field :name,value: @cat.cat_name %>
-                                    <%= f.hidden_field :age,value: @cat.cat_age %>
                                     <%= f.hidden_field :weight,value: @cat.cat_weight %>
                                 </tr> 
                               <% end %>
