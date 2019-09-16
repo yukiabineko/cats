@@ -1,0 +1,7 @@
+ <% if @result == "痩せてます" %>
+  <%= image_tag('/w1.png',id:"weight") %>
+ <% elsif  @result == "標準です"  %>
+  <%= image_tag('/w2.png',id:"weight") %>
+ <% elsif  @result == "太ってます"  %> 
+   <%= image_tag('/w3.png',id:"weight") %>
+<% end  %>

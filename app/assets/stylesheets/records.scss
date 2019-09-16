@@ -1,7 +1,7 @@
 
 /* 見出し部分 */
 #main-head{
-    margin:3% 0;
+    margin:5% 0;
     h1{font-weight:bold;color:#fff;letter-spacing:9px;}
     p{font-size:18px;font-weight:bold;};
 }
@@ -39,6 +39,11 @@ table{
     }
     #weight{border-radius:0;}
    
+}
+/*非ログイン*/
+#loginess{
+    text-align: center;
+    p{border:3px solid #fff;}
 }
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){

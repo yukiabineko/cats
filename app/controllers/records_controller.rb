@@ -13,20 +13,21 @@ class RecordsController < ApplicationController
     @array = set_array if @cats.present?
     
   end
-#======
+#------------------------------------------------------------------------------------------------
   def result_view
-#猫複数形パラメーター
+    if logged_in?   
+    #猫複数形パラメーター
     @obj ={}
     if params[:records]
       cats_multiple_parameter.each do |id,item|
         @cats={}
         cat = Cat.find id
-#１歳以上の猫        
+        #１歳以上の猫        
         if cat.cat_age >1.2
           obj= Base.find_by(data_age: 1.2)
-#1才未満          
+        #1才未満          
         elsif cat.cat_age <=1.0
-#ここが複雑        
+       #ここが複雑        
           obj= Base.find_by(data_age: params[:records][id][:cat_age])
         end
         min_weight = obj.min_weight
@@ -44,18 +45,18 @@ class RecordsController < ApplicationController
         @cats[:weight] = cat.cat_weight
         @cats[:data_weight] = "#{min_weight}~#{max_weight}"
         @cats[:result] = str
-        @obj[id]=@cats
+        @obj[id]=@cats  #各猫配列をさらに配列格納
       end    
-#猫単数パラメーター      
+    #猫単数パラメーター      
     elsif params[:name]
       @cat = Cat.find(params[:id])
       @date = Date.today
-#1才以上の猫      
+      #1才以上の猫      
       if @cat.cat_age > 1.2
         obj = Base.find_by(data_age: 1.2)
       elsif @cat.cat_age <= 1.0 
         obj = Base.find_by(data_age: params[:age])  
-      end 
+      end
       min_weight = obj.min_weight
       max_weight = obj.max_weight
       @data_weight = "#{min_weight}~#{max_weight}"
@@ -64,9 +65,31 @@ class RecordsController < ApplicationController
       elsif  @cat.cat_weight > max_weight
         @result ="太ってます"
       else
-        @result = "標準です"    
-      end 
-    end    
+          @result = "標準です"    
+      end    
+    end 
+#未ログイン    
+    else
+     if params[:cat_weight].present?
+      @date =Date.today
+      @name ="ゲストさんの猫ちゃん"
+      obj = Base.find_by(data_age: params[:cat_age])
+      min_weight = obj.min_weight
+      max_weight = obj.max_weight
+      @data_weight = "#{min_weight}~#{max_weight}"
+      if params[:cat_weight].to_f < min_weight
+        @result = "痩せてます"
+      elsif params[:cat_weight].to_f > max_weight
+        @result ="太ってます"
+      else
+          @result = "標準です"    
+      end   
+    #体重未入力の処理
+     else
+      flash[:danger] = "体重を入力してください"
+      redirect_to record_url
+     end  
+    end  
   end
 #========================================================  
 private
