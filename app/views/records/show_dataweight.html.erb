@@ -1,24 +1,32 @@
-<div id="show_sata_head">
+<%=provide(:title,"健康チェック記録") %>
+<div id="show_data_head">
     <h1><%= "#{@user.name}さん猫ちゃん体重検査記録" %></h1>
 </div>
+<div>
+    <h4 style="color:blue;">
+        各猫ちゃんの最新チャックリスト<br>
+        他の日付をを参照するには、リストの右のボタンを押してください
+    </h4>
+</div><br>
+<div style="background-color:#fce2c4;">
 <%  @cats.each do |cat| %>
-<table class="table table-bordered" id="weight_data_table">
+<table class="table" id="weight_data_table">
     <thead>
         <tr>
-            <th>猫ちゃん名</th>
-            <th>最新のチェック日</th>
-            <th>理想体重(kg)</th>
-            <th>実際の体重(kg)</th>
-            <th colspan="2">結果</th>
+            <th><span class="th">猫ちゃん名</span></th>
+            <th><span class="th">最新のチェック日</span></th>
+            <th><span class="th">理想体重</span>(kg)</th>
+            <th><span class="th">実際の体重</span>(kg)</th>
+            <th colspan="2"><span class="th">結果</span></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <% data = weight_check(cat) %>
         <tr>
-             <td>
+             <td style="font-weight:100">
+               <%= image_tag(cat_show_image_url(cat),size:"40x40") %><br>     
                <%= cat.cat_name %>
-               <%= image_tag(cat_show_image_url(cat),size:"40x40") %>
              </td>
             <td><%= data.save_date %></td>
             <td><%= data.ideal_weight %></td>
@@ -26,11 +34,11 @@
             <td><%=data.result %></td>
             <td>
                 <% if data.result == "痩せてます" %>
-                   <%= image_tag('/w1.png',id:"weight",size:"100x100") %>
+                   <%= image_tag('/w1.png',id:"weight",size:"80x80") %>
                 <% elsif data.result == "標準です"  %>
-                  <%= image_tag('/w2.png',id:"weight",size:"100x100") %>
+                  <%= image_tag('/w2.png',id:"weight",size:"80x80") %>
                 <% elsif data.result == "太ってます"  %> 
-                   <%= image_tag('/w3.png',id:"weight",size:"100x100") %>
+                   <%= image_tag('/w3.png',id:"weight",size:"80x80") %>
                  <% end  %>
             </td>
             <td><%= link_to "他の日を見る","#",class:"btn btn-primary" %></td>
@@ -39,3 +47,4 @@
     </tbody>
 </table><br>
 <% end %>
+</div>

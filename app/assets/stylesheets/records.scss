@@ -49,6 +49,20 @@ table{
 #result_head{
     h1{color:#fff;font-weight:bold;}
 }
+/*各猫検査記録head */
+#show_data_head{
+    margin-top:5%;
+    h1{
+        font-weight: bold;
+        color: #fff;
+    }
+}
+/*各猫検査記録table */
+#weight_data_table{
+    font-size:14px;
+    th{background-color: orange;font-weight: 200;text-align:center;}
+    td{text-align: center;font-size:16px;}
+}
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){
     #main-head{
@@ -85,9 +99,28 @@ table{
 }
 /*結果のテーブル */
 #result_table{
-   
+  .th{
+      writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  }      
+  
 }
+/*各猫検査記録head */
+#show_data_head{
+    margin-top:25%;
+    h1{font-size:18px;}
+ }    
+/*各猫検査記録table */
+#weight_data_table{
     
+  .th{
+      writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  }  
+}
+h4{font-size:12px;}
 }
 /*---------------------------タブレット------------------------------------------*/
 @media screen and (min-width: 767px) and (max-width: 1024px){
@@ -98,5 +131,9 @@ table{
     #result_head{
      margin-top:20%;
     }
+    #show_data_head{
+        margin-top:20%;
+        h1{font-size:28px;}
+ }    
  
 }
