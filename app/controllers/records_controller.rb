@@ -15,6 +15,10 @@ class RecordsController < ApplicationController
   end
 #------------------------------------------------------------------------------------------------
   def result_view
+    #体重結果ページ更新ボタン押された場合の処理
+    if request.get? && logged_in? 
+      redirect_to record_url
+    end   
     if logged_in?   
     #猫複数形パラメーター
     @obj ={}

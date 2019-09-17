@@ -93,7 +93,10 @@
                 <% else %>
                    <div id="loginess">
                        <h4>ログインされてません</h4>
-                       <p class="text-warning">ログインしなくて試すことができます。<br>猫ちゃん年齢(人間加算)と体重(kg)を入力してください</p>
+                       <p class="text-warning">
+                           ログインしなくて試すことができます。<br>猫ちゃん年齢(人間加算)と体重(kg)を入力してください<br>
+                           *(ログインすれば、猫ちゃんまとめてチェックおよび記録することができます。)
+                       </p>
                        <%= form_with(url:result_view_path,local:true) do |f| %>
                        <div class="row">
                           
