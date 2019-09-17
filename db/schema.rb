@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20190914052154) do
 
   create_table "records", force: :cascade do |t|
     t.date "save_date"
-    t.float "ideal_weight"
+    t.string "ideal_weight"
     t.float "result_weight"
     t.string "result"
     t.integer "cat_id"

@@ -119,6 +119,25 @@ class RecordsController < ApplicationController
     end  
   end
 #========================================================  
+  def create
+     #猫複数登録時  
+     if params[:saves]
+        save_parameter.each do |id,item|
+          cat = Cat.find(item[:cat_id])
+          obj = cat.records.build(item)
+          obj.save
+        end
+         redirect_to root_path
+     else    
+     
+     end  
+  end
+#==========================================================  
+ def show_dataweight
+   @user = User.find(params[:user_id])
+   @cats = @user.cats.all
+   
+ end
 private
 
 #猫単数パラメーター
@@ -128,6 +147,10 @@ private
 #猫単数パラメーター
   def cat_single_parameter
     params.permit(:id,:name,:age,:weight)
+  end
+#猫検査登録パラメーター
+  def save_parameter
+    params.permit(saves:[:cat_id, :save_date, :ideal_weight, :result_weight, :result])[:saves]
   end
   
 end

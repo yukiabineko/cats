@@ -9,7 +9,7 @@
        <h1><%= "#{@cat.cat_name}ちゃん体重チェック結果" %></h1>
     <% end %>
 </div>
-
+<%= form_with(url:result_create_path) do |f| %>
 <table class="table table-bordered table-striped" id="result_table">
     <thead>
         <tr>
@@ -24,12 +24,20 @@
 <!--猫複数処理-->        
         <% if params[:records]  %>
            <% @obj.each do |id,obj| %>
+           <%= fields_for "saves[]",id do |af| %>
            <tr>
               <td><%= obj[:date] %></td>
              <td><%= obj[:name] %></td>
              <td><%= obj[:weight] %></td>
              <td><%= obj[:data_weight] %></td>
              <td><%= obj[:result] %></td>
+             
+             <%= af.hidden_field :save_date,value:obj[:date] %>
+             <%= af.hidden_field :cat_id,value:obj[:id] %>
+             <%= af.hidden_field :ideal_weight,value:obj[:data_weight] %>
+             <%= af.hidden_field :result_weight,value:obj[:weight] %>
+             <%= af.hidden_field :result,value:obj[:result] %>
+             
              <td>
                  <% if obj[:result] == "痩せてます" %>
                    <%= image_tag('/w1.png',id:"weight") %>
@@ -40,6 +48,7 @@
                  <% end  %>
              </td>
            </tr>
+           <% end %>
          <!-- each 文終了-->  
           <% end %> 
 <!--未ログイン -->          
@@ -69,6 +78,7 @@
     </tbody>
 </table>
 
+
 <% if params[:records] ==nil %>
   <% if @result == "標準です" %>
     <p style="color:b;font-weight:bold;font-size:14px;">
@@ -85,12 +95,12 @@
     </p>
   <% end %>
 <% end %><br>
-<% if logged_in? %>
+<% if logged_in? && @all_cats.count >0 %>
   <div style="text-align:center">
-      
+      <%= f.submit "検査を記録する",class:"btn btn-primary" %>
   </div>
 <% end %>
-
+<% end %>
 
 <style>
     table{background:#c0c0c0;}
