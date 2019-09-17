@@ -3,7 +3,7 @@
 <div id="result_head">
     <% if params[:records] %>
       <h1>各猫ちゃん体重チェック結果</h1>
-    <% elsif !logged_in? %>
+    <% elsif !logged_in? ||(logged_in? && @all_cats.count ==0) %>
        <h1><%= "#{@name}ちゃん体重チェック結果" %></h1>
     <% elsif params[:records] == nil && logged_in? %>   
        <h1><%= "#{@cat.cat_name}ちゃん体重チェック結果" %></h1>
@@ -43,7 +43,7 @@
          <!-- each 文終了-->  
           <% end %> 
 <!--未ログイン -->          
-        <% elsif !logged_in? %>
+        <% elsif !logged_in? || (logged_in? && @all_cats.count == 0) %>
            <td><%= @date %></td>
            <td><%= @name %></td>
            <td><%=params[:cat_weight] %></td>
@@ -54,7 +54,7 @@
             </td>
           
 <!--猫単体処理-->          
-        <% else %>
+        <% elsif logged_in? && @all_cats.count > 0 %>
           <tr>
               <td><%= @date %></td>
               <td><%= @cat.cat_name %></td>
@@ -84,6 +84,11 @@
         肥満です。病気や足腰をいためる原因になるため食べさせすぎに気をつけ<br>標準体型なるよう目指しましょう。
     </p>
   <% end %>
+<% end %><br>
+<% if logged_in? %>
+  <div style="text-align:center">
+      
+  </div>
 <% end %>
 
 

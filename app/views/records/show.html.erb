@@ -12,7 +12,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div id="record_area">
                 <div id="info">
-                    <% if logged_in? %>
+                    <% if logged_in? && @cats.count > 0 %>
                       <h5>体重チェックする猫ちゃんを選んでください</h5>
                     <% end %>  
                 </div>
@@ -20,7 +20,30 @@
                 <% if logged_in? %>
                       <!--登録猫いなかったら -->
                         <% if @cats.count ==0 %>
-                          <h3>登録猫ちゃんがいません</h3>
+                          <div class="row">
+                              <div class="col-md-6 col-md-offset-3">
+                                  <div style="text-align:center;">
+                                    <h3>登録猫ちゃんがいません</h3><br>
+                                    <%= link_to "猫ちゃん登録する",user_path(current_user),class:"btn btn-primary" %>
+                                  </div>
+                                  <div style="border-top:solid 1px #fff;text-align:center;">
+                                      <h4 style="color:#fff;">登録しないでチェックするにはこちら</h4>
+                                  </div>
+                              </div>
+                          </div>
+                            <%= form_with(url:result_view_path,local:true) do |f| %>
+                            <div class="row">
+                              <div class="col-md-6 col-md-offset-3">
+                                <strong>猫ちゃん年齢(人間加算):</strong><%= f.select :cat_age,gest_cats,{:disabled=>10,:selected=>0.1},class:"form-control" %>
+                            </div><br>
+                             <div class="col-md-6 col-md-offset-3">
+                               <strong>猫ちゃん体重(kg):</strong>
+                               <%= f.number_field :cat_weight,class:"form-control",step:"0.1" %><br>
+                               <%= f.submit "体重検査する",class:"btn btn-primary",style:"margin-left:40%;" %>
+                           </div>
+                           </div>
+                          <% end %>
+                        <!--登録猫あり-->  
                         <% else %>
                         <div class="form-inline">
                             <%= form_with(url:record_path,local:true) do |f| %>
