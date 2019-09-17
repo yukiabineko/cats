@@ -16,7 +16,7 @@ module RecordsHelper
       @arr= [["生後0ヶ月",0],["生後1ヵ月",0.1],["生後2ヵ月",0.2],["生後3ヵ月",0.3],["生後6ヵ月",0.6],["生後9ヵ月",0.9],["生後12ヵ月",1.0],["1歳以上",1.2]] 
     end 
 #最新検査各猫ごと
-   def weightcheck_new(cat)
+   def weight_check(cat)
        cat.records.last
    end
 end

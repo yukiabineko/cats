@@ -1,3 +1,41 @@
 <div id="show_sata_head">
     <h1><%= "#{@user.name}さん猫ちゃん体重検査記録" %></h1>
 </div>
+<%  @cats.each do |cat| %>
+<table class="table table-bordered" id="weight_data_table">
+    <thead>
+        <tr>
+            <th>猫ちゃん名</th>
+            <th>最新のチェック日</th>
+            <th>理想体重(kg)</th>
+            <th>実際の体重(kg)</th>
+            <th colspan="2">結果</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% data = weight_check(cat) %>
+        <tr>
+             <td>
+               <%= cat.cat_name %>
+               <%= image_tag(cat_show_image_url(cat),size:"40x40") %>
+             </td>
+            <td><%= data.save_date %></td>
+            <td><%= data.ideal_weight %></td>
+            <td><%= data.result_weight %></td>
+            <td><%=data.result %></td>
+            <td>
+                <% if data.result == "痩せてます" %>
+                   <%= image_tag('/w1.png',id:"weight",size:"100x100") %>
+                <% elsif data.result == "標準です"  %>
+                  <%= image_tag('/w2.png',id:"weight",size:"100x100") %>
+                <% elsif data.result == "太ってます"  %> 
+                   <%= image_tag('/w3.png',id:"weight",size:"100x100") %>
+                 <% end  %>
+            </td>
+            <td><%= link_to "他の日を見る","#",class:"btn btn-primary" %></td>
+            
+        </tr>
+    </tbody>
+</table><br>
+<% end %>

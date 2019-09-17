@@ -89,3 +89,14 @@ table{
 }
     
 }
+/*---------------------------タブレット------------------------------------------*/
+@media screen and (min-width: 767px) and (max-width: 1024px){
+     #main-head{
+       margin-top:25%;  
+      
+    }
+    #result_head{
+     margin-top:20%;
+    }
+ 
+}
