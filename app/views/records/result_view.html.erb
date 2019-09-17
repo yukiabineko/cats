@@ -1,13 +1,22 @@
 <%= provide(:title,"検査結果") %>
 
+<div id="result_head">
+    <% if params[:records] %>
+      <h1>各猫ちゃん体重チェック結果</h1>
+    <% elsif !logged_in? %>
+       <h1><%= "#{@name}ちゃん体重チェック結果" %></h1>
+    <% elsif params[:records] == nil && logged_in? %>   
+       <h1><%= "#{@cat.cat_name}ちゃん体重チェック結果" %></h1>
+    <% end %>
+</div>
 
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped" id="result_table">
     <thead>
         <tr>
             <th>実施日</th>
-            <th>猫ちゃん名</th>
-            <th>猫ちゃん体重</th>
-            <th>理想体重</th>
+            <th>猫ちゃん名前</th>
+            <th>猫ちゃん体重(kg)</th>
+            <th>理想体重(kg)</th>
             <th colspan="2">結果</th>
         </tr>
     </thead>
@@ -59,6 +68,24 @@
         <% end %>
     </tbody>
 </table>
+
+<% if params[:records] ==nil %>
+  <% if @result == "標準です" %>
+    <p style="color:b;font-weight:bold;font-size:14px;">
+        理想的な体重です。このまま維持できるよう頑張りましょう。
+    </p>
+  <% elsif @result == "痩せてます" %>
+     <p style="color:blue;font-weight:bold;font-size:14px;">
+        猫が痩せるのは肥満とは違い、なんらかの病気が関わっている場合があります。<br>
+        あまり、体重が変わらないようでしたら、一度獣医さんに見てもらいましょう。
+    </p>
+  <% elsif @result  == "太ってます" %>
+     <p style="color:red;font-weight:bold;font-size:14px;">
+        肥満です。病気や足腰をいためる原因になるため食べさせすぎに気をつけ<br>標準体型なるよう目指しましょう。
+    </p>
+  <% end %>
+<% end %>
+
 
 <style>
     table{background:#c0c0c0;}

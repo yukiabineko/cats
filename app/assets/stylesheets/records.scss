@@ -45,10 +45,14 @@ table{
     text-align: center;
     p{border:3px solid #fff;}
 }
+/*結果見出し*/
+#result_head{
+    h1{color:#fff;font-weight:bold;}
+}
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){
     #main-head{
-       margin-top:15%;  
+       margin-top:22%;  
        h1{font-size:22px;}
        p{font-size:18px;}
     }
@@ -72,6 +76,15 @@ table{
         font-size:12px;
         font-weight:none;
     }
+   
+}
+/*結果見出し*/
+#result_head{
+    margin-top:20%;
+   h1{font-size:16px;}    
+}
+/*結果のテーブル */
+#result_table{
    
 }
     
