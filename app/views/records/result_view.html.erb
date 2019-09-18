@@ -61,6 +61,8 @@
             <td>
               <%= render 'result_image' %>
             </td>
+            
+            
           
 <!--猫単体処理-->          
         <% elsif logged_in? && @all_cats.count > 0 %>
@@ -73,6 +75,11 @@
               <td>
                 <%= render 'result_image' %>
               </td>
+              <%= f.hidden_field :save_date,value:@date %>
+              <%= f.hidden_field :cat_id,value:@id %>
+              <%= f.hidden_field :ideal_weight,value:@data_weight %>
+              <%= f.hidden_field :result_weight,value:@cat.cat_weight %>
+              <%= f.hidden_field :result,value:@result %>
           </tr>
         <% end %>
     </tbody>

@@ -39,7 +39,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to "マイページ", current_user %></li>
                   <li><%= link_to "オーナー編集", edit_user_path(current_user)  %></li>
-                  <li><%= link_to "猫ちゃん体重記録", show_dataweight_path(current_user) %></li>
+                  <li><%= link_to "猫ちゃん体重記録", lasted_weight_path(current_user) %></li>
                   <li><%= link_to "猫ちゃん設定", cat_new_path(current_user) %></li>
                   <li class="divider"></li>
                   <li>
@@ -51,7 +51,7 @@
                 <div class="row">
                   <div class="col-md-3 "><%= link_to "マイページ", current_user,class:"btn btn-primary",id:"dp-li" %></div>
                   <div class="col-md-3"><%= link_to "オーナー編集", edit_user_path(current_user),class:"btn btn-primary",id:"dp-li"  %></div>
-                  <div class="col-md-3"><%= link_to "猫ちゃん体重記録", show_dataweight_path(current_user),class:"btn btn-primary",id:"dp-li"%></div>
+                  <div class="col-md-3"><%= link_to "猫ちゃん体重記録", lasted_weight_path(current_user),class:"btn btn-primary",id:"dp-li"%></div>
                   <div class="col-md-3"><%= link_to "猫ちゃん設定", cat_new_path(current_user) ,class:"btn btn-primary",id:"dp-li" %></div>
                    <div class="col-md-3"><%= link_to "ログアウト", logout_path, method: :delete ,class:"btn btn-danger",id:"dp-li"%></div>
                 </div>

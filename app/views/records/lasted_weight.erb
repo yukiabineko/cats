@@ -41,7 +41,7 @@
                    <%= image_tag('/w3.png',id:"weight",size:"80x80") %>
                  <% end  %>
             </td>
-            <td><%= link_to "他の日を見る","#",class:"btn btn-primary" %></td>
+            <td><%= link_to "他の日を見る",cats_weight_path(cat,cat.user) ,class:"btn btn-primary" %></td>
             
         </tr>
     </tbody>

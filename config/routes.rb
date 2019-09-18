@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback',    to: 'users#facebook_login',      as: :auth_callback
   root "tops#show"  
 
-                                                                #root
+                                                                                  #root
   get '/signup',to: 'users#new'                                                   #会員登録
   
   resources :users do                                                             #ユーザーカラム一式
@@ -51,6 +51,8 @@ Rails.application.routes.draw do
   post 'result_view',to:'records#result_view',                 as: :result_view      #猫体重ページ表示
   get 'result_view',to:'records#result_view'                                        #猫体重ページ表示
   post 'result_create',to:'records#create',                    as: :result_create    #猫体重登録
-  get 'cat_weight/:user_id',to:'records#show_dataweight',       as: :show_dataweight #猫登録された検査データ表示
+  get 'lasted_check_weight/:user_id',to:'records#lasted_weight',as: :lasted_weight  #猫登録された最後の全猫検査データ表示
+  get 'cats_weight/:cat_id/record/:user_id',to:'records#cats_weight',as: :cats_weight     #猫登録された各猫検査全データ表示
+  
 end
 
