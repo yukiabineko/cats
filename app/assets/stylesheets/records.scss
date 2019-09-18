@@ -108,13 +108,6 @@ table{
 }
 /*結果のテーブル */
 #result_table{
-  .th{
-      writing-mode: tb-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  white-space: nowrap;
-    text-orientation: upright;
-  }      
   
 }
 /*各猫検査記録head */
@@ -129,13 +122,7 @@ table{
 }
 #weight_data_table{
     width:100%;
-  .th{
-      writing-mode: tb-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  white-space: nowrap;
-    text-orientation: upright;
-  }  
+ 
 }
 h4{font-size:12px;}
 }
