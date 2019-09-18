@@ -72,6 +72,25 @@ table{
     th{background-color: orange;font-weight: 200;text-align:center;}
     td{text-align: center;font-size:16px;}
 }
+/*個別猫体重測定ページ見出し*/
+#cat_weight-head{
+    margin:2% 0 3% 0;
+    img{
+        border-radius:50%;
+        margin-left:40%;
+    
+    }
+    h1{
+        color:blue;
+        letter-spacing:5px;
+    }
+}
+/*個別猫テーブルバックグラウンド */
+#weight_table_area{
+    width:100%;
+    background-color:cyan;
+    height:400px;
+}
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){
     #main-head{
@@ -125,8 +144,19 @@ table{
  
 }
 h4{font-size:12px;}
-}
 
+/*個別猫体重測定ページ見出し*/
+#cat_weight-head{
+    margin-top:18%;
+    border-radius:9px;
+    img{
+        border-radius:50%;
+        margin-left:22%;
+    
+    }
+    h1{font-size:20px;}
+}
+}
 /*---------------------------タブレット------------------------------------------*/
 @media screen and (min-width: 767px) and (max-width: 1024px){
      #main-head{

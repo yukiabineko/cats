@@ -1,0 +1,24 @@
+<%= provide(:title,"#{@cat.cat_name}ちゃん体重記録") %>
+
+<div id="cat_weight-head">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div style="background-color:#c0c0c0;padding:3% 0 5% 0;background-color:#fff;  box-shadow: 4px 4px 4px cyan; border-radius:9px;">
+               <h1><%= "#{@cat.cat_name}ちゃん体重検査一覧ページ" %></h1>
+              <%= image_tag(cat_show_image_url(@cat),size:"200x200") %>
+             </div>
+        </div>
+    </div>
+</div>
+<!--見出し部分ここまで-->
+<div class="row">
+    <div class="col-md-12">
+        <div id="weight_table_area">
+            <table class="table" id="cat_record-table">
+                <th>a</th>
+                <th>b</th>
+                <th>c</th>
+            </table>
+        </div>
+    </div>
+</div>

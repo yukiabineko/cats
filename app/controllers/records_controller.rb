@@ -145,7 +145,7 @@ class RecordsController < ApplicationController
  end
 #各猫の体重チェック全て表示 
 def cats_weight
-  
+  @cat = Cat.find(params[:cat_id])
 end 
 #-----------------------------------------------------------------------------------
 private
