@@ -9,6 +9,7 @@
        <h1><%= "#{@cat.cat_name}ちゃん体重チェック結果" %></h1>
     <% end %>
 </div>
+<%= link_to "体重チェックTopへ",record_path,class:"btn btn-default" %>
 <%= form_with(url:result_create_path) do |f| %>
 <table class="table table-bordered table-striped" id="result_table">
     <thead>
@@ -108,6 +109,8 @@
   </div>
 <% end %>
 <% end %>
+
+
 
 <style>
     table{background:#c0c0c0;}

@@ -8,6 +8,7 @@
         他の日付をを参照するには、リストの右のボタンを押してください
     </h4>
 </div><br>
+<%= link_to "Topへ", root_path,data: {"turbolinks" => false},class:"btn btn-default",style:"width:20%;margin-bottom:1%;" %>
 <div style="background-color:#fce2c4;" id="back">
 <%  @cats.each do |cat| %>
 <table class="table" id="weight_data_table">
@@ -28,8 +29,8 @@
                <%= image_tag(cat_show_image_url(cat),size:"40x40") %><br>     
                <span class="th"><%= cat.cat_name %></span>
              </td>
-            <td style="font-size:10px"><%= data.save_date %></td>
-            <td style="font-size:10px"><%= data.ideal_weight.to_s %></td>
+            <td style="font-size:14px"><%= data.save_date %></td>
+            <td style="font-size:14px"><%= data.ideal_weight.to_s %></td>
             <td style="color:red"><%= data.result_weight %></td>
             <td style="font-size:10px"><span class="th"><%=data.result %></span></td>
             <td>
