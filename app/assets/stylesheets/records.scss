@@ -112,6 +112,8 @@ table{
       writing-mode: tb-lr;
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;
+  white-space: nowrap;
+    text-orientation: upright;
   }      
   
 }
@@ -131,21 +133,13 @@ table{
       writing-mode: tb-lr;
   writing-mode: vertical-lr;
   -webkit-writing-mode: vertical-lr;
+  white-space: nowrap;
+    text-orientation: upright;
   }  
 }
 h4{font-size:12px;}
 }
-/*-----------------------------------------------------------*/
-@media screen and (max-width: 376px){
-    #weight_data_table{
-    width:100%;
-  .th{
-      writing-mode: tb-lr;
-  writing-mode: vertical-lr;
-  -webkit-writing-mode: vertical-lr;
-  }  
-}
-}
+
 /*---------------------------タブレット------------------------------------------*/
 @media screen and (min-width: 767px) and (max-width: 1024px){
      #main-head{

@@ -27,10 +27,10 @@
            <%= fields_for "saves[]",id do |af| %>
            <tr>
               <td><%= obj[:date] %></td>
-             <td><%= obj[:name] %></td>
+             <td><span class="th"><%= obj[:name] %></span></td>
              <td><%= obj[:weight] %></td>
              <td><%= obj[:data_weight] %></td>
-             <td><%= obj[:result] %></td>
+             <td><span class="th"><%= obj[:result] %></span></td>
              
              <%= af.hidden_field :save_date,value:obj[:date] %>
              <%= af.hidden_field :cat_id,value:obj[:id] %>
@@ -68,10 +68,10 @@
         <% elsif logged_in? && @all_cats.count > 0 %>
           <tr>
               <td><%= @date %></td>
-              <td><%= @cat.cat_name %></td>
+              <td><span class="th"><%= @cat.cat_name %></span></td>
               <td><%= @cat.cat_weight %></td>
               <td><%= @data_weight %></td>
-              <td><%= @result %></td>
+              <td><span class="th"><%= @result %></span></td>
               <td>
                 <%= render 'result_image' %>
               </td>
