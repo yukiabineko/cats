@@ -1,4 +1,6 @@
 class RecordsController < ApplicationController
+  before_action:roop,only: :cats_weight
+  before_action:correct_user,only:[:lasted_weight,:cats_weight] 
   
   def show
     
@@ -141,6 +143,7 @@ class RecordsController < ApplicationController
  def lasted_weight
    @user = User.find(params[:user_id])
    @cats = @user.cats.all
+   @data = non_data?
    
  end
 #各猫の体重チェック全て表示 
@@ -152,7 +155,7 @@ end
  def all_reset
    @cat = Cat.find(params[:cat_id])
    @cat.records.all.destroy_all
-   redirect_to lasted_weight_url @act.url
+   redirect_to lasted_weight_url @cat.user
  end
 #全各猫体重記録データ個別削除 
 def reset
@@ -179,5 +182,18 @@ private
   def save_parameter
     params.permit(:cat_id, :save_date, :ideal_weight, :result_weight, :result)
   end  
-  
+#データがない場合rootへリダイレクト
+  def roop
+    @cat = Cat.find(params[:cat_id])
+    @records = @cat.records.where(cat_id: params[:cat_id])
+    if@records.count == 0
+      redirect_to root_path
+    end 
+  end  
+#ログインユーザー自身以外アクセス禁止
+  def correct_user
+    @user = User.find(params[:user_id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
+
 end

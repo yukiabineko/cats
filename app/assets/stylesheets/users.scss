@@ -29,7 +29,9 @@ body{
     margin-left:20%;
     border-radius:9px;
     padding-top:8px;
+    .fm{width:100%;margin:0;}
 }
+
 #new_user_head{
   margin-top:5px;
 }
@@ -241,6 +243,10 @@ body{
     h1{font-size:18px;}
 }
 /* ****** /猫新規登録******** */
+.fm{
+    width:80%;
+    margin-left:10%;
+}
 }
 /***************小スマホ*********************************************/
 @media screen and (min-width: 375px) and (max-width: 411px){
@@ -260,7 +266,11 @@ body{
     margin-top:20%;
     h1{font-size:18px;}
 }
-/* ****** /猫新規登録******** */    
+/* ****** /猫新規登録******** */  
+.fm{
+    width:80%;
+    margin-left:10%;
+}
 }
 /***************中スマホ*********************************************/
 @media screen and (min-width: 411px) and (max-width: 500px){
@@ -279,7 +289,11 @@ body{
 #new_cat_head{
     margin-top:20%;
 }
-/* ****** /猫新規登録******** */   
+/* ****** /猫新規登録******** */ 
+.fm{
+    width:80%;
+    margin-left:10%;
+}
 }
 /***************大スマホ*********************************************/
 @media screen and (min-width: 500px) and (max-width: 660px){
@@ -293,6 +307,10 @@ body{
         left: 24%;
       }
     }
+.fm{
+    width:80%;
+    margin-left:10%;
+}    
 }
 /***************小タブ*********************************************/
 @media screen and (min-width: 500px) and (max-width: 670px){
@@ -307,6 +325,10 @@ body{
         left: 30%;
       }
     }
+.fm{
+    width:70%;
+    margin-left:10%;
+}    
 }
 /**************中タブ*********************************************/
 @media screen and (min-width: 670px) and (max-width: 767px){
@@ -326,6 +348,10 @@ body{
     margin-top:20%;
 }
 /* ****** /猫新規登録******** */    
+.fm{
+    width:80%;
+    margin-left:10%;
+}
 }
 /***************大タブ*********************************************/
 @media screen and (min-width: 767px) and (max-width: 1024px){
@@ -346,6 +372,10 @@ body{
     margin-top:15%;
 }
 /* ****** /猫新規登録******** */    
+}
+.fm{
+    width:70%;
+    margin-left:10%;
 }
 /***************PC*********************************************/
 @media screen and (min-width: 1024px){
@@ -413,4 +443,14 @@ body{
     #cat_update_sbmit{
         text-align:center;
     } 
+#new_user_area{
+    width:100%;
+    margin:0;
+}    
+.fm{
+    width:70%;
+    margin-left:10%;
 }
+
+}
+

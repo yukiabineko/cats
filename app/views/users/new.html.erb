@@ -27,16 +27,16 @@
       </div><br>
     
       <%= f.label :名前 %><span style="color:red"><strong>*必須です</strong></span>
-      <%= f.text_field :name, placeholder:"オーナーさん名",class:"form-control" %><br>
+      <%= f.text_field :name, placeholder:"オーナーさん名",class:"form-control fm" %><br>
 
       <%= f.label :メールアドレス %><span style="color:red"><strong>*必須です</strong></span>
-      <%= f.email_field :email,placeholder:"ご利用なさっているメールアドレス",class:"form-control" %><br>
+      <%= f.email_field :email,placeholder:"ご利用なさっているメールアドレス",class:"form-control fm" %><br>
 
       <%= f.label :パスワード %><span style="color:red"><strong>*必須です</strong></span>
-      <%= f.password_field :password,placeholder:"6文字以上でお願いします。",class:"form-control" %><br>
+      <%= f.password_field :password,placeholder:"6文字以上でお願いします。",class:"form-control fm" %><br>
 
       <%= f.label :パスワード確認 %><span style="color:red"><strong>*必須です</strong></span>
-      <%= f.password_field :password_confirmation,placeholder:"確認のためもう一度",class:"form-control" %><br>
+      <%= f.password_field :password_confirmation,placeholder:"確認のためもう一度",class:"form-control fm" %><br>
 
       <%= f.submit "新規作成", class: "btn btn-primary btn-block btn-signup" %>
     <% end %>
@@ -49,4 +49,5 @@
 
 <style>
     body{background-color:pink;}
+   
 </style>

@@ -19,4 +19,14 @@ module RecordsHelper
    def weight_check(cat)
        cat.records.last
    end
+#データない場合
+     def non_data?
+        @cats.each do |cat|
+            if cat.records.all.any?{|record| !record.nil?}  #各猫すべてにrecordない場合false ある場合true
+               return true
+            else
+                return false
+            end
+        end        
+     end
 end
