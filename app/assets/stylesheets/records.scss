@@ -88,8 +88,15 @@ table{
 /*個別猫テーブルバックグラウンド */
 #weight_table_area{
     width:100%;
-    background-color:cyan;
     height:400px;
+}
+/*個別猫テーブル    */
+#cat_record-table{
+    th{background-color:orange;text-align:center;}
+    td{
+        text-align:center;
+        font-weight:300;
+    }
 }
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){

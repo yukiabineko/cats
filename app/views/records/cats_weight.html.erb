@@ -11,13 +11,37 @@
     </div>
 </div>
 <!--見出し部分ここまで-->
+<%= link_to "戻る", lasted_weight_path(current_user),class:"btn btn-default",style:"width:15%;margin-bottom:5px;" %>
+<% if @records.count > 0 %>
+  <%= link_to "全リセット",all_reset_path(@cat),data:{confirm:"全てリセットしますよろしいですか？"},method: :delete,class:"btn btn-success" %>
+<% end %>
 <div class="row">
     <div class="col-md-12">
         <div id="weight_table_area">
             <table class="table" id="cat_record-table">
-                <th>a</th>
-                <th>b</th>
-                <th>c</th>
+              <thead>
+                  <th>実施日</th>
+                  <th>理想体重(kg)</th>
+                  <th>実際体重(kg)</th>
+                  <th colspan="2">結果</th>
+              </thead>
+              <tbody>
+                  <% @records.each do |record| %>
+                    <tr>
+                        <td><%= record.save_date %></td>
+                        <td><%= record.ideal_weight %></td>
+                        <td style="color:red;font-weight:bold;"><%= record.result_weight %></td>
+                        <% if record.result == "標準です" %>
+                          <td style="color:blue"><%= record.result %></td>
+                        <% elsif record.result == "痩せてます" %>  
+                          <td style="color:purple"><%= record.result %></td>
+                        <% elsif record.result == "太ってます" %>  
+                           <td style="color:red"><%= record.result %></td>
+                        <% end %>  
+                        <td><%= link_to "削除",weight_reset_path(record),data:{confirm:"削除しますか"},method: :delete,class:"btn btn-danger" %></td>
+                    </tr>
+                  <% end %>
+              </tbody>
             </table>
         </div>
     </div>

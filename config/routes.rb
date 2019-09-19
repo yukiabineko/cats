@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   post 'result_create',to:'records#create',                    as: :result_create    #猫体重登録
   get 'lasted_check_weight/:user_id',to:'records#lasted_weight',as: :lasted_weight  #猫登録された最後の全猫検査データ表示
   get 'cats_weight/:cat_id/record/:user_id',to:'records#cats_weight',as: :cats_weight     #猫登録された各猫検査全データ表示
-  
+  delete 'cats_all_reset/:cat_id',to:'records#all_reset',                    as: :all_reset        #猫登録された各猫検査全データ全削除
+  delete 'cats_delete/:record_id',to:'records#reset',                           as: :weight_reset     #猫登録された各猫検査データ全削除
 end
 

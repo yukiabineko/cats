@@ -146,7 +146,20 @@ class RecordsController < ApplicationController
 #各猫の体重チェック全て表示 
 def cats_weight
   @cat = Cat.find(params[:cat_id])
+  @records = @cat.records.where(cat_id: params[:cat_id])
 end 
+#全各猫体重記録データ全削除
+ def all_reset
+   @cat = Cat.find(params[:cat_id])
+   @cat.records.all.destroy_all
+   redirect_to lasted_weight_url @act.url
+ end
+#全各猫体重記録データ個別削除 
+def reset
+  @record = Record.find(params[:record_id])
+  @record.destroy
+   redirect_to lasted_weight_url @record.cat.user
+end
 #-----------------------------------------------------------------------------------
 private
 

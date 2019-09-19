@@ -11,7 +11,8 @@
 <%= link_to "Topへ", root_path,data: {"turbolinks" => false},class:"btn btn-default",style:"width:20%;margin-bottom:1%;" %>
 <div style="background-color:#fce2c4;" id="back">
 <%  @cats.each do |cat| %>
-<table class="table" id="weight_data_table">
+ <% if cat.records.all.count > 0 %>
+  <table class="table" id="weight_data_table">
     <thead>
         <tr>
             <th><span class="th">猫ちゃん名</span></th>
@@ -29,22 +30,23 @@
                <%= image_tag(cat_show_image_url(cat),size:"40x40") %><br>     
                <span class="th"><%= cat.cat_name %></span>
              </td>
-            <td style="font-size:14px"><%= data.save_date %></td>
-            <td style="font-size:14px"><%= data.ideal_weight.to_s %></td>
-            <td style="color:red"><%= data.result_weight %></td>
-            <td style="font-size:10px"><span class="th"><%=data.result %></span></td>
+            <td style="font-size:14px"><%= data.save_date if data.present? %></td>
+            <td style="font-size:14px"><%= data.ideal_weight.to_s if data.present? %></td>
+            <td style="color:red"><%= data.result_weight  if data.present?%></td>
+            <td style="font-size:10px"><span class="th"><%=data.result if data.present? %></span></td>
             <td>
-                <% if data.result == "痩せてます" %>
-                   <%= image_tag('/w1.png',id:"weight",size:"80x80") %>
-                <% elsif data.result == "標準です"  %>
-                  <%= image_tag('/w2.png',id:"weight",size:"80x80") %>
-                <% elsif data.result == "太ってます"  %> 
-                   <%= image_tag('/w3.png',id:"weight",size:"80x80") %>
-                 <% end  %>
+              <% if data.result == "痩せてます" %>
+                <%= image_tag('/w1.png',id:"weight",size:"80x80") %>
+              <% elsif data.result == "標準です"  %>
+                <%= image_tag('/w2.png',id:"weight",size:"80x80") %>
+              <% elsif data.result == "太ってます"  %> 
+                <%= image_tag('/w3.png',id:"weight",size:"80x80") %>
+             <% end  %>
             </td>
             <%= link_to "他の日を見る",cats_weight_path(cat,cat.user) ,class:"btn btn-primary" %>
         </tr>
     </tbody>
 </table><br>
+<% end %>
 <% end %>
 </div>
