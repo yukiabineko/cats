@@ -6,8 +6,103 @@
            margin-top:-2%;
        }
     }
-
-
+#top_ul{
+    list-style:none;
+}    
+/* top linkボタン*/   
+#post_link {
+    width:250px;
+    height:250px;
+    background-color:red;
+    box-shadow:6px 6px 6px #fff;
+     position: absolute;
+     border-radius:50%;
+     top: 60%;
+     left: 3%;
+     a{
+        position: relative;
+        top: 45%;
+        left: 42%;
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#weight_link{
+    width:250px;
+    height:250px;
+    background-color:blue;
+    box-shadow:6px 6px 6px #fff;
+     position: absolute;
+     border-radius:50%;
+     top: 60%;
+     left: 29%;
+     a{
+        position: relative;
+        top: 45%;
+        left: 26%;
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#search_link{
+    width:250px;
+    height:250px;
+    background-color:yellow;
+    box-shadow:6px 6px 6px #fff;
+     position: absolute;
+     border-radius:50%;
+     top: 60%;
+     left: 54%;
+     a{
+        position: relative;
+        top: 45%;
+        left: 42%;
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#log_link{
+    width:250px;
+    height:250px;
+    background-color:green;
+     position: absolute;
+     border-radius:50%;
+     box-shadow:6px 6px 6px #fff;
+     top: 60%;
+     left: 79%;
+     a{
+        position: relative;
+        top: 45%;
+        left: 36%;
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#phone_top_menu{
+    display:none;
+}
+/* top linkボタ終了*/
+/****************************スマートフォン*********************************/
 @media screen and (max-width: 767px){
     #tops{
         margin-top:15%;
@@ -26,5 +121,115 @@
     #top_maininfo{
         margin-top:-8%;
     }
-    
+#top_ul{
+    display:none;
+}
+#phone_top_menu{
+    display:inline;
+    margin-top:-15%;
+    h2{
+      background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25, #F9F9F9), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+      -webkit-background-size: 14px 14px;
+        background-color:orange;
+        font-size:18px;
+        color:#0000bb;
+        margin-top:-32%;
+        padding:40px;
+        margin-bottom:30%;
+        border: 1px solid #c0c0c0;
+    }
+   
+}
+ /* top linkボタン*/  
+#phone_ul{
+    list-style:none;width:100%;
+    margin:-25% 0 0 0;padding:0 5%;
+}    
+#post_link2 {
+    width:150px;
+    height:150px;
+    display:inline-block;
+    position:relative;
+    background-color:red;
+    border-radius:50%;
+    box-shadow:6px 6px 6px #fff;
+    margin-right:8%;
+    margin-bottom:5%;
+     a{
+        position:relative;
+        top:35%;
+        left:38%;
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#weight_link2{
+    width:150px;
+    height:150px;
+    display:inline-block;
+    background-color:blue;
+    box-shadow:6px 6px 6px;
+     border-radius:50%;
+     a{
+        position:relative;
+        top:35%;
+        left:10%; 
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#search_link2{
+    width:150px;
+    height:150px;
+    display:inline-block;
+    background-color:yellow;
+    box-shadow:6px 6px 6px #fff;
+     border-radius:50%;
+     margin-right:8%;
+     a{
+        position:relative;
+        top:38%;
+        left:35%; 
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none; 
+       
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+#log_link2{
+    width:150px;
+    height:150px;
+    display:inline-block;
+    background-color:green;
+     border-radius:50%;
+     box-shadow:6px 6px 6px #fff;
+      margin-bottom:5%;
+     a{
+        position:relative;
+        top:38%;
+        left:26%;  
+        font-size:22px;
+        font-weight:bold;
+        color:#c0c0c0;
+        text-decoration:none;
+     }
+     &:hover{
+         background-color:pink;
+     }
+}
+/* top linkボタ終了*/
 }

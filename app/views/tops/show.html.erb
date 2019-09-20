@@ -6,17 +6,31 @@
     <div class="img_text">
      <%= image_tag('/a.jpg') %>
      <p>猫ちゃんオーナーのためのアプリ</p>
+     <%= render 'top' %>
     </div>
     <div class="img_text">
      <%= image_tag('/b.jpg') %>
      <p>猫ちゃんオーナーのためのアプリ</p>
+       <%= render 'top' %>
     </div>
      <div class="img_text">
      <%= image_tag('/c.jpg') %>
      <p>猫ちゃんオーナーのためのアプリ</p>
+       <%= render 'top' %>
     </div>
 </div>
   <!--/スライドショ-->
+  <!--スマートフォンのみ表示-->
+  <div id="phone_top_menu">
+   <h2>メニュー</h2>
+   <ul id="phone_ul">
+    <li id="post_link2"><%= link_to "投稿","#" %> </li>
+     <li id="weight_link2"><%= link_to "健康チェック" %> </li>
+     <li id="search_link2"><%= link_to "検索","#" %> </li>
+     <li id="log_link2"> <%= link_to "ログイン","#" %> </li>
+   </ul>
+  </div><br><br>
+  <!--スマートフォンのみ表示--> 
 <div id="top_maininfo">
  <h1>本サービスの目的</h1>
  <p>
@@ -25,7 +39,4 @@
   　という意見をできるだけフィードバックして猫ちゃんのオーナーさんたちが、<br>
   　より良いキャットライフを送れることを目的とします。 
  </p>
-</div>
-<div id="top_info">
- <h1>お知らせ</h1>
 </div>
