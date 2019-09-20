@@ -164,5 +164,16 @@ body{background-color:pink;}
 }
 #post_index_info{margin-left:5%;}    
 #category_bt{margin-top:5%;margin-right:4%;}
+#post_name{
+    margin-left:30%;
+}
     /*-----  /覧 -------------- */
+}
+/***********************tab******************************************************/
+@media screen and (min-width: 767px) and (max-width: 1060px) {
+    #post_name, #post_title,#post_cate{
+       margin-left:20%;
+        
+    }
+   
 }

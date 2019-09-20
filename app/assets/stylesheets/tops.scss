@@ -32,6 +32,9 @@
         
      }
   }
+  a:focus{
+     outline: none; 
+  }
 }
 #weight_link{
    
@@ -54,6 +57,9 @@
          background-color:pink;
      }
    }
+    a:focus{
+     outline: none; 
+  }
 }
 #search_link{
    
@@ -76,7 +82,10 @@
      &:hover{
          background-color:pink;
      }
-    } 
+    }
+     a:focus{
+     outline: none; 
+  }
 }
 #log_link{
    
@@ -99,6 +108,9 @@
          background-color:pink;
        }
     }
+     a:focus{
+     outline: none; 
+  }
 }
 #phone_top_menu{
     display:none;
@@ -201,7 +213,7 @@
      a{
         position:relative;
         top:38%;
-        left:35%; 
+        left:34%; 
         font-size:22px;
         font-weight:bold;
         color:#c0c0c0;
@@ -223,7 +235,7 @@
      a{
         position:relative;
         top:38%;
-        left:26%;  
+        left:19%;  
         font-size:22px;
         font-weight:bold;
         color:#c0c0c0;

@@ -8,13 +8,13 @@
     　 <% end %>    
     　
        <%= f.label :投稿タイトル %><span style="color:red"><strong>*必須です</strong></span>
-       <%= f.text_field :post_title, placeholder:"タイトル名",class:"form-control" %><br>
+       <%= f.text_field :post_title, placeholder:"タイトル名",class:"form-control",style:"width:120%;" %><br>
 
        <%= f.label :投稿内容 %><span style="color:red"><strong>*必須です</strong></span>
-       <%= f.text_area :post_content,class:"form-control" %><br>
+       <%= f.text_area :post_content,class:"form-control",row:4,style:"width:120%;"  %><br>
 
        <%= f.label :カテゴリー %>
-       <%= f.select :category,@data,{},class:"form-control"  %><br><br>
+       <%= f.select :category,@data,{},class:"form-control",style:"width:120%;"   %><br><br>
 
        <%= f.label :一般公開 %>
        <%= f.check_box :public %><br>

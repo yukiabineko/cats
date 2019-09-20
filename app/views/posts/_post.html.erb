@@ -4,12 +4,12 @@
        
        <div class="row">
            
-         <div class="col-md-2"><%= image_tag(show_image_url(post.user),size:"40x40") %><%= post.user.name %></div>
-         <div class="col-md-5">
+         <div class="col-md-3" id="post_name"><%= image_tag(show_image_url(post.user),size:"40x40") %><span style="font-size:14px;"><%= post.user.name %></span></div>
+         <div class="col-md-5" id="post_title">
              
              <label id="content_title"><%= link_to "#{post.post_title}",messages_show_path(post) %></label>
         </div>
-         <div class="col-md-5">
+         <div class="col-md-4" id="post_cate">
              <label id="content_category"><%= post.category.present? ? post.category : "その他" %></label>
          </div>
        </div>

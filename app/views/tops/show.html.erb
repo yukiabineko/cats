@@ -27,7 +27,20 @@
     <li id="post_link2"><%= link_to "投稿",posts_path %> </li>
      <li id="weight_link2"><%= link_to "健康チェック",record_path %> </li>
      <li id="search_link2"><%= link_to "検索","#" %> </li>
-     <li id="log_link2"> <%= link_to "ログイン",login_path %> </li>
+    <% if logged_in? %>
+       <li id="log_link2">
+           <%= link_to user_path(current_user) do %> 
+             <label>マイページ</label>
+           <% end %>
+     </li>
+    <% else %>
+      <li id="log_link2">
+           <%= link_to login_path do %> 
+             <label>ログイン</label>
+           <% end %>
+     </li>
+    <% end %>
+    
    </ul>
   </div><br><br>
   <!--スマートフォンのみ表示--> 
