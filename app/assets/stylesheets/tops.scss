@@ -11,92 +11,94 @@
 }    
 /* top linkボタン*/   
 #post_link {
-    width:250px;
+    
+     a{
+       width:250px;
     height:250px;
     background-color:red;
     box-shadow:6px 6px 6px #fff;
      position: absolute;
      border-radius:50%;
+     text-align:center;
      top: 60%;
      left: 3%;
-     a{
-        position: relative;
-        top: 45%;
-        left: 42%;
-        font-size:22px;
-        font-weight:bold;
-        color:#c0c0c0;
-        text-decoration:none;
-     }
+     font-size:28px;
+     color:#c0c0c0;
      &:hover{
          background-color:pink;
      }
+     label{
+         margin-top:40%;
+        
+     }
+  }
 }
 #weight_link{
-    width:250px;
-    height:250px;
-    background-color:blue;
-    box-shadow:6px 6px 6px #fff;
-     position: absolute;
-     border-radius:50%;
-     top: 60%;
-     left: 29%;
+   
      a{
-        position: relative;
-        top: 45%;
-        left: 26%;
-        font-size:22px;
-        font-weight:bold;
+        width:250px;
+        height:250px;
+        background-color:blue;
+        box-shadow:6px 6px 6px #fff;
+        position: absolute;
+        border-radius:50%;
+        text-align:center;
+        top: 60%;
+        left: 29%;
+        font-size:28px;
         color:#c0c0c0;
-        text-decoration:none;
-     }
+         label{
+         margin-top:40%;
+         }
      &:hover{
          background-color:pink;
      }
+   }
 }
 #search_link{
-    width:250px;
-    height:250px;
-    background-color:yellow;
-    box-shadow:6px 6px 6px #fff;
-     position: absolute;
-     border-radius:50%;
-     top: 60%;
-     left: 54%;
+   
      a{
-        position: relative;
-        top: 45%;
-        left: 42%;
-        font-size:22px;
-        font-weight:bold;
-        color:#c0c0c0;
-        text-decoration:none;
-     }
+         width:250px;
+        height:250px;
+        background-color:yellow;
+        box-shadow:6px 6px 6px #fff;
+         position: absolute;
+         border-radius:50%;
+         text-align:center;
+         top: 60%;
+         left: 54%;
+         font-size:28px;
+         color:#c0c0c0;
+          label{
+            margin-top:40%;
+         }
+     
      &:hover{
          background-color:pink;
      }
+    } 
 }
 #log_link{
-    width:250px;
-    height:250px;
-    background-color:green;
-     position: absolute;
-     border-radius:50%;
-     box-shadow:6px 6px 6px #fff;
-     top: 60%;
-     left: 79%;
+   
      a{
-        position: relative;
-        top: 45%;
-        left: 36%;
-        font-size:22px;
-        font-weight:bold;
-        color:#c0c0c0;
-        text-decoration:none;
-     }
-     &:hover{
+         width:250px;
+         height:250px;
+         background-color:green;
+         position: absolute;
+         border-radius:50%;
+         box-shadow:6px 6px 6px #fff;
+         top: 60%;
+         left: 79%;
+         font-size:28px;
+         text-align:center;
+         color:#c0c0c0;
+           label{
+            margin-top:40%;
+         }
+        &:hover{
          background-color:pink;
-     }
+       }
+    }
 }
 #phone_top_menu{
     display:none;
