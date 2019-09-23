@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190914052154) do
+ActiveRecord::Schema.define(version: 20190921153029) do
 
   create_table "bases", force: :cascade do |t|
     t.float "data_age"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20190914052154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cats_on_user_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.date "search_date"
+    t.string "category"
+    t.string "prefectures"
+    t.string "result"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_histories_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|

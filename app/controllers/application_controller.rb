@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   include  PostsHelper
   include  MessagesHelper
   include  RecordsHelper
+  include  HistoriesHelper
 end

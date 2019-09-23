@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  search_date: 2019-09-21
+  category: MyString
+  prefectures: MyString
+  result: MyString
+
+two:
+  search_date: 2019-09-21
+  category: MyString
+  prefectures: MyString
+  result: MyString

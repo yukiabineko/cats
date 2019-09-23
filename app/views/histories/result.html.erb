@@ -1,0 +1,41 @@
+<%= provide(:title,"施設検索結果") %>
+<div id="search_head">
+    <h1>施設検索結果</h1>
+</div>
+<% unless logged_in? %>
+<div class="row">
+ <div class="col-md-6 col-md-offset-3">
+   <div class="alert alert-info">検索を記録するにはログインしてください</div>
+ </div>
+</div>
+<% end %>
+<%=link_to "検索ページに戻る", search_show_path,class:"btn btn-primary btn-lg" %>
+<br><br>
+<div id="serch_result_main">
+<table id="search_table">
+    <tr>
+        <th>検索カテゴリー&emsp;>&emsp;</th>
+        <td><%= @cate %></td>
+        <th>&emsp;検索地域&emsp;>&emsp;</th>
+        <td><%= @area %></td>
+    </tr>
+    
+</table>
+<table class="table table-bordered table-striped" id="history_table">
+    <thead>
+        <tr>
+            <th style="width:5%">保存する</th><th>施設名</th><th>住所</th><th>電話番号</th>
+        </tr>
+        <tbody>
+            <% @data.each do |data| %>
+              <tr>
+                  <td></td>
+                  <td><%= data["name"] %></td>
+                  <td><%= data["area"] %></td>
+                  <td><%= data["tel"] %></td>
+              </tr>
+            <% end %>
+        </tbody>
+    </thead>
+</table>
+</div>
