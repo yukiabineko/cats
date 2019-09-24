@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy2', as: 'signout'
   get '/auth/:provider/callback',    to: 'users#facebook_login',      as: :auth_callback
-  root "tops#show"  
+  root "tops#show"                                                                 #root
 
-                                                                                  #root
   get '/signup',to: 'users#new'                                                   #会員登録
   
   resources :users do                                                             #ユーザーカラム一式
@@ -60,6 +59,10 @@ Rails.application.routes.draw do
   get 'serch_show',to:'histories#show',                           as:         :search_show        #施設検索page
   post 'serch_show',to:'histories#show',                          as:         :search_post        #施設検索page
   post 'search_create',to:'histories#create',                     as:         :serch_create        #施設検索
-  get 'search_result/:obj/:obj2',to:'histories#result',                as:         :search_result
-end
+  get 'search_result/:obj/:obj2',to:'histories#result',           as:         :search_result       #施設結果
+  post 'history_save',to:'histories#history_save',                as:         :history_save        #履歴保存
+  get 'history_user_view/:user_id',to:'histories#history_user_view',as:       :history_user_view   #施設検索履歴
+  delete 'histrory_delete/:id',to: "histories#destroy",            as:        :history_delete      #施設削除個別
+  delete 'history_all_delete',to: "histories#all_delete",          as:        :history_all_delete  #施設全削除
+end 
 

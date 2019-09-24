@@ -1,6 +1,12 @@
 <%= provide(:title,"施設検索結果") %>
 <div id="search_head">
     <h1>施設検索結果</h1>
+    <p class="text-primary" style="font-size:18px;">
+    　<% if logged_in? %>
+    　  履歴を保存したい場合は<br>
+    　  保存するをチェックして保存ボタンを押してください。
+    　<% end %>
+    </p>
 </div>
 <% unless logged_in? %>
 <div class="row">
@@ -21,21 +27,50 @@
     </tr>
     
 </table>
+<%= form_with(url:history_save_path,local:true) do |f| %>
 <table class="table table-bordered table-striped" id="history_table">
-    <thead>
-        <tr>
-            <th style="width:5%">保存する</th><th>施設名</th><th>住所</th><th>電話番号</th>
-        </tr>
-        <tbody>
+<!-- ログインしてる場合-->
+           <% if logged_in? %>
+             <thead>
+                <tr>
+                 <th style="width:6%">保存する</th><th>施設名</th><th>住所</th><th>電話番号</th>
+               </tr>
+            </thead>    
+            <tbody>
+                <% @datas.each do |data| %>
+                  <%= fields_for "histories[]", data do |af| %>
+                  <tr>
+                      <td style="text-align:center;"><%= af.check_box :save_check %></td>
+                      <td><%= data.facility_name %></td>
+                      <td><%= data.prefectures %></td>
+                      <td><%= data.phone_number %></td>
+                      <%= af.hidden_field :facility_name, value: data.facility_name %>
+                      <%= af.hidden_field :prefectures, value: data.prefectures %>
+                      <%= af.hidden_field :phone_number, value: data.phone_number %>
+                  </tr>
+                  <% end %>
+                <% end %>
+<!-- 非ログイン -->                
+          <% else %>
+             <thead>
+                <tr>
+                 </th><th>施設名</th><th>住所</th><th>電話番号</th>
+               </tr>
+            </thead>    
             <% @data.each do |data| %>
-              <tr>
-                  <td></td>
-                  <td><%= data["name"] %></td>
-                  <td><%= data["area"] %></td>
-                  <td><%= data["tel"] %></td>
-              </tr>
-            <% end %>
+                  <tr>
+                      <td><%= data["name"] %></td>
+                      <td><%= data["area"]  %></td>
+                      <td><%= data["tel"] %></td>
+                  </tr>
+                <% end %>
+          <% end %>
         </tbody>
-    </thead>
 </table>
+<% if logged_in? %>
+<div style="text-align:center;">
+    <%= f.submit "記録する",class:"btn btn-primary" %>
+</div>
+<% end %>
+<% end %>
 </div>

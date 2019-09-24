@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20190921153029) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.date "search_date"
-    t.string "category"
+    t.boolean "save_check"
+    t.string "facility_name"
     t.string "prefectures"
-    t.string "result"
+    t.string "phone_number"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

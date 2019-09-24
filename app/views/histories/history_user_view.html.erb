@@ -1,0 +1,32 @@
+<%= provide(:title,"施設検索結果") %>
+
+<div id="search_head">
+    <h1>施設検索履歴</h1>
+</div>
+
+<%=link_to "TOPページに戻る", root_path,data: {"turbolinks" => false},class:"btn btn-primary btn-lg" %>
+
+<div id="serch_result_main">
+  <%= link_to "全てリセット",history_all_delete_path,data:{confirm:"全て削除しますよろしいんですか？"},method: :delete,class:"btn btn-success",style:"margin-top:-3%;",id:"reset" if @datas.count >0 %>    
+<% if  @datas.count >0  %>    
+<table id="history_table" class="table table-bordered" style="margin-top:-0.6%;">
+   <thead>
+       <tr>
+         <th>検索日時</th><th>施設名</th><th>施設住所</th><th>施設電話番号</th><th></th>
+       </tr>
+   </thead>
+   <tbody>
+       <%  @datas.each do |data| %>
+         <tr>
+             <td><%= data.created_at.to_date.to_s(:dates)+"(#{data.created_at.hour}時#{data.created_at.min}分)" %></td>
+             <td><%= data.facility_name %></td>
+             <td><%= data.prefectures %></td>
+             <td><%= data.phone_number %></td>
+             <td><%= link_to "削除",history_delete_path(data),data:{confirm:"削除してよいですか"},method: :delete,class:"btn btn-danger" %></td>
+         </tr>
+       <% end %>
+   </tbody>
+</table>
+<% else %>
+ <h1>まだ検索されたデータはありません。</h1>
+<% end %>
