@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+  before_action :admin_page
   before_action:roop,only: :cats_weight
   before_action:correct_user,only:[:lasted_weight,:cats_weight] 
   

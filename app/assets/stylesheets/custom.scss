@@ -128,7 +128,7 @@ header{
 }
 
 /* header */
-/*-----------topペー��------------*/
+/*-----------topページ------------*/
 #tops{display:none;}
 .slideshow{     /*スライドショー関連*/
   width:100%;
@@ -185,10 +185,33 @@ header{
     }
      /*トッページお知らせここまで*/
 /*-----------topページ------------*/
+/*--------------index----------------------------*/
+#users_all{
+  margin-top:8%;
+  font-weight:bold;
+  color:#fff;
+  font-size:22px;
+  
+}
+#table-users{
+  border-radius:0;
+  th{background-color:orange;}
+  td{text-align:center;}
+}
+#admin_bt{
+  width:30%;
+}
 /* ******************************************:スマートフォン処理********************************* *                                                     **********************/
 @media screen and (max-width: 767px){
   body {
     padding-top: 10px;
+  #admin_bt{
+    width:100%;
+  }  
+  #users_all{
+    margin-top:40%;
+    font-size:16px;
+  }
 }
 #h5{display:block;}
 

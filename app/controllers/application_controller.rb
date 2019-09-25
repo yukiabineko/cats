@@ -5,4 +5,10 @@ class ApplicationController < ActionController::Base
   include  MessagesHelper
   include  RecordsHelper
   include  HistoriesHelper
+  def admin_page
+     if logged_in?
+       redirect_to users_url if current_user.admin?
+     end  
+  end        
+   
 end

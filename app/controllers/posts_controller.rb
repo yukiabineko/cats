@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :admin_page  
   before_action :set_user,only:[:new,:create]
   before_action :set_array,only:[:index,:new,:create,:post_edit]
 

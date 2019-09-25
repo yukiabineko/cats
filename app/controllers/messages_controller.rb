@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :admin_page
   before_action :set_post,only:[:show]
   before_action :set_message,only:[:edit,:update,:destroy,:replay_show,:replay_create]
   before_action :access_block

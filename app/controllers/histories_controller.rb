@@ -1,4 +1,5 @@
 class HistoriesController < ApplicationController
+   before_action :admin_page
    require 'net/http'
    require 'uri'
    require 'json'

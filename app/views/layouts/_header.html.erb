@@ -80,6 +80,21 @@
 
 		</div>
 	</div>
-</nav>
+	<% if logged_in? %>
+	  <% if current_user.admin? %>
+	   <h1 style="color:#fff;margin-top:1%;margin-right:1%;">管理者専用</h1>
+	   <%= link_to "ログアウト", logout_path, method: :delete ,class:"btn btn-danger",style:"margin_left:2%;",id:"admin_bt"%>
+	   <style>
+	       .nav{display:none;}
+	       .dropdown{display:none;}
+	       header{margin-bottom:20%;}
+	       @media screen and (max-width: 767px){
+	           .navbar-toggle{display:none;}
+	       }
+	   </style>
+	<% end %>
+	<% end %>
+	</div>
+	</nav>
 </header>
   

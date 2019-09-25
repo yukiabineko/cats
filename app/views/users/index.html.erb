@@ -1,22 +1,43 @@
-<% provide(:title, 'All Users') %>
-<h1>ユーザー一覧</h1>
+<% provide(:title, 'オーナーさんデータ管理') %>
+
+<div id="users_all">
+  <h1>ユーザー一覧</h1>
+  <p class="text-primary text-center" style="font-size:16px;">
+    オーナーさん一覧と<br>
+    オーナーさん削除機能
+  </p>
+</div>
 
 <div class="col-md-10 col-md-offset-1">
    <%= will_paginate @users,:previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  <% if @users.count == 1 %>
+    <div style="text-align:center;background-color:#fff;padding:8px;">
+      <h3>まだオーナーさん登録されてません</h3>
+    </div>
+  <% else %>
   <table class="table table-condensed table-hover" id="table-users">
     <thead>
       <tr>
-        <th><%= User.human_attribute_name :name %></th>
+        <th colspan="2">オーナーさん名</th>
       </tr>
     </thead>
 
     <% @users.each do |user| %>
       <tr>
+        <% if !user.admin? %>
         <td><%= link_to user.name, user %></td>
         <td><%= link_to "削除", user, method: :delete,
                 data: { confirm: "削除してよろしいですか？" },
                 class: "btn btn-danger" %></td>
+        <% end %>        
       </tr>
     <% end %>
   </table>
+  <% end %>
 </div>
+
+<style>
+  body{
+    background-image:none;
+  }
+</style>

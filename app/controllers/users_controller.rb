@@ -1,15 +1,16 @@
 class UsersController < ApplicationController
+  before_action :admin_page,except: [:index,:destroy]
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
   before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update, :cat_plan]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit,:cat_new]
-  before_action :admin_user,only: :destroy
+  before_action :admin_user,only: [:destroy,:index]
   
   
 
   #ユーザー全表示ページネーション機能持ち
   def index 
-    @users = User.paginate(page: params[:page],:per_page => 2)
+    @users = User.paginate(page: params[:page],:per_page => 5)
   end
 
   def new                   #新規登ページ

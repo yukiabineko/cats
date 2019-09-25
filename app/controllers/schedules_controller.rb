@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_action :admin_page
   before_action :cat_user,only:[:show,:correct_user]
   before_action :correct_user,only:[:show]
   
