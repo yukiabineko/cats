@@ -41,7 +41,7 @@ class HistoriesController < ApplicationController
 #=検索結果  
   def result
     @user = User.find current_user.id if current_user.present?
-    @user.histories.where(save_check: false,save_check: nil).destroy_all
+    @user.histories.where(save_check: false,save_check: nil).destroy_all if current_user.present?
     @area = params[:obj]  
     @data = params[:data]
     @cate = params[:obj2]
