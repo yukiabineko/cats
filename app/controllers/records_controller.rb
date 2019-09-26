@@ -103,7 +103,7 @@ class RecordsController < ApplicationController
     else
        if params[:cat_weight].present?
         @date =Date.today
-        @name ="ゲストさんの猫ちゃん"
+        @name ="ゲストさんの猫"
         obj = Base.find_by(data_age: params[:cat_age])
         min_weight = obj.min_weight
         max_weight = obj.max_weight

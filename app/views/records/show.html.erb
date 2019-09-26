@@ -38,7 +38,7 @@
                             </div><br>
                              <div class="col-md-6 col-md-offset-3">
                                <strong>猫ちゃん体重(kg):</strong>
-                               <%= f.number_field :cat_weight,class:"form-control",step:"0.1" %><br>
+                               <%= f.number_field :cat_weight,class:"form-control",step:"0.1",min:0.1 %><br>
                                <%= f.submit "体重検査する",class:"btn btn-primary",style:"margin-left:40%;" %>
                            </div>
                            </div>
@@ -129,7 +129,7 @@
                            
                              <div class="col-md-6 col-md-offset-3">
                                <strong>猫ちゃん体重(kg):</strong>
-                               <%= f.number_field :cat_weight,class:"form-control",step:"0.1" %><br>
+                               <%= f.number_field :cat_weight,class:"form-control",step:"0.1",min:0.1 %><br>
                                <%= f.submit "体重検査する",class:"btn btn-primary" %>
                            </div>
                        </div>
