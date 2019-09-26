@@ -2,36 +2,38 @@
   
     <td>
        
-       <div class="row">
-           
-         <div class="col-md-4" id="post_name"><%= image_tag(show_image_url(post.user),size:"40x40") %><span style="font-size:14px;"><%= post.user.name %></span></div>
-         <div class="col-md-5" id="post_title">
-             <span style="color:blue;" id="p-sp">タイトル:&emsp;<%= link_to "#{post.post_title}",messages_show_path(post),id:"p-title" %></span>
-        </div>
-         <div class="col-md-3" id="post_cate">
-              <span style="color:blue;" id="p-sp">カテゴリー:&emsp;<%= post.category.present? ? post.category : "その他" %></span>
+      
+         <%= link_to   messages_show_path(post),id:"p-title" do %>
+         <div class="row">
+             <div class="col-md-4" id="post_name"><%= image_tag(show_image_url(post.user),size:"40x40") %><span style="font-size:14px;"><%= post.user.name %></span></div>
+             <div class="col-md-5" id="post_title">
+                 <span style="color:blue;" id="p-sp">タイトル:&emsp;<%= "#{post.post_title}" %></span>
+            </div>
+             <div class="col-md-3" id="post_cate">
+                  <span style="color:blue;" id="p-sp">カテゴリー:&emsp;<%= post.category.present? ? post.category : "その他" %></span>
+             </div>
          </div>
-       </div>
-       <div class="row">
-           <div class="col-md-12"> <div id="table-border"></div></div>
-       </div>
-         
-       <div class="row">
-         <div class="col-md-12">
-             <span>
-                 <% (post.post_content.split "\n").each do |content| %>
-                   <p><%= content %></p>
-                 <% end %>
-            </span>
-        </div>
-       </div>
+          <div class="row">
+            <div class="col-md-12"> <div id="table-border"></div></div>
+          </div>
+           <div class="row">
+               <div class="col-md-12">
+                 <span>
+                     <% (post.post_content.split "\n").each do |content| %>
+                       <p><%= content %></p>
+                     <% end %>
+                </span>
+              </div>
+          </div>
+         <% end %>
+       
     </td>
     <tr>
         <td style="border-radius:none;background-color:#fff;height:40px;">
-          <div style="text-align:right">
+          <div style="text-align:right;font-size:18px;font-weight:100;">
                <% if current_user?(post.user) %>
-                 <%= link_to "|編集|",post_edit_url(post),remote:true,style:"font-weight:bold" %>
-                 <%= link_to "削除|",user_post_path(post.user,post),data:{confirm: "本当に削除しますか？"},method: :delete,style:"font-weight:bold" %>
+                 <%= link_to "|編集|",post_edit_url(post),remote:true,style:"font-weight:100;font-size:18px;" %>
+                 <%= link_to "削除|",user_post_path(post.user,post),data:{confirm: "本当に削除しますか？"},method: :delete,style:"font-weight:100;font-size:18px;" %>
                <% end %>
                <%= "投稿日:#{post.created_at.year}/#{post.created_at.month}/#{post.created_at.day} #{post.created_at.hour}時#{post.created_at.min}分" %>
           </div>    

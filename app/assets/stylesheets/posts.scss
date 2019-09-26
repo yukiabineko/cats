@@ -75,11 +75,13 @@ body{background-color:pink;}
 }
 #post_index_table{    /*テーブル*/
     width:100%;
+    table-layout: fixed;
     margin: 10px 0 0 15px;
 　 th {margin-left:80px;}   
 　 tr{margin-bottom:60px;}
    td{
         width:100%;
+        overflow-wrap : break-word;
         background-color:#eee;
         border-radius:9px;
         img{
@@ -108,7 +110,13 @@ body{background-color:pink;}
       
     }
 }
-#p-sp{margin-left:1%;font-size:16px;}
+#p-sp{margin-right:60%;font-size:12px;}
+#p-title{
+    display:inline-block;
+    width:100%;
+    color:#000;
+}
+#p-title:hover{background:none};
 
 /*---------/一覧 -------------*/
 /*----------新規-------------- */
