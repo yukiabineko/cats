@@ -16,10 +16,10 @@
                  <div class="col-md-8 col-md-offset-2">
                    <div style="text-align:center;margin-top:4%";><%= f.label "施設カテゴリー" %></div>
                    <%= f.select :category,facilitys,{},class:"form-control" %><br>
-                  <div style="text-align:center";><%= f.label "検索地域" %></div>
+                  <div style="text-align:center";><%= f.label "検索地域,施設ワード" %></div>
                    <%= f.text_field :prefectures,class:"form-control" %><br> 
                    <div style="text-align:center;" class="text-primary">
-                       地域を入力してください。より詳細に入力したほうが検索精度があげります。<br>
+                       地域や施設ワード入力してください。より詳細に入力したほうが検索精度があげります。<br>
                        <span style="color:red;font-size:12px">*(例)東京都より東京都新宿区の方が精度あがります。</span>
                    </div><br>
                     <div style="text-align:center";>

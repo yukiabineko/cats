@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <% if logged_in? %>
-                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"width:200px;margin-right:30px;margin-top:40px;" %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"width:200px;margin-right:30px;margin-top:2px;" %>
                     <% else %>
                       <div class="alert alert-warning">投稿するにはログインしてください</div>
                     <% end %>
@@ -36,17 +36,9 @@
                     <% else %>
                     　<label id="post_index_info">投稿するにはログインが必要です。</label>
                     <% end %>
-                    <label id="phone_title">表示は上からタイトル、カテゴリー、内容です。</label>
 <!--投稿一覧-->     <table id="post_index_table">
                       <thead>
-                          <tr>
-                             <th>
-                               <div class="row">
-                                   <div class="col-md-2"></div>
-                                   <div class="col-md-5"><label id="td_title">タイトル</label></div>
-                                   <div class="col-md-5"><label id="td_category">カテゴリー</label></div>
-                             </th>      
-                          </tr>
+                         
                       </thead>
                       <tbody>
                          <%= render @posts %>
