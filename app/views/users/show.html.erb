@@ -1,4 +1,8 @@
 <%= provide(:title,"#{@user.name}さん") %>
+<% content_for(:body_attributes) do %>
+　<meta name="turbolinks-cache-control" content="no-cache">
+<% end %>  
+
 
 <div id="show_user_head" class="text-center text-primary">
     <h1>ｵｰﾅｰさんと猫ちゃんの個別ページ</h1>

@@ -13,6 +13,9 @@
   </head>
 
   <body>
+   <% if content_for?(:body_attributes) %>
+    <%= yield(:body_attributes) %>
+   <% end %>
    <%= render 'layouts/header' %><br><br>
    <% flash.each do |message_type, msg| %>
      <div class="alert alert-<%= message_type %>"><%= msg %></div>
