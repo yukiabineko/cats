@@ -21,12 +21,22 @@ class SchedulesController < ApplicationController
   end
 #アップデート
   def update
+    check = true
     @cat = Cat.find(params[:cat_id])
+    @schedules = Schedule.paginate(page:params[:page],:per_page => 10).where(cat_id: @cat.id).order('plan_date asc')
     plan_parameter.each do |id,item|
       schedule = Schedule.find id
-      schedule.update_attributes(item)
-    end    
-     redirect_to plan_show_url(@cat,@cat.user)
+      unless schedule.update_attributes(item)
+         check = false
+      end
+    end  
+     if check
+       flash[:success] = "スケジュール内容更新しました"
+       redirect_to plan_show_url(@cat,@cat.user)
+     else
+       flash.now[:danger] = "更新内容が不正です。"
+       render :show
+     end   
   end
 #削除
  def destroy

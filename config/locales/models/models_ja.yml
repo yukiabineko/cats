@@ -1,0 +1,34 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザ
+      post: 投稿
+      reply: 返信
+      cat: 猫
+      schedule: スケジュール
+    attributes:
+        user:
+          id: ID
+          name: 名前
+          email: メールアドレス
+          password: パスワード
+          password_confirmation: パスワード再入力
+          created_at: 作成日
+          updated_at: 更新日
+
+        post:
+          post_title: タイトル
+          post_content: 投稿内容
+          category: カテゴリー
+          public: 一般公開
+          created_at: 作成日
+          updated_at: 更新日
+        reply:
+          reply_content: 内容
+        cat:
+          cat_name: 猫ちゃん名
+          cat_weight: 体重
+          cat_age: 猫ちゃん年齢(人間ベースで)
+        schedule:
+          plan_date: 日付
+          plan_content: 内容

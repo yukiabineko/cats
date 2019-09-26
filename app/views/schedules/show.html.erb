@@ -16,12 +16,12 @@
         <div id="edit_plan">
             <h4><%= "#{@cat.cat_name}ちゃんの登録スケジュール" %></h4>
             <% if @schedules.count > 0 %>
-            <div class="text-center"><%=will_paginate @messages,previous_label: '&lt 前へ', next_label: '次へ &gt' %></div>
+            <div class="text-center"><%=will_paginate @schedules,previous_label: '&lt 前へ', next_label: '次へ &gt' %></div>
              <div class="text-left" id="button_area">
                       <button id="button1" class="btn btn-primary">更新作業する</button>
                       <button id="button2" class="btn btn-warning">更新終了</button>
                  </div>
-            <%= form_with(model:@cat,url:plan_update_path(params:{cat_id:@cat.id}),method: :patch) do |f| %>
+            <%= form_with(model:@cat,url:plan_update_path(params:{cat_id:@cat.id}),local:true,method: :patch) do |f| %>
             <table class="table" id="plan_table">
                 <thead>
                     <tr id="tr">

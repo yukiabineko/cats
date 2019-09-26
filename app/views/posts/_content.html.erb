@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <% if logged_in? %>
-                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary",style:"width:200px;margin-right:30px;margin-top:40px;" %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"width:200px;margin-right:30px;margin-top:40px;" %>
                     <% else %>
                       <div class="alert alert-warning">投稿するにはログインしてください</div>
                     <% end %>
@@ -20,17 +20,6 @@
                 <div class="col-md-4"><%=will_paginate @posts,previous_label: '&lt 前へ', next_label: '次へ &gt' %></div>
                 <div class="col-md-5"></div>
             </div><br>
-            <!-- ここにカテゴリー検索box-->
-          <div  class="row">
-              <div class="col-md-3">
-                  <%= form_with(url:posts_path,local:true) do |f| %>
-                     <%= f.select :category,@datas,{},class:"form-control",id:"select" %>
-               </div>
-              <div class="col-md-1">
-                  <%= f.submit "カテゴリー検索",class:"btn btn-primary",id:"category_bt" %>
-              </div>
-            <% end %>      
-          </div><br>
         </div>
     </div>
     <!--  編集モーダル-->
@@ -73,20 +62,21 @@
 <!--投稿右-->
             <div class="col-md-3">
                  <div id="post_index_right">
+                     <p>カテゴリー検索</p>
+                        <%= form_with(url:posts_path,local:true) do |f| %>
+                         <%= f.select :category,@datas,{},class:"form-control",id:"select",style:"width:100%;margin:0 0 5px 0"; %>
+                          <%= f.submit "カテゴリー検索",class:"btn btn-primary",id:"category_bt",style:"margin-bottom:5px;" %>
+                        <% end %> 
                      <p>投稿日検索</p>
                      <%= form_with(url:posts_path,local:true) do |f| %>
                        <%= f.date_field :date %>
                        <%= f.submit "日付検索",class:"btn btn-primary" %>
                      <% end %>
                      <div id="div-title">投稿者名検索</div>
-                     <ul id="post_index_ul">
-                         <% post_names.each do |name| %>
-                           <% if name.present? %>
-                            <li><%= link_to name, posts_path(params:{name: name}) %></li>
-                           <% end %>
+                         <%= form_with(url:posts_path,local:true) do |f| %>
+                           <%= f.select :name,name_list,{},class:"form-control" %>
+                           <%= f.submit "投稿者検索",class:"btn btn-primary",style:"margin:1% 0"; %>
                          <% end %>
-                     </ul>
-                   
                  </div>
             </div>
         </div>

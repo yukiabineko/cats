@@ -31,13 +31,13 @@
                              <%= f.label :猫ちゃん名 %><span style="color:red;">*必須です</span>
                              <%= f.text_field :cat_name,class:"form-control" %><br>
                     
-                             <%= f.label :猫ちゃん年齢 %><span style="color:blue;">*人間ベースで</span>
+                             <%= f.label :猫ちゃん年齢 %><span style="color:blue;">*人間ベースで</span><span style="color:red;">*必須です</span>
                              <%= f.number_field :cat_age,class:"form-control" %><br>
                     
                              <%= f.label :猫ちゃん性別 %>
                              <%= f.select :cat_sex,[["オス","オス"],["メス","メス"]],{},class:"form-control" %><br>
                      
-                             <%= f.label :猫ちゃん体重 %>
+                             <%= f.label :猫ちゃん体重 %>(kg)<span style="color:red;">*必須です</span>
                              <%= f.number_field :cat_weight,class:"form-control" %>
                          </div><br>
                          <div  style="text-align:left" id="cat_update_sbmit">
