@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
      if logged_in?
        redirect_to users_url if current_user.admin?
      end  
-  end        
+  end   
    
 end

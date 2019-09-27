@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
   before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update, :cat_plan]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit,:cat_new]
+  before_action :correct_user, only: [:edit,:cat_new,:show_image]
   before_action :admin_user,only: [:destroy,:index]
   
   
@@ -20,8 +20,13 @@ class UsersController < ApplicationController
   
   def create                #新規登録
     @user = User.new(user_parameter)
-    
+#ファイル選択せれなかった時のための画像    
+    obj = File.open('public/user.png').read 
     if @user.save
+      if params[:user][:image].nil?
+        @user.image = obj
+        @user.save
+      end  
        log_in @user # 保存成功後、ログインします。
       flash[:success] = '登録しました。'
        redirect_to @user
@@ -42,8 +47,14 @@ class UsersController < ApplicationController
 def cat_create
    @user = User.find(params[:user_id])
    @cat = @user.cats.new(cat_parameter)
+   #ファイル選択せれなかった時のための画像    
+    obj = File.open('public/c.png').read 
    
    if @cat.save
+     if params[:cat][:cat_image].nil?
+        @cat.cat_image = obj
+        @cat.save
+     end  
       redirect_to user_url @user
    else
      render :cat_new
@@ -60,7 +71,13 @@ end
 #猫データアップデート
 def cat_update
   @cat = Cat.find(params[:id])
+#ファイル選択せれなかった時のための画像(obj)        
+    obj = @cat.cat_image
   if @cat.update_attributes(cat_parameter)
+     if params[:cat][:cat_image].nil?
+        @cat.cat_image = obj
+        @cat.save
+     end  
      flash[:success] = "編集成功"
   else
     flash[:danger] = "編集失敗"
@@ -88,11 +105,15 @@ end
   
 #update  
   def update     
-  
     @user = User.find(params[:id])
+#ファイル選択せれなかった時のための画像(obj)        
+    obj = @user.image
     if @user.update_attributes(user_parameter)
-      
-      flash[:success] = "情報更新しました。"
+      if params[:user][:image].nil?
+        @user.image = obj
+        @user.save
+      end  
+      flash[:success] = "情報更新しました。" 
       redirect_to @user
     else
       render :edit      
@@ -143,16 +164,26 @@ private
   
   def user_parameter     #ユーザーのpost patchパラメーター    rmasicで処理
      if params[:user][:image]
+       
+        data = params[:user][:image].original_filename
         params[:user][:image] = params[:user][:image].read
         image = params[:user][:image]
-        image2 = Magick::Image.from_blob(image).first
-        rmagick_image = image2.resize(0.6)
-        rmagick_image.auto_orient!
-        rmagick_image.strip!
-        rmagick_image.write('public/make.jpg')
-        params[:user][:image] = File.open('public/make.jpg').read
+      
+        kakucyousi = File.extname(data)
+        if kakucyousi == ".jpg" || kakucyousi == ".jpeg" || kakucyousi == ".png" || kakucyousi == ".gif" ||kakucyousi == ".JPG" || kakucyousi == ".JPEG" || kakucyousi == ".PNG" || kakucyousi == ".GIF"
+          image2 = Magick::Image.from_blob(image).first  
+          rmagick_image = image2.resize(0.6)
+          rmagick_image.auto_orient!
+          rmagick_image.strip!
+          rmagick_image.write('public/make.jpg')
+          params[:user][:image] = File.open('public/make.jpg').read
+        #ファイルが画像ファイル以外  
+        else
+          flash[:danger] = "画像を反映できませんでした。jpg png gif形式を選択ください"
+          params[:user][:image] = File.open('public/user.png').read 
+        end    
      elsif params[:user][:image].nil?
-         params[:user][:image] = File.open('public/user.png').read 
+         
      end
     params.require(:user).permit(:image, :name, :email, :password, :password_confirmation)
   end
@@ -160,16 +191,25 @@ private
  #猫パラメーター
   def cat_parameter
     if params[:cat][:cat_image]
+        data = params[:cat][:cat_image].original_filename
         params[:cat][:cat_image] = params[:cat][:cat_image].read
-        image = params[:cat][:cat_image]
-        image2 = Magick::Image.from_blob(image).first
-        rmagick_image = image2.resize(0.6)
-        rmagick_image.auto_orient!
-        rmagick_image.strip!
-        rmagick_image.write('public/make2.jpg')
-        params[:cat][:cat_image] = File.open('public/make2.jpg').read
+        kakucyousi = File.extname(data)
+        if kakucyousi == ".jpg" || kakucyousi == ".jpeg" || kakucyousi == ".png" || kakucyousi == ".gif" ||kakucyousi == ".JPG" || kakucyousi == ".JPEG" || kakucyousi == ".PNG" || kakucyousi == ".GIF"
+        
+            image = params[:cat][:cat_image]
+            image2 = Magick::Image.from_blob(image).first 
+            rmagick_image = image2.resize(0.6)
+            rmagick_image.auto_orient!
+            rmagick_image.strip!
+            rmagick_image.write('public/make2.jpg')
+            params[:cat][:cat_image] = File.open('public/make2.jpg').read
+        #ファイルが画像ファイル以外      
+        else
+           flash[:danger] = "画像を反映できませんでした。jpg png gif形式を選択ください"
+           params[:cat][:cat_image] = File.open('public/c.png').read 
+        end 
     elsif params[:cat][:cat_image].nil?
-         params[:cat][:cat_image] = File.open('public/c.png').read 
+         
     end
     params.require(:cat).permit(:cat_image, :cat_name, :cat_sex, :cat_age, :cat_weight)
   end

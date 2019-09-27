@@ -5,4 +5,6 @@ class Cat < ApplicationRecord
   validates :cat_name,  presence: true, length: { maximum: 50 }  
   validates :cat_weight,  presence: true
   validates :cat_age,  presence: true
+  
+  
 end

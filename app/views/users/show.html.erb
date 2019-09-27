@@ -38,7 +38,7 @@
                 </tr>
             </table>
            
-            <%= link_to "アカウント情報変更する",edit_user_path(@user),class:"btn btn-primary btn-block",style:"padding:20px",id:"edit_link" %>
+            <%= link_to "アカウント情報変更する",edit_user_path(@user),data:{"turbolinks" => false} ,class:"btn btn-primary btn-block",style:"padding:20px",id:"edit_link" %>
          </div>    
         </div>
     </div>
