@@ -15,15 +15,15 @@
      a{
        width:250px;
     height:250px;
-    background-color:red;
-    box-shadow:6px 6px 6px #fff;
+    background-color:#0074bf;
+    box-shadow:8px 8px 8px #fff;
      position: absolute;
      border-radius:50%;
      text-align:center;
      top: 60%;
      left: 3%;
      font-size:28px;
-     color:#c0c0c0;
+     color:#f2cf01;
      &:hover{
          background-color:pink;
      }
@@ -41,15 +41,15 @@
      a{
         width:250px;
         height:250px;
-        background-color:blue;
-        box-shadow:6px 6px 6px #fff;
+        background-color:#0074bf;
+        box-shadow:8px 8px 8px #fff;
         position: absolute;
         border-radius:50%;
         text-align:center;
         top: 60%;
         left: 29%;
         font-size:28px;
-        color:#c0c0c0;
+        color:#f2cf01;
          label{
          margin-top:40%;
          }
@@ -66,15 +66,15 @@
      a{
          width:250px;
         height:250px;
-        background-color:yellow;
-        box-shadow:6px 6px 6px #fff;
+        background-color:#0074bf;
+        box-shadow:8px 8px 8px #fff;
          position: absolute;
          border-radius:50%;
          text-align:center;
          top: 60%;
          left: 54%;
          font-size:28px;
-         color:#c0c0c0;
+         color:#f2cf01;
           label{
             margin-top:40%;
          }
@@ -92,15 +92,15 @@
      a{
          width:250px;
          height:250px;
-         background-color:green;
+         background-color:#0074bf;
          position: absolute;
          border-radius:50%;
-         box-shadow:6px 6px 6px #fff;
+         box-shadow:8px 8px 8px #fff;
          top: 60%;
          left: 79%;
          font-size:28px;
          text-align:center;
-         color:#c0c0c0;
+         color:#f2cf01;
            label{
             margin-top:40%;
          }
@@ -140,7 +140,7 @@
 }
 #phone_top_menu{
     display:inline;
-    margin-top:-15%;
+    margin-top:22%;
     h2{
         background-color: #c0c0c0;
         border-bottom: 4px solid red;
@@ -163,7 +163,7 @@
     height:150px;
     display:inline-block;
     position:relative;
-    background-color:red;
+    background-color:#0074bf;
     border-radius:50%;
     box-shadow:6px 6px 6px #fff;
     margin-right:8%;
@@ -172,9 +172,9 @@
         position:relative;
         top:35%;
         left:38%;
-        font-size:22px;
+        font-size:20px;
         font-weight:bold;
-        color:#c0c0c0;
+        color:#f2cf01;
         text-decoration:none;
      }
      &:hover{
@@ -185,16 +185,16 @@
     width:150px;
     height:150px;
     display:inline-block;
-    background-color:blue;
+    background-color:#0074bf;
     box-shadow:6px 6px 6px;
      border-radius:50%;
      a{
         position:relative;
         top:35%;
         left:10%; 
-        font-size:22px;
+        font-size:20px;
         font-weight:bold;
-        color:#c0c0c0;
+        color:#f2cf01;
         text-decoration:none;
      }
      &:hover{
@@ -205,7 +205,7 @@
     width:150px;
     height:150px;
     display:inline-block;
-    background-color:yellow;
+    background-color:#0074bf;
     box-shadow:6px 6px 6px #fff;
      border-radius:50%;
      margin-right:8%;
@@ -213,9 +213,9 @@
         position:relative;
         top:38%;
         left:34%; 
-        font-size:22px;
+        font-size:20px;
         font-weight:bold;
-        color:#c0c0c0;
+        color:#f2cf01;
         text-decoration:none; 
        
      }
@@ -227,7 +227,7 @@
     width:150px;
     height:150px;
     display:inline-block;
-    background-color:green;
+    background-color:#0074bf;
      border-radius:50%;
      box-shadow:6px 6px 6px #fff;
       margin-bottom:5%;
@@ -235,9 +235,9 @@
         position:relative;
         top:38%;
         left:19%;  
-        font-size:22px;
+        font-size:20px;
         font-weight:bold;
-        color:#c0c0c0;
+        color:#f2cf01;
         text-decoration:none;
      }
      &:hover{
@@ -245,4 +245,50 @@
      }
 }
 /* top linkボタ終了*/
+}
+@media screen and (min-width: 650px) and (max-width:768px){
+     #log_link2{
+         background-color:yellow;
+     }
+}
+
+/*************タブレット**********************/
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    #post_link {
+    
+     a{
+       width:160px;
+       height:160px;
+       margin-right:5%;
+       font-size:18px;
+     }
+}
+#weight_link{
+   
+     a{
+        width:160px;
+        height:160px;
+        margin-right:5%;
+        font-size:18px;
+   }
+    
+}
+#search_link{
+   
+     a{
+        width:160px;
+        height:160px;
+        margin-right:5%;
+        font-size:18px;
+  }
+}
+#log_link{
+   
+     a{
+         width:160px;
+         height:160px;
+         margin-right:5%;
+         font-size:18px;
+     }
+}
 }

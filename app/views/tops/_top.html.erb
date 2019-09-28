@@ -1,17 +1,17 @@
 <ul id="top_ul">
      <li id="post_link">
           <%= link_to posts_path do %>
-            <label>投稿</label>
+            <label>掲示板</label>
           <% end %>
      </li>
      <li id="weight_link">
           <%= link_to record_path  do %> 
-            <label>健康チェック</label>
+            <label>体重チェック</label>
           <% end %>
      </li>
      <li id="search_link">
           <%= link_to search_show_path do %>
-            <label>検索</label>
+            <label>施設検索</label>
           <% end %>
      </li>
     <% if logged_in? %>
