@@ -27,11 +27,11 @@
            <% @obj.each do |id,obj| %>
            <%= fields_for "saves[]",id do |af| %>
            <tr>
-              <td><%= obj[:date] %></td>
-             <td><span class="th"><%= obj[:name] %></span></td>
-             <td><%= obj[:weight] %></td>
-             <td><%= obj[:data_weight] %></td>
-             <td><span class="th"><%= obj[:result] %></span></td>
+              <td ><div style="margin-top:20%;"><%= obj[:date] %></div></td>
+             <td><div style="margin-top:20%;"><%= obj[:name] %></div></td>
+             <td><div style="margin-top:20%;"><%= obj[:weight] %></div></td>
+             <td><div style="margin-top:20%;"><%= obj[:data_weight] %></div></td>
+             <td><div style="margin-top:20%;"><%= obj[:result] %></div></td>
              
              <%= af.hidden_field :save_date,value:obj[:date] %>
              <%= af.hidden_field :cat_id,value:obj[:id] %>
@@ -41,11 +41,11 @@
              
              <td>
                  <% if obj[:result] == "痩せてます" %>
-                   <%= image_tag('/w1.png',id:"weight") %>
+                   <%= image_tag('/w1.png',id:"weight",size:"100x100") %>
                 <% elsif  obj[:result] == "標準です"  %>
-                  <%= image_tag('/w2.png',id:"weight") %>
+                  <%= image_tag('/w2.png',id:"weight",size:"100x100") %>
                 <% elsif  obj[:result] == "太ってます"  %> 
-                   <%= image_tag('/w3.png',id:"weight") %>
+                   <%= image_tag('/w3.png',id:"weight",size:"100x100") %>
                  <% end  %>
              </td>
            </tr>
@@ -54,11 +54,11 @@
           <% end %> 
 <!--未ログイン -->          
         <% elsif !logged_in? || (logged_in? && @all_cats.count == 0) %>
-           <td><%= @date %></td>
-           <td><%= @name %></td>
-           <td><%=params[:cat_weight] %></td>
-           <td><%= @data_weight %></td>
-           <td><%= @result %></td>
+           <td><div style="margin-top:20%;"><%= @date %></div></td>
+           <td><div style="margin-top:15%;"><%= @name %></div></td>
+           <td><div style="margin-top:12%;"><%=params[:cat_weight] %></div></td>
+           <td><div style="margin-top:15%;"><%= @data_weight %></div></td>
+           <td><div style="margin-top:20%;"><%= @result %></div></td>
             <td>
               <%= render 'result_image' %>
             </td>
@@ -68,11 +68,11 @@
 <!--猫単体処理-->          
         <% elsif logged_in? && @all_cats.count > 0 %>
           <tr>
-              <td><%= @date %></td>
-              <td><span class="th"><%= @cat.cat_name %></span></td>
-              <td><%= @cat.cat_weight %></td>
-              <td><%= @data_weight %></td>
-              <td><span class="th"><%= @result %></span></td>
+              <td><div style="margin-top:20%;"><%= @date %></div></td>
+              <td><div style="margin-top:15%;"><%= @cat.cat_name %></div</td>
+              <td><div style="margin-top:12%;"><%= @cat.cat_weight %></div></td>
+              <td><div style="margin-top:15%;"><%= @data_weight %></div></td>
+              <td><div style="margin-top:20%;"><%= @result %></div></td>
               <td>
                 <%= render 'result_image' %>
               </td>

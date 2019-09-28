@@ -113,7 +113,6 @@ end
         @user.image = obj
         @user.save
       end  
-      flash[:success] = "情報更新しました。" 
       redirect_to @user
     else
       render :edit      
@@ -177,10 +176,11 @@ private
           rmagick_image.strip!
           rmagick_image.write('public/make.jpg')
           params[:user][:image] = File.open('public/make.jpg').read
+           flash[:success] = "情報更新しました。" 
         #ファイルが画像ファイル以外  
         else
           flash[:danger] = "画像を反映できませんでした。jpg png gif形式を選択ください"
-          params[:user][:image] = File.open('public/user.png').read 
+          params[:user][:image] = nil 
         end    
      elsif params[:user][:image].nil?
          

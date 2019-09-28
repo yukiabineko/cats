@@ -26,8 +26,8 @@
                     <%= f.label :猫ちゃん名 %><span style="color:red;">*必須です</span>
                     <%= f.text_field :cat_name,class:"form-control" %><br>
                     
-                    <%= f.label :猫ちゃん年齢 %><span style="color:blue;">*人間ベースで(例*生後一年後1歳)</span><span style="color:red;">*必須です</span>
-                    <%= f.number_field :cat_age,class:"form-control" %><br>
+                    <%= f.label :猫ちゃん年齢 %><span style="color:blue;">*人間ベースで(例*生後一年後1歳,生後5ヶ月0.5歳)</span><span style="color:red;">*必須です</span>
+                    <%= f.number_field :cat_age,class:"form-control",step:0.1,min:0 %><br>
                     <p class="text-primary" style="font-size:12px;">
                         ＊猫ベースの年齢でも登録できますが、正確に体重検査はできなくなります。
                     </p>

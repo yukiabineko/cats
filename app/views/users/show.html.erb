@@ -30,11 +30,11 @@
                 </tr>
                 <tr>
                     <th>登録猫ちゃん数</th>
-                    <td></td>
+                    <td><%= @cats.count %></td>
                 </tr>
                 <tr>
                     <th>登録日</th>
-                    <td><%= @user.created_at %></td>
+                    <td><%= @user.created_at.to_date %></td>
                 </tr>
             </table>
            
