@@ -246,12 +246,32 @@
 }
 /* top linkボタ終了*/
 }
-@media screen and (min-width: 650px) and (max-width:768px){
-     #log_link2{
-         background-color:yellow;
-     }
-}
+/******************スマホ横向き***********************/
+@media screen and (min-width: 660px) and (max-width: 768px) {
+  #post_link2 {
+    width: 150px;
+    height: 150px; }
 
+  #weight_link2 {
+    margin-left: 1%; }
+    
+  #search_link2{
+    margin-left: 20%; }    
+
+  #log_link2 {
+    margin-left:100%; 
+    a{
+        position:relative;
+        top:38%;
+        left:60%;  
+        font-size:20px;
+        font-weight:bold;
+        color:#f2cf01;
+        text-decoration:none;
+     }  
+  } 
+    
+}
 /*************タブレット**********************/
 @media screen and (min-width: 768px) and (max-width: 1024px){
     #post_link {
