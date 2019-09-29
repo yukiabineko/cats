@@ -8,9 +8,9 @@ class PostsController < ApplicationController
     @datas =  [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]   
     if logged_in?      #ログインしていてのですべてのデータ
       if params[:category]
-         @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category]).order('created_at desc')
+         @posts = Post.where(category: params[:category]).order('created_at desc')
          if params[:category] == "すべて"
-           @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+           @posts2 = Post.paginate(page: params[:page],:per_page => 5).order('created_at desc')
          end 
 #パラメータ日付け時         
       elsif params[:date]
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
            flash[:danger] = "検索日が無効です"
            redirect_to posts_url
         else
-            @posts = Post.paginate(page: params[:page]).where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc')
+            @posts = Post.where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc')
             if @posts.count ==0
                flash[:danger] = "その日付に投稿はありません"
                redirect_to posts_url
@@ -28,25 +28,25 @@ class PostsController < ApplicationController
 #パラメータ投稿者時
       elsif params[:name]
         user= User.find_by(name: params[:name])
-        @posts = Post.paginate(page: params[:page]).where('user_id=?',user.id).order('created_at desc') 
+        @posts = Post.where('user_id=?',user.id).order('created_at desc') 
 #default
       else
-         @posts = Post.paginate(page: params[:paginate],:per_page => 10).order('created_at desc')
+         @posts2 = Post.paginate(page: params[:page],:per_page => 5).order('created_at desc')
       end  
 #-----------------------      
 #ログインされてないので　公開許可ののみ      
     else
        if params[:category]
-           @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(category: params[:category],public:true).order('created_at desc')
+           @posts = Post.where(category: params[:category],public:true).order('created_at desc')
          if params[:category] == "すべて"
-           @posts = Post.paginate(page: params[:paginate],:per_page => 10).where(public: true).order('created_at desc')
+           @posts = Post.paginate(page: params[:page],:per_page => 5).where(public: true).order('created_at desc')
          end 
        elsif params[:date]  #日検索
           if params[:date].blank?
               flash[:danger] = "検索日が無効です"
               redirect_to posts_url
           else
-             @posts = Post.paginate(page: params[:page]).where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1)
+             @posts = Post.where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1)
              .where(public:true).order('created_at desc')
              if @posts.count ==0
                flash[:danger] = "その日付に投稿はありません"
@@ -56,9 +56,10 @@ class PostsController < ApplicationController
        #パラメータ投稿者時
        elsif params[:name]
          user= User.find_by(name: params[:name])
-         @posts = Post.paginate(page: params[:page]).where('user_id=?',user.id,public: true).order('created_at desc')    
+         
+         @posts = Post.where(user_id: user.id,public: true).order('created_at desc')    
        else
-         @posts = Post.paginate(page: params[:paginate],:per_page => 10).where.not(public: false).order('created_at desc')  #公開投稿のみ default
+         @posts2 = Post.paginate(page: params[:page],:per_page => 5).where.not(public: true).order('created_at desc')  #公開投稿のみ default
        end  
     end  
 #ピックアップ用

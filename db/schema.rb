@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 20190921153029) do
   end
 
   create_table "cats", force: :cascade do |t|
-    t.string "cat_name"
+    t.string "cat_name", null: false
     t.binary "cat_image"
     t.string "cat_sex"
-    t.float "cat_weight"
-    t.integer "cat_age"
+    t.float "cat_weight", null: false
+    t.integer "cat_age", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
