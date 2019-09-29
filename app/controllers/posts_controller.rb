@@ -15,12 +15,12 @@ class PostsController < ApplicationController
 #パラメータ日付け時         
       elsif params[:date]
         if params[:date].blank?
-           flash[:danger] = "検索日が無効です"
+           flash[:info] = "検索日が無効です"
            redirect_to posts_url
         else
             @posts = Post.where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc')
             if @posts.count ==0
-               flash[:danger] = "その日付に投稿はありません"
+               flash[:info] = "その日付に投稿はありません"
                redirect_to posts_url
             end        
         end    
@@ -43,13 +43,13 @@ class PostsController < ApplicationController
          end 
        elsif params[:date]  #日検索
           if params[:date].blank?
-              flash[:danger] = "検索日が無効です"
+              flash[:info] = "検索日が無効です"
               redirect_to posts_url
           else
              @posts = Post.where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1)
              .where(public:true).order('created_at desc')
              if @posts.count ==0
-               flash[:danger] = "その日付に投稿はありません"
+               flash[:info] = "その日付に投稿はありません"
                redirect_to posts_url
              end        
           end          
