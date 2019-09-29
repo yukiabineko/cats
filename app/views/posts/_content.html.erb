@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <% if logged_in? %>
-                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"width:200px;margin-right:30px;margin-top:10%;" %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"width:200px;margin-top:10%;",id:"btn" %>
                     <% else %>
                       <div class="alert alert-warning">投稿するにはログインしてください</div>
                     <% end %>
@@ -22,12 +22,23 @@
                     <!-- 全体検索かどうか -->
                       <%=will_paginate @posts2,previous_label: '&lt 前へ', next_label: '次へ &gt'  %></div>
                       <%  posts = @posts2 %>
-                      <style>
-                          #post_index_left{margin-top:-8%;}
-                          #post_index_right{margin-top:-25%;}
-                      </style>
-                    <% else %>
+                      <% if @posts2.count>5 %>  <!-- ページネーション対策 -->
+                           <style>
+                              #post_index_left{margin-top:-8%;}
+                              #post_index_right{margin-top:-25%;}
+                          </style>
+                      <% end %>      
+                    <% elsif @post2.nil? && @posts.present? %>  <!--個別検索時 -->
                       <% posts = @posts %>
+                      <style>
+                          #post_index_left{margin-top:0%;}
+                          #post_index_right{margin-top:0%;}
+                      </style>
+                    <% else @posts2.nil? && @posts.nil? %> <!--検索して結果無し -->
+                       <style>
+                          #post_index_left{margin-top:0%;}
+                          #post_index_right{margin-top:0;}
+                      </style>
                     <% end %>
                 <div class="col-md-5"></div>
             </div><br>
@@ -52,10 +63,10 @@
                          
                       </thead>
                       <tbody>
-                         
-                         <%= render posts %>
-                         <% if posts.count == 0 %>
+                         <% if posts.nil? %>   <!--検索して結果無し -->
                            <h4 style="color:blue;">まだ何も投稿されてません</h4>
+                         <% else %>   
+                            <%= render posts %>
                          <% end %>
                       </tbody>
                     </table>
