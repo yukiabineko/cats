@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user,only:[:show,:edit, :destroy, :show_image,:correct_user, :cat_new, ]
   before_action :set_cat,only:[:cat_modal,:cat_delete, :cat_edit, :cat_update, :cat_plan]
   before_action :logged_in_user, only: [:index,:show, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit,:cat_new]
+  before_action :correct_user, only: [:edit,:cat_new,:show]
   before_action :admin_user,only: [:destroy,:index]
   
   
@@ -78,7 +78,6 @@ def cat_update
         @cat.cat_image = obj
         @cat.save
      end  
-     flash[:success] = "編集成功"
   else
     flash[:danger] = "編集失敗"
   end  
@@ -206,7 +205,7 @@ private
         #ファイルが画像ファイル以外      
         else
            flash[:danger] = "画像を反映できませんでした。jpg png gif形式を選択ください"
-           params[:cat][:cat_image] = File.open('public/c.png').read 
+           params[:cat][:cat_image] = nil 
         end 
     elsif params[:cat][:cat_image].nil?
          

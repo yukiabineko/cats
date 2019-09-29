@@ -32,7 +32,7 @@
                              <%= f.text_field :cat_name,class:"form-control" %><br>
                     
                              <%= f.label :猫ちゃん年齢 %><span style="color:blue;">*人間ベースで</span><span style="color:red;">*必須です</span>
-                             <%= f.number_field :cat_age,class:"form-control" %><br>
+                             <%= f.number_field :cat_age,class:"form-control",step:0,min:0 %><br>
                     
                              <%= f.label :猫ちゃん性別 %>
                              <%= f.select :cat_sex,[["オス","オス"],["メス","メス"]],{},class:"form-control" %><br>
