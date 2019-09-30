@@ -68,7 +68,7 @@ class PostsController < ApplicationController
          @posts = Post.where(user_id: user.id,public: true).order('created_at desc')    
          @posts2 = []
        else
-         @posts2 = Post.paginate(page: params[:page],:per_page => 5).where.not(public: true).order('created_at desc')  #公開投稿のみ default
+         @posts2 = Post.paginate(page: params[:page],:per_page => 5).where.not(public: false).order('created_at desc')  #公開投稿のみ default
          @posts = []
        end  
     end  
