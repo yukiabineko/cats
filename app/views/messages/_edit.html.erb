@@ -12,9 +12,9 @@
                        <style>#new_posts_area{height:600px;}</style>
     　              <% end %>
                    <div class="form-inline" style:"text-align:center">
-                     <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:85%;margin-left:2%;",id:"message_text" %>
+                     <%= f.text_area :message_content,class:"form-control",placeholder:"メッセージ入力してください",style:"width:70%;margin-left:2%;",id:"message_text" %>
                      <%= f.hidden_field :user_id, value:current_user.id  if current_user.present? %>
-                     <%= f.submit "編集",class:"btn btn-primary",id:"message_submit" %>
+                     <%= f.submit "編集",class:"btn btn-primary",id:"message_submit",id:"ms_bt" %>
                    </div>
               <% end %>
             </div>

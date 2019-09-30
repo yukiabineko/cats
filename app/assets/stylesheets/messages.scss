@@ -145,7 +145,7 @@
 .reply-div{display:none;}
 .reply{
     background-color: #fff;
-    
+    border-radius:6px;
     
     li{
         padding: 24px 0 8px 4px;
@@ -222,6 +222,7 @@
    #post_area{
        padding-bottom:250px;
    }
+    #ms_bt{margin-top:-18%;margin-left:72%;}
 }
 /*--------スマートフォン---中-------------*/
 @media screen and (min-width: 660px) and (max-width: 767px){
@@ -252,6 +253,7 @@
    #post_area{
        padding-bottom:250px;
    }
+   #ms_bt{margin-top:-12%;margin-left:72%;}
 }
 
 /*--------タブ----------------*/
@@ -283,6 +285,8 @@
    #post_area{
        padding-bottom:250px;
    }
+
+  #ms_bt{margin-top:-2%;}  
 }
 /*--------pc----------------*/
 @media screen and (min-width: 1024px){
@@ -313,5 +317,8 @@
    #post_area{
        padding-bottom:250px;
    }
+   
 }
-
+@media screen and (min-width: 1200px){
+    #ms_bt{margin-top:-2%;}
+}
