@@ -82,9 +82,13 @@
                                              <ul id="div<%= message.id %>" class="reply">
                                                  <li><%= image_tag(show_image_url(reply.user.id),size:"40x40") %></li>
                                                  <li><%= reply.user.name %></li>
-                                                 <li id="reply_li"><%= reply.reply_content %></li> 
+                                                 <li id="reply_li"><%= reply.reply_content %></li>
+                                                 
                                              </ul>
-                                           <% end %>
+                                               <% if current_user?(reply.user) %>
+                                                 <%= link_to "削除",delete_reply_path(reply),data:{confirm:"削除しますか？"},method: :delete,class:"btn btn-danger btn-sm",id:"rp_bt" %>
+                                               <% end %>
+                                            <% end %>
                                         </div>   
                                       </li>
                                    </ul>

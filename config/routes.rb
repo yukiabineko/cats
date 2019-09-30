@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   
   get 'replay/show_modal/:msg_id',to:'messages#replay_show',  as: :replay_show    #返信用モーダル
   post 'replay/create/:msg_id',to:"messages#replay_create",   as: :replay_create  #返信登録 
+  delete 'delete_reply/:id',to:"messages#delete_reply",       as: :delete_reply
   get 'cats_new/:id',to:"users#cat_new",                      as: :cat_new        #猫新規登録ページ
   post 'cat_create/:user_id',to:'users#cat_create',           as: :cat_create     #猫新規登録
   patch 'cat_update/:id',to:'users#cat_update',               as: :cat_update

@@ -161,6 +161,8 @@
 }
 /*ボタン*/
 #bt{border: none;color:blue;background-color:#F5DEB3;font-weight:bold;}
+/*返信削除*/
+#rp_bt{margin-left:65%;}
 /*-------------------------------------------/reply-------------------------------------------------------------------*/
 /*--------スマートフォン最少----------------*/
 @media screen and (min-width: 300px) and (max-width: 375px){
@@ -223,6 +225,8 @@
        padding-bottom:250px;
    }
     #ms_bt{margin-top:-18%;margin-left:72%;}
+     /*返信削除*/
+    #rp_bt{margin-left:82%;margin-top:-4%} 
 }
 /*--------スマートフォン---中-------------*/
 @media screen and (min-width: 660px) and (max-width: 767px){
@@ -241,7 +245,7 @@
     left:0;
     #memo{color:blue; text-align:center;margin-right:10%;}
     #message_text{margin-top:40px;width:-20%;margin-left:1%;} 
-    
+   
 }
    #message_submit{
        margin-top:-11%;
@@ -254,6 +258,8 @@
        padding-bottom:250px;
    }
    #ms_bt{margin-top:-12%;margin-left:72%;}
+     /*返信削除*/
+    #rp_bt{margin-left:90%;margin-top:-2%} 
 }
 
 /*--------タブ----------------*/
@@ -286,7 +292,9 @@
        padding-bottom:250px;
    }
 
-  #ms_bt{margin-top:-2%;}  
+  #ms_bt{margin-top:-2%;}
+   /*返信削除*/
+    #rp_bt{margin-left:91%;margin-top:-2%} 
 }
 /*--------pc----------------*/
 @media screen and (min-width: 1024px){
@@ -317,8 +325,11 @@
    #post_area{
        padding-bottom:250px;
    }
-   
+    /*返信削除*/
+    #rp_bt{margin-left:93%;margin-top:-2%} 
 }
 @media screen and (min-width: 1200px){
     #ms_bt{margin-top:-2%;}
+    /*返信削除*/
+    #rp_bt{margin-left:95%;margin-top:-2%} 
 }

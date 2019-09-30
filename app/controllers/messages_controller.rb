@@ -50,6 +50,12 @@ def replay_create
   end  
   redirect_to messages_show_url @reply.message.post
 end
+#返信削除
+ def delete_reply
+    reply = Reply.find(params[:id])
+    reply.destroy
+   redirect_to messages_show_url reply.message.post
+ end    
   
 #-------------------------  
 private
