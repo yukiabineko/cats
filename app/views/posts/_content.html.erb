@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <% if logged_in? %>
-                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"width:200px;margin-top:10%;",id:"btn" %>
+                      <%= link_to "新規投稿", new_user_post_path(current_user),class:"btn btn-primary btn-lg",style:"margin-top:10%;",id:"btn" %>
                     <% else %>
                       <div class="alert alert-warning">投稿するにはログインしてください</div>
                     <% end %>
