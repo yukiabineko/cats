@@ -34,7 +34,7 @@ class RecordsController < ApplicationController
           if cat.cat_age >1.2
             obj= Base.find_by(data_age: 1.2)
           #1才未満          
-          elsif cat.cat_age <=1.0
+          elsif cat.cat_age <=1.2
          #ここが複雑        
             obj= Base.find_by(data_age: params[:records][id][:cat_age])
           end
@@ -63,7 +63,7 @@ class RecordsController < ApplicationController
         #1才以上の猫      
         if @cat.cat_age > 1.2
           obj = Base.find_by(data_age: 1.2)
-        elsif @cat.cat_age <= 1.0 
+        elsif @cat.cat_age <= 1.2 
           obj = Base.find_by(data_age: params[:age])  
         end
         min_weight = obj.min_weight
@@ -131,12 +131,12 @@ class RecordsController < ApplicationController
           obj = cat.records.build(item)
           obj.save
         end
-         redirect_to root_path
+         redirect_to lasted_weight_url current_user
      else    
        cat = Cat.find(params[:cat_id])
        obj = cat.records.new(save_parameter)
        obj.save
-       redirect_to root_path
+       redirect_to lasted_weight_url cat.user
      end  
   end
 #========================================================== 
