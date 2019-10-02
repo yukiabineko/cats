@@ -2,11 +2,14 @@
 
 <div id="search_head">
     <h1>猫関連施設検索</h1>
-    <p class="text-primary">
+    <p class="text-primary" id="sh_p">
       お住まいの都道府県と、施設のカテゴリーを元に<br>
       簡易的に目的の施設を検索できます<br>
       どうぞご利用ください。
     </p>
+    <% if !logged_in? %>
+      <div class="alert alert-info" style="width:65%;margin-left:17%">ログインしなくても利用できます。(検索を記録するにはログインして下さい.)</div>
+    <% end %>
 </div>
 
     <div class="row">
