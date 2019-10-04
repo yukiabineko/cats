@@ -113,6 +113,8 @@ table{
 }
 /***************************スマートフォン****************************************/
 @media screen and (max-width: 767px){
+    width:100%;
+    max-width:100%;
     #main-head{
        margin-top:22%;  
        h1{font-size:22px;}

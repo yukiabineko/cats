@@ -362,7 +362,7 @@
   #tops {
     margin-top: 15%; }
   .slideshow{
-      width:130%;
+      width:100%;
       max-width:90%;   
       margin-left:5%;
   }
@@ -390,8 +390,9 @@
       border-bottom: 4px solid red;
       width:100%;
       max-width:100%;   
-      font-size: 18px;
-      color: #0000bb;
+      font-size: 22px;
+      letter-spacing:20px;
+      color: #fff;
       margin-top: -32%;
       padding: 40px;
       margin-bottom: 30%;
@@ -418,7 +419,7 @@
     #post_link2 a {
       position: relative;
       top: 35%;
-      left: 32%;
+      left: 30%;
       font-size: 20px;
       font-weight: bold;
       color: #f2cf01;
