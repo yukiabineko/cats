@@ -25,11 +25,11 @@
   <!--/スライドショ-->
   <!--スマートフォンのみ表示-->
   <div id="phone_top_menu">
-   <h2>メニュー</h2>
+   <h2>サービスメニュー</h2>
    <ul id="phone_ul">
-    <li id="post_link2"><%= link_to "投稿",posts_path %> </li>
-     <li id="weight_link2"><%= link_to "健康チェック",record_path %> </li>
-     <li id="search_link2"><%= link_to "検索",search_show_path %> </li>
+    <li id="post_link2"><%= link_to "掲示板",posts_path %> </li>
+     <li id="weight_link2"><%= link_to "体重チェック",record_path %> </li>
+     <li id="search_link2"><%= link_to "施設検索",search_show_path %> </li>
     <% if logged_in? %>
        <li id="log_link2">
            <%= link_to user_path(current_user) do %> 
