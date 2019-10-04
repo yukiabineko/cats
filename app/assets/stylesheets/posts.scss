@@ -117,7 +117,7 @@ body{background-color:pink;}
       
     }
 }
-.p-sp{margin-right:60%;font-size:16px;}
+.p-sp{font-size:12px;color:blue;}
 #p-title{
     display:inline-block;
     width:100%;
@@ -151,7 +151,8 @@ body{background-color:pink;}
     text-align: center;
     margin-right:600px;
 }
-
+.p-sp{color:black;font-size:16px;}
+.p-lb{color:blue;font-size:16px;display:block;margin-left:-16%;}
 /*----------/新規-------------- */
 #top_link{display:none;}
 /* ******************************************:スマートフォン処理********************************* **********************/
@@ -160,7 +161,7 @@ body{background-color:pink;}
 
 #post_index_head{
     p{
-        margin-top:-5%;
+        margin-top:-10%;
     }
     h1{
         margin-top:-5%;
@@ -178,7 +179,7 @@ body{background-color:pink;}
     max-width:100%;
      
 }
-.p-sp{margin-right:100%;font-size:12px;}
+
 #post_index_table{    /*テーブル*/
   margin-left:30px;
   max-width:95%;
@@ -237,4 +238,8 @@ body{background-color:pink;}
    
 #btn{margin-left:1%;width:70%;}   
 }
-
+@media screen and (max-width: 767px){
+    .p-lb{color:blue;font-size:12px;margin-right:-10%;}
+    .p-sp{color:black;font-size:14px;}
+   
+}

@@ -5,12 +5,12 @@
       
          <%= link_to   messages_show_path(post),id:"p-title" do %>
          <div class="row">
-             <div class="col-md-4" id="post_name"><%= image_tag(show_image_url(post.user),size:"40x40") %><span style="font-size:12px;"><%= post.user.name %></span></div>
+             <div class="col-md-3" id="post_name"><%= image_tag(show_image_url(post.user),size:"40x40") %><span style="font-size:12px;"><%= post.user.name %></span></div>
              <div class="col-md-5" id="post_title">
-                 <span style="color:blue;font-size:14px;" class="p-sp">タイトル:&emsp;<%= "#{post.post_title}" %></span>
+                 <div class="p-lb">タイトル:<span class="p-sp"><%= "#{post.post_title}" %></span></div>
             </div>
-             <div class="col-md-3" id="post_cate">
-                  <span style="color:blue;font-size:14px;" class="p-sp">カテゴリー:&emsp;<%= post.category.present? ? post.category : "その他" %></span>
+             <div class="col-md-4" id="post_cate">
+                  <div class="p-lb">カテゴリー:<span class="p-sp"><%= post.category.present? ? post.category : "その他" %></span></div>
              </div>
          </div>
           <div class="row">
@@ -18,11 +18,10 @@
           </div>
            <div class="row">
                <div class="col-md-12">
-                 <span>
-                     <% (post.post_content.split "\n").each do |content| %>
-                       <p><%= content %></p>
-                     <% end %>
-                </span>
+                 <div style="text-align:left;font-weight:100">
+                     <%= post.post_content %>
+                 </div>
+                 
               </div>
           </div>
          <% end %>
