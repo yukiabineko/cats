@@ -45,7 +45,7 @@
 </table><br>
 <% end %>
 <% end %>
-<% if @data == false %>
+<% if @data == false || @cats.count == 0 %>
 <div style="text-align:center;padding:50px;">
     <h4 style="font-weight:bold;color:blue;">まだ健康チェックデータがありません</h4>
 </div>

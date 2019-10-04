@@ -157,7 +157,7 @@ body{background-color:pink;}
 /* ******************************************:スマートフォン処理********************************* **********************/
 @media screen and (max-width: 767px){
     /*-----  覧 -------------- */
- max-width:100%;   
+
 #post_index_head{
     p{
         margin-top:-5%;
@@ -181,7 +181,6 @@ body{background-color:pink;}
 .p-sp{margin-right:100%;font-size:12px;}
 #post_index_table{    /*テーブル*/
   margin-left:30px;
-  width:100%;
   max-width:95%;
   #td_title{display:none;}
   #td_category{display:none;}
@@ -202,7 +201,6 @@ body{background-color:pink;}
 #post_index_left{
     background-color:#fff;
     border-radius:9px;
-    width:100%;
     max-width:100%;
     height:auto;
     padding: 30px 60px 100px 0;
@@ -232,5 +230,11 @@ body{background-color:pink;}
     #post_index_head{
         margin-top:18%;
     }
-#btn{margin-left:0%;width:70%;}   
+#btn{margin-left:-15%;width:70%;}   
 }
+/****************tabよこ**************************************************/
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+   
+#btn{margin-left:1%;width:70%;}   
+}
+
