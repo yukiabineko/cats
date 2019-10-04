@@ -51,7 +51,7 @@
     <div class="container">
         <div class="row">
 <!-- 投稿覧 -->        
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <div id="post_index_left">
                     <% if logged_in? %>
                      <label id="post_index_info">投稿コメントにしたい場合は該当記事をクリックしてください。</label>
@@ -81,9 +81,9 @@
                 
             </div>
 <!--投稿右-->
-            <div class="col-md-3">
+            <div class="col-md-2">
                  <div id="post_index_right">
-                     <p>カテゴリー検索</p>
+                     <p style="font-size:14px">カテゴリー検索</p>
                         <%= form_with(url:posts_path,local:true) do |f| %>
                          <%= f.select :category,@datas,{},class:"form-control",id:"select",style:"width:100%;margin:0 0 5px 0"; %>
                           <%= f.submit "カテゴリー検索",class:"btn btn-primary",id:"category_bt",style:"margin-bottom:5px;" %>
