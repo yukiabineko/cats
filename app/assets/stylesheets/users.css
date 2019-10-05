@@ -1,0 +1,480 @@
+@charset "UTF-8";
+/* ユーザー情報テーブル */
+body {
+  background-image: url("../back.png"); }
+
+.user-table {
+  vertical-align: middle;
+  text-align: center; }
+
+.label-signup {
+  margin-top: 5px; }
+
+/* 新規登録画面 */
+#user_new_h1 {
+  color: #f0f0f0;
+  font-weight: bold;
+  font-family: 'Impact'; }
+
+#new_user_area {
+  width: 60%;
+  height: 480px;
+  background-color: #fff;
+  margin-left: 20%;
+  border-radius: 9px;
+  padding-top: 8px; }
+  #new_user_area .fm {
+    width: 100%;
+    margin: 0; }
+
+#new_user_head {
+  margin-top: 5px; }
+
+#new_user_back {
+  margin-top: 5px;
+  text-align: center; }
+
+/* /新規登録画面 */
+/* オーナー編集画面 */
+#edit_main {
+  width: 100%; }
+  #edit_main #edit_user_left {
+    /*左*/
+    width: 320px;
+    height: 320px; }
+    #edit_main #edit_user_left #edit_picture {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      border-radius: 8px; }
+      #edit_main #edit_user_left #edit_picture #user_img {
+        width: 100%;
+        height: 100%;
+        border-radius: 200px;
+        border: 2px solid #444; }
+  #edit_main #edit_user_right {
+    /*右*/
+    width: 95%;
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-left: -5%; }
+
+#bt_area {
+  　margin-top: 15%;
+  text-align: center; }
+
+/* /オーナー編集画面 */
+/* ユーザー一覧ページ */
+#table-users td {
+  vertical-align: middle; }
+
+/* /ユーザー一覧ページ */
+/*  ログインページ */
+#new_session_head h1 {
+  color: #fff;
+  letter-spacing: 16px;
+  font-weight: bold; }
+
+/*  /ログインページ */
+.btn-signup {
+  margin-top: 20px; }
+
+/****詳細ページ********/
+#row1 {
+  background-color: "#fff"; }
+
+#user_area_show {
+  background-color: #fff;
+  border: 1px solid #a0a0a0;
+  box-shadow: 4px 4px 4px #8EB8FF;
+  margin-bottom: 5%;
+  padding-bottom: 4%; }
+
+#user_show_image img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid #c0c0c0;
+  background-color: 444;
+  position: relative;
+  top: 2%;
+  left: 18%; }
+
+#user_table {
+  margin: 10px 0  20px 0; }
+  #user_table th {
+    background-color: orange;
+    height: 40px;
+    text-align: center;
+    width: 40%; }
+  #user_table td {
+    background-color: #fff;
+    height: 40px;
+    text-align: center; }
+
+/*猫info h1*/
+#cat_info {
+  background-color: #fce2c4;
+  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #F9F9F9), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, #F9F9F9), color-stop(0.75, #F9F9F9), color-stop(0.75, transparent), to(transparent));
+  -webkit-background-size: 14px 14px;
+  color: #909090;
+  font-size: 20px;
+  font-weight: bold;
+  border-left: 8px solid #DD0000;
+  letter-spacing: 12px;
+  padding: 18px 0;
+  width: 100;
+  margin-bottom: 3%; }
+
+/*まだ猫登録されてない時*/
+#none_cat_field {
+  background-color: #c0c0c0;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  position: relative; }
+  #none_cat_field h3 {
+    color: #fff;
+    position: relative;
+    top: 50%;
+    left: -2%;
+    letter-spacing: 10px;
+    font-weight: bold; }
+
+/*猫が登録されている場合*/
+#present_cat {
+  background-color: #fff;
+  width: 100%;
+  padding: 3% 1%;
+  margin-bottom: 2%; }
+
+/**** /詳細ページ********/
+/*******猫新規登録*********/
+/*先頭*/
+#new_cat_head {
+  margin-top: 20%; }
+  #new_cat_head h1 {
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 10px; }
+
+/*猫登録フォーム*/
+#new_cat_form {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  padding: 60px 80px;
+  border-radius: 9px;
+  box-shadow: 5px 5px 5px cyan; }
+
+/*猫テーブル*/
+#cat_table {
+  width: 100%; }
+  #cat_table th {
+    background-color: orange;
+    text-align: center; }
+  #cat_table td {
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Sawarabi Mincho', sans-serif;
+    font-weight: bold; }
+  #cat_table img {
+    border-radius: 50%; }
+
+/* ****** /猫新規登録******** */
+/* ****** 猫編集******** */
+#modal_edit_image img {
+  width: 100%;
+  height: 200px; }
+#modal_edit_image .input-group {
+  width: 100%; }
+
+/* ****** /猫編集******** */
+/* *****************************************:スマートフォン処理**************************************************************** */
+/***************極小スマホ*********************************************/
+@media screen and (min-width: 300px) and (max-width: 375px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 100px; }
+    #show_user_head h1 {
+      font-size: 20px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 16px; }
+
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: -1%; }
+
+  /*******猫新規登録*********/
+  /*先頭*/
+  #new_cat_head {
+    margin-top: 20%; }
+    #new_cat_head h1 {
+      font-size: 18px; }
+
+  /* ****** /猫新規登録******** */
+  .fm {
+    width: 80%;
+    margin-left: 10%; } }
+/***************小スマホ*********************************************/
+@media screen and (min-width: 375px) and (max-width: 411px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 100px; }
+    #show_user_head h1 {
+      font-size: 26px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 18px; }
+
+  /*タイトル*/
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 7%; }
+
+  /*******猫新規登録*********/
+  /*先頭*/
+  #new_cat_head {
+    margin-top: 20%; }
+    #new_cat_head h1 {
+      font-size: 18px; }
+
+  /* ****** /猫新規登録******** */
+  .fm {
+    width: 80%;
+    margin-left: 10%; } }
+/***************中スマホ*********************************************/
+@media screen and (min-width: 411px) and (max-width: 500px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 100px; }
+    #show_user_head h1 {
+      font-size: 26px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 18px; }
+
+  /*タイトル*/
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 7%; }
+
+  /*******猫新規登録*********/
+  /*先頭*/
+  #new_cat_head {
+    margin-top: 20%; }
+
+  /* ****** /猫新規登録******** */
+  .fm {
+    width: 80%;
+    margin-left: 10%; } }
+/***************大スマホ*********************************************/
+@media screen and (min-width: 500px) and (max-width: 660px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 100px; }
+    #show_user_head h1 {
+      font-size: 26px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 20px; }
+
+  /*タイトル*/
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 24%; }
+
+  .fm {
+    width: 80%;
+    margin-left: 10%; } }
+/***************小タブ*********************************************/
+@media screen and (min-width: 500px) and (max-width: 670px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 18%;
+    margin-bottom: 50px; }
+    #show_user_head h1 {
+      font-size: 26px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 20px; }
+
+  /*タイトル*/
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 30%; }
+
+  .fm {
+    width: 70%;
+    margin-left: 10%; } }
+/**************中タブ*********************************************/
+@media screen and (min-width: 670px) and (max-width: 767px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 22%;
+    margin-bottom: 100px; }
+    #show_user_head h1 {
+      font-size: 26px;
+      font-weight: bold; }
+
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 30%; }
+
+  /*******猫新規登録*********/
+  /*先頭*/
+  #new_cat_head {
+    margin-top: 20%; }
+
+  /* ****** /猫新規登録******** */
+  .fm {
+    width: 80%;
+    margin-left: 10%; } }
+/***************大タブ*********************************************/
+@media screen and (min-width: 660px) and (max-width: 1020px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 20%;
+    margin-bottom: 80px; }
+    #show_user_head h1 {
+      font-size: 22px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 22px; }
+
+  /*タイトル*/
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 30%; }
+
+  #new_user_head {
+    margin-top: 12%; }
+
+  .fm2 {
+    width: 80%;
+    margin-left: 10%; }
+
+  /*******猫新規登録*********/
+  /*先頭*/
+  #new_cat_head {
+    margin-top: 15%; }
+
+  /* ****** user編集******** */
+  #edit_user_left {
+    margin-bottom: 10%;
+    margin-left: 30%; }
+
+  #edit_user_right {
+    width: 100%;
+    padding: 0 30%; }
+
+  #new_user_head {
+    margin-right: 30%; }
+
+  /* ****** /user編集******** */ }
+.fm {
+  width: 70%;
+  margin-left: 10%; }
+
+/***************PC*********************************************/
+@media screen and (min-width: 1024px) {
+  #show_user_head {
+    /*タイトルヘッダー*/
+    margin-top: 5%;
+    margin-bottom: 50px; }
+    #show_user_head h1 {
+      font-size: 28px;
+      font-weight: bold; }
+
+  #show_h1 {
+    font-size: 24px; }
+
+  /*タイトル*/
+  #user_show_image {
+    /*イメージ*/ }
+    #user_show_image img {
+      left: 30%;
+      top: -3%;
+      margin-bottom: 10px; }
+
+  /*通知処理*/
+  #count_link {
+    font-size: 12px;
+    font-weight: none; }
+
+  /*期限切れ*/
+  #over_link {
+    color: red;
+    font-weight: none;
+    font-size: 12px; }
+
+  #br {
+    display: none; }
+
+  /*通知縦並び防止*/
+  /*モーダル内スケジュールテーブル*/
+  #modal_plan_table th {
+    background-color: orange;
+    text-align: center; }
+
+  /*******猫新規登録*********/
+  /*先頭*/
+  #new_cat_head {
+    margin-top: 5%; }
+
+  /* ****** /猫新規登録******** */ }
+/*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+@media screen and (max-width: 767px) {
+  #new_user_head {
+    margin-top: 18%;
+    margin-right: 8%; }
+
+  #edit_user_left {
+    margin-bottom: 15%;
+    margin-left: 5%; }
+
+  #modal_img {
+    height: 200px; }
+
+  /*通知処理*/
+  #count_link {
+    font-weight: none;
+    font-size: 12px; }
+
+  /*期限切れ*/
+  #over_link {
+    color: red;
+    font-weight: none;
+    font-size: 12px; }
+
+  #cat_update_sbmit {
+    text-align: center; }
+
+  #new_user_area {
+    width: 100%;
+    margin: 0;
+    margin-left: 3%; }
+
+  .fm {
+    width: 70%;
+    margin-left: 10%; }
+
+  .alert {
+    margin-top: 20%; } }
+
+/*# sourceMappingURL=users.css.map */

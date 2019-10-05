@@ -71,6 +71,7 @@ body{
   padding:12px;
   background-color:#fff;
   border-radius:8px;
+  margin-left:-5%;
 }
 
 }
@@ -328,7 +329,8 @@ body{
 .fm{
     width:70%;
     margin-left:10%;
-}    
+} 
+
 }
 /**************中タブ*********************************************/
 @media screen and (min-width: 670px) and (max-width: 767px){
@@ -354,7 +356,7 @@ body{
 }
 }
 /***************大タブ*********************************************/
-@media screen and (min-width: 767px) and (max-width: 1024px){
+@media screen and (min-width: 660px) and (max-width: 1020px){
    #show_user_head{    /*タイトルヘッダー*/
        margin-top:20%;
        h1{font-size: 22px;font-weight:bold;}
@@ -376,8 +378,23 @@ body{
 #new_cat_head{
     margin-top:15%;
 }
-/* ****** /猫新規登録******** */    
+/* ****** user編集******** */  
+#edit_user_left{
+    margin-bottom:10%;
+    margin-left:30%;
+    
 }
+#edit_user_right{
+    
+     width:100%;
+     padding:0 30%;
+}
+#new_user_head{
+    margin-right:30%;
+}
+/* ****** /user編集******** */ 
+}
+
 .fm{
     width:70%;
     margin-left:10%;
@@ -460,5 +477,15 @@ body{
 .alert{
     margin-top:20%;
 }
+#edit_user_left{
+    max-width:100%;
+    margin-bottom:10%;
+    margin-left:-50%;
+    
 }
 
+}
+#edit_main{
+    width:100%;
+    background-color:#c0c0c0;
+}
