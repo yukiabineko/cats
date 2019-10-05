@@ -51,6 +51,7 @@
    
     margin-right:42%;
 }
+
 }
 /**************タブ*********************************************/
 @media screen and (min-width: 767px) and (max-width: 1024px){
@@ -62,4 +63,16 @@
     margin-right:24%;
 }
    
+}
+/*******phone横*************************/
+@media screen and (min-width: 600px) and (max-width: 767px){
+  #new_login_foot{
+  margin-right:65%;
+}
+}
+/*******ipad横**************************/
+@media screen and (min-width: 1024px) and (max-width: 1300px){
+  #new_login_foot{
+  margin-right:30%;
+}
 }
