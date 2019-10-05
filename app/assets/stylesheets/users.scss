@@ -505,7 +505,7 @@ body{
 @media screen and (min-width: 760px) and (max-width: 1024px){
     #edit_user_left{
         margin-left:20%;
-        margin-top:10%;
+        margin-top:8%;
         margin-bottom:2%;
     }
     #edit_user_right{
@@ -525,7 +525,13 @@ body{
     max-width:100%;
     background-color:#c0c0c0;
     padding-top:5%;
-    margin:0;
+    #edit_user_right{
+        margin-left:3%;
+    }
+    #edit_user_left{
+        margin-left:30%;
+    }
+
 }
 .form-control2{
     width:90%;
@@ -534,4 +540,53 @@ body{
 #bt_area{
     margin-right:20%;
 }
+#edit_user_left,#edit_user_right{
+    max-width:100%
+}
+@media screen and (min-width: 1023px){
+   #edit_main{
+    width:100%;
+    max-width:100%;
+    background-color:#c0c0c0;
+    padding-top:3%;
+    #edit_user_right{
+        margin-left:-20%;
+    }
+    #edit_user_left{
+        margin-left:5%;
+    }
 
+}
+}
+@media screen and (max-width:767px){
+   #edit_main{
+    width:100%;
+    max-width:100%;
+    background-color:#c0c0c0;
+    padding-top:3%;
+    #edit_user_right{
+        margin-right:-10%;
+    }
+    #edit_user_left{
+        margin-left:8%;
+    }
+
+}
+}
+@media screen and (min-width: 660px) and (max-width: 668px){
+  
+#edit_main{
+    width:100%;
+    max-width:100%;
+    background-color:#c0c0c0;
+    padding-top:5%;
+    margin-left:5%;
+    #edit_user_right{
+        margin-left:3%;
+    }
+    #edit_user_left{
+        margin-left:20%;
+    }
+
+}
+}
