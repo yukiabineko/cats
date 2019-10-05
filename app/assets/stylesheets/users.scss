@@ -330,6 +330,11 @@ body{
     width:70%;
     margin-left:10%;
 } 
+#edit_user_left{
+    margin-bottom:10%;
+    margin-left:40%;
+    
+}
 
 }
 /**************中タブ*********************************************/
@@ -356,7 +361,7 @@ body{
 }
 }
 /***************大タブ*********************************************/
-@media screen and (min-width: 660px) and (max-width: 1020px){
+@media screen and (min-width: 668px) and (max-width: 1020px){
    #show_user_head{    /*タイトルヘッダー*/
        margin-top:20%;
        h1{font-size: 22px;font-weight:bold;}
@@ -399,6 +404,7 @@ body{
     width:70%;
     margin-left:10%;
 }
+
 /***************PC*********************************************/
 @media screen and (min-width: 1024px){
    #show_user_head{    /*タイトルヘッダー*/
@@ -434,6 +440,18 @@ body{
 /*先頭*/
 #new_cat_head{
     margin-top:5%;
+}
+#edit_user_left{
+    margin-bottom:1%;
+    margin-left:20%;
+    
+    
+}
+#edit_user_right{
+    margin-right:20%;
+}
+#bt_area{
+    margin-left:15%;
 }
 /* ****** /猫新規登録******** */    
 }
@@ -477,26 +495,40 @@ body{
 .alert{
     margin-top:20%;
 }
-#edit_user_left{
-    margin-bottom:10%;
-    margin-left:-50%;
-    
-}
+ #edit_user_left{
+        margin-left:5%;
+        margin-top:10%;
+        margin-bottom:2%;
+    }
 
 }
 @media screen and (min-width: 760px) and (max-width: 1024px){
     #edit_user_left{
-        margin-left:15%;
+        margin-left:20%;
+        margin-top:10%;
+        margin-bottom:2%;
     }
+    #edit_user_right{
+        margin-left:10%;
+    }
+}
+@media screen and (min-width: 660px) and (max-width: 668px){
+    #edit_main{
+      margin-left:50%;
+  }
 }
 #edit_main{
     width:100%;
     max-width:100%;
     background-color:#c0c0c0;
-    padding-top:8px;
+    padding-top:5%;
+    margin:0;
 }
-#edit_user_right{
-    margin-bottom:10%;
-    margin-left:15%;
-    
+.form-control2{
+    width:90%;
+    margin-left:5%;
 }
+#bt_area{
+    margin-right:20%;
+}
+
