@@ -496,7 +496,7 @@ body{
     margin-top:20%;
 }
  #edit_user_left{
-        margin-left:5%;
+    
         margin-top:10%;
         margin-bottom:2%;
     }
@@ -509,7 +509,10 @@ body{
         margin-bottom:2%;
     }
     #edit_user_right{
-        margin-left:10%;
+    
+    }
+    label{
+        margin-left:20%;
     }
 }
 @media screen and (min-width: 660px) and (max-width: 668px){
