@@ -44,7 +44,6 @@ class SchedulesController < ApplicationController
       end      
     end  
      if check == true 
-       flash[:success] = "スケジュール内容更新しました"
        redirect_to plan_show_url(@cat,@cat.user)
      else
        flash.now[:danger] = "更新内容が不正です。"
