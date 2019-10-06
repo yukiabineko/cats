@@ -170,6 +170,7 @@ private
         kakucyousi = File.extname(data)
         if kakucyousi == ".jpg" || kakucyousi == ".jpeg" || kakucyousi == ".png" || kakucyousi == ".gif" ||kakucyousi == ".JPG" || kakucyousi == ".JPEG" || kakucyousi == ".PNG" || kakucyousi == ".GIF"
           image2 = Magick::Image.from_blob(image).first  
+          
           rmagick_image = image2.resize(0.6)
           rmagick_image.auto_orient!
           rmagick_image.strip!
@@ -197,6 +198,7 @@ private
         
             image = params[:cat][:cat_image]
             image2 = Magick::Image.from_blob(image).first 
+           
             rmagick_image = image2.resize(0.6)
             rmagick_image.auto_orient!
             rmagick_image.strip!

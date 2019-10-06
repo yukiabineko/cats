@@ -16,7 +16,7 @@ Rails.application.routes.draw do
      resources :posts,only:[:new,:create,:destroy]                    
   end
  
-  get 'show_image/:id',to:'users#show_image',as: :show_image                      #イメージ表示
+  get 'show_image/:id.jpg',to:'users#show_image',as: :show_image                      #イメージ表示
   get    '/login', to: 'sessions#new'                                             #ログインページへ                       
   post   '/login', to: 'sessions#create'                                          #ログイン処理
   delete '/logout', to: 'sessions#destroy'                                        #ログアウト処理
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get 'cats_new/:id',to:"users#cat_new",                      as: :cat_new        #猫新規登録ページ
   post 'cat_create/:user_id',to:'users#cat_create',           as: :cat_create     #猫新規登録
   patch 'cat_update/:id',to:'users#cat_update',               as: :cat_update
-  get 'cat_show_image/:id',to:'users#cat_show_image',         as: :cat_show_image #猫写真アクセス
+  get 'cat_show_image/:id.jpg',to:'users#cat_show_image',         as: :cat_show_image #猫写真アクセス
   get 'cat_modal/:id',to:'users#cat_modal',                   as: :cat_modal      #猫詳細
   delete 'cat_delete/:id',to:'users#cat_delete',              as: :cat_delete     #猫データ削除
   get 'cat_edit/:id',to:"users#cat_edit",                      as: :cat_edit      #猫編集モーダル
