@@ -19,6 +19,10 @@
                        <style>#new_plan{padding:bottom:100px;}</style>
     　              <% end %>
             <%= f.label :"予定日" %>
+            <h5 style="font-size:8px">
+             (日付選択機能のないブラウザご利用のお方は<br>
+              2019-10-05のように記入してください)
+            </h5>
             <%= f.date_field :plan_date,class:"form-control" %>
             
             <%= f.label :"内容" %>

@@ -14,10 +14,17 @@ class SchedulesController < ApplicationController
   def create
      @cat = Cat.find(params[:schedule][:cat_id])
      @schedules = Schedule.paginate(page:params[:page],:per_page => 5).where(cat_id: @cat.id).order('plan_date asc')
-     @schedule = @cat.schedules.new(parameter)
-     @schedule.save
-     redirect_to user_url(@cat.user)
-    
+     if !date_valid?(params[:schedule][:cat_date])
+         flash.now[:danger] = "登録失敗。" 
+     end
+          @schedule = @cat.schedules.new(parameter)
+         if @schedule.save
+           flash[:info]= "登録しました"
+           
+         else
+            flash.now[:danger] = "登録失敗"
+         end   
+         redirect_to user_url(@cat.user)
   end
 #アップデート
   def update
@@ -26,11 +33,17 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.paginate(page:params[:page],:per_page => 10).where(cat_id: @cat.id).order('plan_date asc')
     plan_parameter.each do |id,item|
       schedule = Schedule.find id
-      unless schedule.update_attributes(item)
+      unless schedule.update_attributes(item) 
          check = false
       end
+      if !date_valid?(item[:plan_date])
+          check == false
+      end
+      if item[:plan_date].blank?
+          check = false
+      end      
     end  
-     if check
+     if check == true 
        flash[:success] = "スケジュール内容更新しました"
        redirect_to plan_show_url(@cat,@cat.user)
      else
@@ -60,4 +73,13 @@ private
   def correct_user
       redirect_to(root_url) unless current_user?(@user)
   end
+#======カレンダー未対応browser== 
+ def date_valid?(str)
+    begin
+      y, m, d = str.split("-").map(&:to_i)
+    return Date.valid_date?(y, m, d)
+    rescue
+      return false
+    end
+ end 
 end

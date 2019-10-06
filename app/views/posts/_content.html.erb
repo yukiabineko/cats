@@ -91,6 +91,10 @@
                      <p>投稿日検索</p>
                      <%= form_with(url:posts_path,local:true) do |f| %>
                        <%= f.date_field :date %>
+                       <h5 style="font-size:8px">
+                           (日付選択機能のないブラウザご利用のお方は<br>
+                           2019-10-05のように記入してください)
+                       </h5>
                        <%= f.submit "日付検索",class:"btn btn-primary" %>
                      <% end %>
                      <div id="div-title">投稿者名検索</div>
