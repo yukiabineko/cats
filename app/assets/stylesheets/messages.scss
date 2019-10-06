@@ -259,7 +259,7 @@
    }
    #ms_bt{margin-top:-12%;margin-left:72%;}
      /*返信削除*/
-    #rp_bt{margin-left:90%;margin-top:-2%} 
+    #rp_bt{margin-left:85%;margin-top:-2%} 
 }
 
 /*--------タブ----------------*/
@@ -332,4 +332,13 @@
     #ms_bt{margin-top:-2%;}
     /*返信削除*/
     #rp_bt{margin-left:95%;margin-top:-2%} 
+}
+@media screen and (min-width: 900px) and (max-width: 1100px){
+    #ms_bt{
+        margin-top:-10%;
+    }
+    #message_text{
+      margin-top:10%;
+    
+    }
 }

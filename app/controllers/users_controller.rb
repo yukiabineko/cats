@@ -125,12 +125,12 @@ end
   end
  #画像バイナリー表示オーナー 
   def show_image  
-    send_data @user.image,:type => 'image/jpg'
+    send_data @user.image,:type => 'image/jpeg'
   end
  #画像バイナリー表示猫
   def cat_show_image  
      @cat = Cat.find(params[:id])
-    send_data @cat.cat_image,:type => 'image/jpg'
+    send_data @cat.cat_image,:type => 'image/jpeg'
   end  
 
   def facebook_login
