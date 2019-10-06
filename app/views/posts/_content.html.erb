@@ -51,7 +51,7 @@
     <div class="container">
         <div class="row">
 <!-- 投稿覧 -->        
-            <div class="col-md-10">
+            <div class="col-md-9">
                 <div id="post_index_left">
                     <% if logged_in? %>
                      <label id="post_index_info">投稿コメントにしたい場合は該当記事をクリックしてください。</label>
@@ -81,7 +81,7 @@
                 
             </div>
 <!--投稿右-->
-            <div class="col-md-2">
+            <div class="col-md-3">
                  <div id="post_index_right">
                      <p style="font-size:14px">カテゴリー検索</p>
                         <%= form_with(url:posts_path,local:true) do |f| %>

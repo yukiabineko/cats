@@ -16,7 +16,7 @@ class PostsController < ApplicationController
          end 
 #パラメータ日付け時         
       elsif params[:date]
-        if params[:date].blank?
+        if params[:date].blank? || !date_valid?(params[:date])
            flash[:info] = "検索日が無効です"
            redirect_to posts_url
         else
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
            @posts =[]
          end 
        elsif params[:date]  #日検索
-          if params[:date].blank?
+          if params[:date].blank? || !date_valid?(params[:date])
               flash[:info] = "検索日が無効です"
               redirect_to posts_url
           else
@@ -138,5 +138,14 @@ private
   def set_array
     @data = [["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]  
   end
+  
+def date_valid?(str)
+    begin
+      y, m, d = str.split("-").map(&:to_i)
+    return Date.valid_date?(y, m, d)
+    rescue
+      return false
+    end
+end
 
 end
