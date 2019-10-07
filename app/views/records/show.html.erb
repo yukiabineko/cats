@@ -34,21 +34,21 @@
                             <%= form_with(url:result_view_path,local:true) do |f| %>
                             <div class="row">
                               <div class="col-md-6 col-md-offset-3">
-                                <strong>猫ちゃん年齢(人間加算):</strong><%= f.select :cat_age,gest_cats,{:disabled=>10,:selected=>0.1},class:"form-control" %>
+                                <strong>猫ちゃん年齢(人間基準):</strong><%= f.select :cat_age,gest_cats,{:disabled=>10,:selected=>0.1},class:"form-control",id:"cat_select" %>
                             </div><br>
                              <div class="col-md-6 col-md-offset-3">
                                <strong>猫ちゃん体重(kg):</strong>
                                <%= f.number_field :cat_weight,class:"form-control",step:"0.1",min:0.1 %><br>
-                               <%= f.submit "体重検査する",class:"btn btn-primary",style:"margin-left:40%;" %>
-                           </div>
+                               <%= f.submit "体重検査する",class:"btn btn-primary",id:"non_cat_weight"%>
+                           </div
                            </div>
                           <% end %>
                         <!--登録猫あり-->  
                         <% else %>
                         <div class="form-inline">
                             <%= form_with(url:record_path,local:true) do |f| %>
-                             <%= f.select :select,@array,{},class:"form-control",id:"select" %>
-                             <%= f.submit "選択",class:"btn btn-primary", id:"btn" %>
+                             <%= f.select :select,@array,{},class:"form-control",id:"cat_select2" %>
+                             <%= f.submit "選択",class:"btn btn-primary", id:"cat_weight_btn2" %>
                             <% end %>    
                         </div> 
                           <!--このform_withは猫が単数か複数で分岐します-->   

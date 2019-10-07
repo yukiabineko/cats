@@ -201,3 +201,37 @@ h4{font-size:12px;}
  }    
  
 }
+/*****************phone*************************************************************/
+@media screen and (max-width: 767px){
+    #main-head{
+        margin-top:20%;
+    }
+    #result_head{
+        h1{
+            font-size:22px;
+        }
+    }
+    #cat_weight_btn2{width:100%;margin-top:2%;}
+    #non_cat_weight{margin-left:40%;}
+}
+/****phoneたて********************/
+@media screen and (min-width: 370px) and (max-width: 420px){
+     #non_cat_weight{margin-left:33%;}
+}
+/*ipadたて以上ipad pro たて未満********/
+@media screen and (min-width: 768px) and (max-width: 1060px){
+    #record_area{
+       #cat_select2{margin-left:25%;width:50%;margin-bottom:1%;}
+       #cat_weight_btn2{width:50%;margin-left:25%}
+        #non_cat_weight{margin-left:35%;width:30%;}
+    }
+    #main-head{
+        margin-top:10%;
+    }
+}
+/*************ipadpro横 pc************************/
+@media screen and (min-width:1060px){
+    #cat_select2{width:60%; margin:2% 0 0 15%;}
+    #cat_weight_btn2{width:10%;margin-top:2%;}
+     #non_cat_weight{margin-left:35%;width:30%;}
+}
