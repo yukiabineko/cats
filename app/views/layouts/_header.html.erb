@@ -37,7 +37,7 @@
                   オーナーメニュー <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "マイページ", current_user,data:{"turbolinks" => false} %></li>
+                  <li><%= link_to "マイページ", current_user %></li>
                   <li><%= link_to "オーナー編集", edit_user_path(current_user),data:{"turbolinks" => false}  %></li>
                   <li><%= link_to "猫ちゃん体重記録", lasted_weight_path(current_user) %></li>
                   <li><%= link_to "猫ちゃん登録", cat_new_path(current_user) %></li>
