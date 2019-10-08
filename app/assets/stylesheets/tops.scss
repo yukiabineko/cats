@@ -1,17 +1,23 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- #tops{
-       .slideshow{
-           margin-top:-2%;
-       }
-    }
+
+
+#image_title
+{
+    color:#fff;
+    font-size:50px;
+    margin-top:15%;
+    letter-spacing:25px;
+    font-weight:bold;
+}
 #top_ul{
     list-style:none;
+    margin-top:20%;
 }    
 /* top linkボタン*/   
 #post_link {
-    
+     
      a{
        width:250px;
     height:250px;
@@ -20,7 +26,7 @@
      position: absolute;
      border-radius:50%;
      text-align:center;
-     top: 60%;
+     top: 30%;
      left: 3%;
      font-size:28px;
      color:#f2cf01;
@@ -491,10 +497,21 @@
       margin-left:4%;
      max-width:90%;        
   }
-  @media screen and (min-width: 660px) and (max-width: 736px) {
+
+@media screen and (min-width: 660px) and (max-width: 736px) {
     
        #phone_top_menu h2 {
            margin-top:-8%;
+       }
+       #image_title{
+         color:#fff;
+        font-size:20px;
+        margin-top:4%;
+        letter-spacing:5px;
+        font-weight:bold;
+       }
+       #phone_ul{
+           margin-top:10%;
        }
      
   
@@ -610,6 +627,17 @@
      outline: none; 
   }
   
+}
+#image_title
+{
+    color:#fff;
+    font-size:32px;
+    margin-top:30%;
+    letter-spacing:6px;
+    font-weight:bold;
+}
+#top_ul{
+    margin-top:30%;
 }
 }
 /*******tabよこ*************************/
@@ -821,10 +849,34 @@
      outline: none; 
   }
 }
+
 }
-@media screen and (min-width: 760px) and (max-width: 1060px) {
+@media screen and (min-width: 769px) and (max-width: 1060px) {
     .alert{
         margin-top:10%;
     }
+    #image_title
+   {
+        color:#fff;
+        font-size:38px;
+        margin-top:15%;
+        letter-spacing:12px;
+        font-weight:bold;
+   }
+   #top_ul{margin-top:30%;}
+}
+@media screen and (min-width: 310px) and (max-width: 450px){
+    #image_title{
+        color:#fff;
+        font-size:20px;
+        margin-top:50%;
+        letter-spacing:5px;
+        font-weight:bold;
+    }
+    
+    #phone_ul{
+        margin-top:30%;
+    }
+    
 }
 
