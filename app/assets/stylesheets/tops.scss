@@ -6,14 +6,14 @@
 #image_title
 {
     color:#fff;
-    font-size:50px;
+    font-size:38px;
     margin-top:15%;
     letter-spacing:25px;
     font-weight:bold;
 }
 #top_ul{
     list-style:none;
-    margin-top:20%;
+    margin-top:15%;
 }    
 /* top linkボタン*/   
 #post_link {
@@ -632,12 +632,12 @@
 {
     color:#fff;
     font-size:32px;
-    margin-top:30%;
+    margin-top:40%;
     letter-spacing:6px;
     font-weight:bold;
 }
 #top_ul{
-    margin-top:30%;
+    margin-top:20%;
 }
 }
 /*******tabよこ*************************/
@@ -859,11 +859,11 @@
    {
         color:#fff;
         font-size:38px;
-        margin-top:15%;
+        margin-top:30%;
         letter-spacing:12px;
         font-weight:bold;
    }
-   #top_ul{margin-top:30%;}
+   #top_ul{margin-top:20%;}
 }
 @media screen and (min-width: 310px) and (max-width: 450px){
     #image_title{
@@ -875,7 +875,7 @@
     }
     
     #phone_ul{
-        margin-top:30%;
+        margin-top:20%;
     }
     
 }
