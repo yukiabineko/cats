@@ -35,6 +35,7 @@
    </ul>
   </div>
   </div>
+ 
 <style>
  body{
   background-image:url('a.jpg');
@@ -47,6 +48,8 @@
  .nav{display:none;}
 
 </style>
-<script>
- 
-</script>
+ <% if logged_in? %>
+   <style>
+    .nav img{display:inline;}
+   </style>
+  <% end %>
