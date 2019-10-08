@@ -24,13 +24,17 @@ module RecordsHelper
        cat.records.last
    end
 #データない場合
-     def non_data?
-        @cats.each do |cat|
-            if cat.records.all.any?{|record| !record.nil?}  #各猫すべてにrecordない場合false ある場合true
-               return true
-            else
-                return false
-            end
-        end        
+     def non_data?     #全猫にてデータがあるかどうか?
+       count = 0    #checkは各猫でデータがあるか？一匹でもデータがあればcheckに加算されていく
+       @cats.each do |cat|
+           unless cat.records.count == 0
+              count += 1
+           end 
+       end
+       if count == 0    #すべての猫のレコードチェックして全てぜろだった場合
+           return false
+       elsif count > 0
+         return true
+       end       
      end
 end

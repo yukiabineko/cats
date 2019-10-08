@@ -46,6 +46,9 @@
 #history_alert{
     margin-top:5%;
 }
+#result_al{
+    margin-top:-10%;
+}
 
 }
 @media screen and (min-width: 700px) and (max-width: 1024px){
@@ -53,5 +56,8 @@
     margin-top:15%;
     h1{font-size:48px;}
 } 
+#result_al{
+    margin-top:-5%;
+}
 
 }

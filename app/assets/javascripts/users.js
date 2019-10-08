@@ -15,7 +15,7 @@
         }
     }
 });
-     var obj = document.getElementsByClassName('over_link');
+    var obj = document.getElementsByClassName('over_link');
       var num =0;
       colorChange();
     function colorChange(){
