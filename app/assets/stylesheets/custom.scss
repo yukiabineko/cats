@@ -99,14 +99,17 @@ header{
   }
 
 #logo {
-  float: left;
-  margin-right: 20px;
+  margin-right: 0px;
   font-size: 1.7em;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+}
+#head_img{
+  margin-top:-10%;
+  margin-left:-15%;
 }
 
 #logo:hover {
@@ -206,6 +209,7 @@ header{
 @media screen and (max-width: 767px){
   body {
     padding-top: 10px;
+  #logo{font-weight:bold;}  
   #admin_bt{
     width:100%;
   }  
@@ -227,11 +231,10 @@ header{
   }
   #logo{
     float:none;
-    font-size:12px;
+    font-size:20px;
     font-style: italic; 
     text-decoration:none;
     color:yellow;
-    letter-spacing:10px;
     margin-top:10px;
     
   }
@@ -245,6 +248,10 @@ header{
     li{letter-spacing:10px;display:inline-block;}
     img{width:40px; height:30px;}
   }
+  #head_img{
+  margin-top:-3%;
+  margin-left:5%;
+}
   #header-right{
     text-align:right;
    
