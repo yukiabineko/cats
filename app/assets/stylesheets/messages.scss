@@ -37,6 +37,8 @@
     }
     #post-content{
         padding: 0 0 8px 0 ;
+        table-layout: fixed;
+        word-wrap: break-word;
     }
     span{
         color:#444;
