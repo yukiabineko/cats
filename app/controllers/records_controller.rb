@@ -95,6 +95,7 @@ class RecordsController < ApplicationController
           #体重未入力の処理  
           else
             flash[:danger] = "体重を入力してください"
+            redirect_to record_url
           end    
       
       end 

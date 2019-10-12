@@ -23,7 +23,7 @@
 			  
 			</ul>
 		      <% if logged_in? %>
-			       <div style="margin-left:40%;margin-top:10px;">
+			       <div style="margin-left:40%;margin-top:10px;" id="header_logins_img">
                       <%= image_tag(show_image_path(current_user.id),size:"30x30",id:"header_img") %>
                       <label style="color:#fff;"><%= "こんにちは#{current_user.name}さん" %></label>
                   </div>
