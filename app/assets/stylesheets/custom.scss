@@ -106,6 +106,7 @@ header{
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  
 }
 #head_img{
   margin-top:-10%;
@@ -279,6 +280,16 @@ header{
 .alert{margin-top:14%;}
 h5{margin-left:25%;}
 .dropdown{display:none;}
+ #logo{
+    display:block;
+    margin-left:15%;
+    margin-top:-10%;
+  }
+  #head_img{
+    display:inline-block;
+    margin-left:-6%;
+    margin-top:4%;
+  }
 /*-----top--------------------------------------------*/
 #tops{display:block};
 .sldeshow{
@@ -314,7 +325,7 @@ h5{margin-left:25%;}
 }
 }
 /**********************タブレット******************/
-@media screen and (min-width: 767px) and (max-width: 1000px){
+@media screen and (min-width: 767px) and (max-width: 999px){
 
 #google_link{
   width: 100%;
@@ -337,11 +348,34 @@ header{
 .dropdown{
     margin-top:-35%;
   }
+  #head_img{
+    display:inline-block;
+    margin-top:10%;
+    margin-left:10%;
+    
+  }
+  #logo{
+    width:100%;
+    display:block;
+    margin-top:-10%;
+    margin-left:36%;
+    font-size:32px;
+  }
 }
 @media screen and (min-width: 1000px){
   .dropdown{
     margin-top:-35%;
   }
+  #head_img{
+    display:inline-block;
+    margin-top:-4%;
+  }
+  #logo{
+    display:inline-block;
+    margin-top:2%;
+    margin-left:1%;
+  }
+  
 }
 
 
