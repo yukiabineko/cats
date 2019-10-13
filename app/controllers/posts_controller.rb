@@ -20,7 +20,7 @@ class PostsController < ApplicationController
            flash.now[:info] = "検索日が無効です"
            redirect_to posts_url
         else
-            @posts = Post.where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc').limit(10)
+            @posts = Post.where("created_at > ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1).order('created_at desc').limit(10)
             @posts2 = nil  #検索より片方をからに
             if @posts.count ==0
                flash.now[:info] = "その日付に投稿はありません"
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
           if params[:date].blank? || !date_valid?(params[:date])
               flash.now[:info] = "検索日が無効です"
           else
-             @posts = Post.where("created_at >= ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1)
+             @posts = Post.where("created_at > ? AND created_at < ?", Date.parse(params[:date]), Date.parse(params[:date]) + 1)
              .where(public:true).order('created_at desc').limit(10)
               @posts2 = []
              if @posts.count ==0
