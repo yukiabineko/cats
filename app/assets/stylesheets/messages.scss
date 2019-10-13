@@ -59,23 +59,28 @@
     width:100%;
     height: auto;
     padding-bottom:2%;
-    background-color:#fff;
+    background-color:#e0e0e0;
     border-radius:12px;
     position: relative;
-    #div{color:#c0c0c0;text-align:center;font-weight:bold;font-size:16px;padding-top:8px;}
+    #div{color:#1253A4;text-align:center;font-weight:bold;font-size:16px;padding-top:8px;}
 /*--テーブル-- */    
     #message_table{
         width:100%;
         table-layout: fixed;
+        background-color:#e0e0e0;
+        box-shadow: none;
+        border:none;
         td{
             table-layout: fixed;
             #message_content{
                 img{margin-top:-50%;border-radius:50%;}
+                background-color:#e0e0e0;
             }
             ul{
                 list-style: none;
                 margin: 16px 0;
                 padding:0;
+                background-color:#e0e0e0;
                 li{
                     text-decoration: none;
                     display: inline-block;
@@ -92,7 +97,7 @@
                    max-width: 100%;
                    color: #555;
                    font-size: 16px;
-                   background-color: #F5DEB3;
+                   background-color: #fff;
                    border-radius:9px;
             
                   
@@ -105,7 +110,7 @@
                     left: -30px;
                     margin-top: -15px;
                     border: 15px solid transparent;
-                    border-right: 15px solid #F5DEB3;
+                    border-right: 15px solid #fff;
                 }
                 #message_label
                 {
@@ -162,7 +167,8 @@
     word-wrap: break-word;
 }
 /*ボタン*/
-#bt{border: none;color:blue;background-color:#F5DEB3;font-weight:bold;}
+#bt{border: none;color:blue;background-color:#fff;font-weight:bold;}
+#bt:hover{background-color:orange;}
 /*返信削除*/
 #rp_bt{margin-left:65%;}
 /*-------------------------------------------/reply-------------------------------------------------------------------*/
