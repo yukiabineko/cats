@@ -63,7 +63,7 @@
                                        <td><%= image_tag(cat_show_image_url(cat),size:"40x40") %></td>
                                        <td style="width:40%;"><span style="color:blue">猫ちゃん名:</span><%= cat.cat_name %></td>
                                        <% if cat.cat_age < 1.0 && cat.present? %>
-                                         <td><div style="font-size:8px;font-weight:none;">1歳以下の子はこちらで詳細選択ください</div><%= af.select :cat_age,cat_ages,{},class:"form-control" %></td>
+                                         <td><div style="font-size:8px;font-weight:none;">1歳未満の子はこちらで詳細選択ください</div><%= af.select :cat_age,cat_ages,{},class:"form-control" %></td>
                                        <% elsif cat.cat_age.to_f >=1.0  &&  cat.cat_age.to_f < 1.2 && cat.cat_age.present? %>
                                          <td><div style="font-size:8px;font-weight:none;">1歳以上2才未満の子はこちらで詳細選択ください</div><%= af.select :cat_age,cat_ages2,{},class:"form-control" %></td>          
                                        <% else %>
