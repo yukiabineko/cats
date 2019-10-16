@@ -59,6 +59,8 @@ class User < ApplicationRecord
       user.uid = auth.uid
       user.name = auth.info.name  
       user.email = auth.info.email  
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.image = File.open('public/user.png').read  
       user.password = "123456"          
       user.password_confirmation = "123456"
