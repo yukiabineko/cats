@@ -12,6 +12,7 @@
 <div id="show_user_head" class="text-center text-primary">
     <h1>ｵｰﾅｰさんと猫ちゃんの個別ページ</h1>
 </div>
+<%= link_to "猫ちゃん情報まで移動","#page",class:"btn btn-primary btn-lg" %>
 <!----------/コンテナ1--------->
  <div id="user_area_show">
    <div class="container">
@@ -119,7 +120,7 @@
               </div>
             <!--/猫登録-->      
             <% end %>
-            <div style="text-align:center"><%= link_to "新規猫ちゃん登録",cat_new_path(@user),class:"btn btn-primary btn-lg" %> </div>
+            <div style="text-align:center"><%= link_to "新規猫ちゃん登録",cat_new_path(@user),class:"btn btn-primary btn-lg",id:"page" %> </div>
          </div>
      </div>
  </div>
