@@ -2,6 +2,11 @@
 <% content_for(:body_attributes) do %>
 　<meta name="turbolinks-cache-control" content="no-cache">
 <% end %>
+  <% if !current_user.nil? %>
+  <% if current_user.info %>
+ 　<div class="alert alert-info text-center">投稿された記事に回答が有ります</div>
+  <% end %>　
+ <% end %>
 <div id="main">
  <h2 id="image_title">本サービスメニュー</h2>
 <div class="slideshow">

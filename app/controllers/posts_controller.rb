@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
 #投稿一覧  
   def index
+     
     @datas =  [["すべて","すべて"],["質問","質問"],["相談","相談"],["日記","日記"],["雑談","雑談"],["生活","生活"],["その他","その他"]]   
     if logged_in?      #ログインしていてのですべてのデータ
       if params[:category]

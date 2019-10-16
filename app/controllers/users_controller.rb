@@ -100,6 +100,7 @@ end
 
   def show
     @cats = @user.cats.all
+  
   end
   
 #update  

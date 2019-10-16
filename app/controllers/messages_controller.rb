@@ -7,11 +7,17 @@ class MessagesController < ApplicationController
 #message 表示登録
 
   def show
+     if !current_user.nil? 
+        current_user.info = false
+        current_user.save
+     end    
     @messages = Message.paginate(page: params[:page],:per_page => 10).where(post_id: @post.id).order('created_at desc')
     if request.post?
       @message = @post.messages.build(message_parameter)  
       if @message.save
         flash[:info] = "投稿完了"
+        @post.user.info = true
+        @post.user.save
       else
         flash[:info] ="空白で送信しないでください"
       end  
