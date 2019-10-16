@@ -15,7 +15,7 @@
  </div>
 </div>
 <% end %>
-<%=link_to "検索ページに戻る", search_show_path,class:"btn btn-primary btn-lg" %>
+<%=link_to "検索ページに戻る", search_show_path(params:{data: params[:category]}),class:"btn btn-primary btn-lg" %>
 <br><br>
 <div id="serch_result_main">
 <table id="search_table">

@@ -39,6 +39,8 @@ class MessagesController < ApplicationController
   def destroy
     
     @message.destroy
+    @message.post.user.info = false
+    @message.post.user.save
     redirect_to messages_show_url  @message.post.id
   end  
 #返信モーダル

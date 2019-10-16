@@ -31,7 +31,8 @@ class HistoriesController < ApplicationController
         end  
          cate = @hairetu['Feature'][0]['Property']['Genre'][0]['Name']
          
-         redirect_to search_result_url(params[:prefectures],cate,params:{data: @data})
+         redirect_to search_result_url(params[:prefectures],cate,params:{data: @data,category: params[:category]})
+        
       end
  #-----------------------------------------------     
     else
