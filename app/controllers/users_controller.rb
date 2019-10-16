@@ -135,19 +135,14 @@ end
   end  
 
   def facebook_login
-      user = User.from_omniauth(request.env["omniauth.auth"])
-      obj = User.find_by(email: user.email)
-      if obj.nil?
-        user.save
-        session[:user_id] = user.id
-        redirect_to root_url
-      end  
-      if obj.present?
-        session[:user_id] = user.id
-        redirect_to user_url @user
-      else
-        redirect_to login_path
-      end
+      @user = User.from_omniauth(request.env["omniauth.auth"])
+    result = @user.save(context: :facebook_login)
+    if result
+      log_in @user
+      redirect_to @user
+    else
+      redirect_to auth_failure_path
+    end
   end  
   
 #-----------------------------------------------------------------------------------  
