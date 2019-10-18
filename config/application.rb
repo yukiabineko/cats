@@ -10,7 +10,7 @@ module CatsApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
-    config.time_zone = 'Tokyo'
+    config.time_zone = 'Asia/Tokyo'
     config.assets.initialize_on_precompile = false
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
